@@ -1,13 +1,13 @@
 @extends('base.base')
 
 @section('content')
-  <div div class="col-xl-8 mt-5">
+  <div div class="col-xl-8 mt-2">
     <div class="card rounded-5 text-black bayangan">
       <div class="row g-0">
         <div class="col-lg-7">
           <div class="card-body p-md-5 mx-md-4">
             <div class="text-center">
-              <h4 class="mt-4 mb-3 pb-3 title-register">
+              <h4 class="mt-2 mb-3 pb-3 title-register">
                 REGISTER
               </h4>
             </div>
@@ -15,6 +15,12 @@
             <form action="" class="ms-3">
               <div class="form-outline mb-3">
                 <input type="text" id="name" class="form-control rounded-5 shadow-sm bg-input" style="width: 250px;" placeholder="Name"/>
+              </div>
+              <div class="form-outline mb-3">
+                <input type="number" id="nohp" class="form-control rounded-5 shadow-sm bg-input" style="width: 250px;" placeholder="No. Hp"/>
+              </div>
+              <div class="form-outline mb-3">
+                <input type="text" id="alamat" class="form-control rounded-5 shadow-sm bg-input" style="width: 250px;" placeholder="Alamat"/>
               </div>
               <div class="form-outline mb-3">
                 <input type="email" id="email" class="form-control rounded-5 shadow-sm bg-input" style="width: 250px;" placeholder="E-Mail" />

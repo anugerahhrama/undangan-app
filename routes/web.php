@@ -25,3 +25,14 @@ Route::get('/register', function () {
     return view('register');
 });
 
+Route::get('/admin', function () {
+    return view('admin/dashboard');
+});
+
+Route::get('/data-user', function () {
+    return view('admin/dataUser');
+});
+
+Route::get('/tambah-user', function () {
+    return view('admin/dataUser');
+});

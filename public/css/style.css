@@ -31,3 +31,25 @@ body{
     background-color: #EEEEEE;
 }
 
+.bg-animate{
+    background-color: #2146C7;
+}
+
+.text-profile{
+    font-size: 25px;
+}
+
+.menu-sidebar{
+    text-decoration: none;
+    color: white !important;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.dekorasi{
+    background-color: #2146C7;
+}
+
+.warna{
+    background-color: rgb(201, 201, 0) !important;
+}
