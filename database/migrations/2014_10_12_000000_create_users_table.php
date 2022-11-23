@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('alamat');
             $table->integer('no_hp');
-            $table->string('role');
+            $table->string('role')->default('user');
             $table->rememberToken();
             $table->timestamps();
         });
