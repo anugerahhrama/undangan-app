@@ -18,19 +18,19 @@
     <div class="container">
       <div class="row">
         <div class="text-center p-3">
-          <h1>Data User</h1>
+          <h1>Data Admin</h1>
         </div>
         <div class="col-12">
           <div class="card">
             <div class="px-3 pt-3">
-              <a href="tambah-admin" class="btn btn-primary">Tambah</a>
+              <a href="/tambah-admin" class="btn btn-primary">Tambah</a>
             </div>
             <div class="card-body">
               <table id="example2" class="table table-bordered table-hover">
                 <thead>
                   <tr>
-                    <th>Id User</th>
-                    <th>Nama User</th>
+                    <th>Id Admin</th>
+                    <th>Nama Admin</th>
                     <th>Email</th>
                     <th>No. Hp</th>
                     <th>Alamat</th>
@@ -45,7 +45,7 @@
                     <td>0909090909</td>
                     <td>Blitar</td>
                     <td>
-                      <a href="/edit-user" class="btn btn-warning text-white">Edit</a>
+                      <a href="/edit-admin" class="btn btn-warning text-white">Edit</a>
                       <a href="" class="btn btn-danger">Hapus</a>
                     </td>
                 </tbody>

@@ -46,12 +46,17 @@
           <nav class="mt-2 ">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
               <li class="nav-item menu-open mx-5 pt-3">
-                <a href="#" class="menu-sidebar">
+                <a href="/admin" class="menu-sidebar">
                   <p>
                     Dashboard
                   </p>
                 </a>
-                <a href="#" class="menu-sidebar">
+                <a href="/data-admin" class="menu-sidebar">
+                  <p>
+                    Data Admin
+                  </p>
+                </a>
+                <a href="/data-user" class="menu-sidebar">
                   <p>
                     Data User
                   </p>

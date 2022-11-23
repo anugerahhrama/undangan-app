@@ -19,7 +19,7 @@
   <div class="container">
     <div class="row">
       <div class="text-center p-3">
-        <h1>Tambah User</h1>
+        <h1>Tambah Admin</h1>
       </div>
       <div class="col-12">
         <div class="card">
@@ -61,7 +61,7 @@
                 <div class="row">
                   <div class="col-8"></div>
                   <div class="col-4">
-                <a href="/data-user" class="btn btn-warning text-white rounded-3" style="width: 128px;">Kembali</a>
+                <a href="/data-admin" class="btn btn-warning text-white rounded-3" style="width: 128px;">Kembali</a>
                 <button type="submit" class="btn btn-primary rounded-3" style="width: 128px;">Tambah</button>
                 </div>
               </div>
