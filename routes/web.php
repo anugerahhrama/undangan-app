@@ -1,7 +1,8 @@
 <?php
 
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,15 +14,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('userPage');
+// Route::get('login', [LoginController::class, 'index'])->name('login'); 
+
+Route::controller(LoginController::class)->group(function(){
+    Route::get('login', 'index')->name('login');
+    Route::post('login/proses', 'proses')->name('proses');
+    Route::get('logout', 'logout');
 });
 
-Route::get('/login', function () {
-    return view('login');
-});
 
-Route::get('/register', function () {
-    return view('register');
+Route::group(['middleware' => ['auth']], function() {
+    Route::group(['middleware' => ['cekUserLogin:admin']], function(){
+        Route::get('dashboardadmin', function(){
+            return view('admin.index');
+        });
+    });
+    Route::group(['middleware' => ['cekUserLogin:user']], function(){
+        Route::get('dashboarduser', function(){
+            return view('user.index');
+        });
+    });
 });
-
