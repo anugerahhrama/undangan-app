@@ -14,7 +14,8 @@ class TemaController extends Controller
      */
     public function index()
     {
-        //
+        $datas = Tema::all();
+        return view('admin/tema/index', compact('datas'));
     }
 
     /**
@@ -24,7 +25,7 @@ class TemaController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin/tema/tambahTema');
     }
 
     /**
@@ -35,7 +36,17 @@ class TemaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'nama_tema' => 'required',
+            'tema' => 'required'
+        ]);
+
+        $data = Tema::create([
+            'nama_tema' => $request->nama_tema,
+            'tema' => $request->tema
+        ]);
+
+        return view('admin/tema/index');
     }
 
     /**
@@ -57,7 +68,7 @@ class TemaController extends Controller
      */
     public function edit(Tema $tema)
     {
-        //
+        return view('admin/tema/editTema', compact('tema'));
     }
 
     /**
@@ -69,7 +80,17 @@ class TemaController extends Controller
      */
     public function update(Request $request, Tema $tema)
     {
-        //
+        $this->validate($request, [
+            'nama_tema' => 'required',
+            'tema' => 'required'
+        ]);
+
+        $tema->update([
+            'nama_tema' => $request->nama_tema,
+            'tema' => $request->tema
+        ]);
+
+        return redirect(route('tema.index'));
     }
 
     /**
@@ -80,6 +101,7 @@ class TemaController extends Controller
      */
     public function destroy(Tema $tema)
     {
-        //
+        $tema->delete();
+        return redirect(route('tema.index'));
     }
 }

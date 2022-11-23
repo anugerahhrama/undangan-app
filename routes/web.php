@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\TemaController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 /*
@@ -24,12 +25,13 @@ Route::controller(LoginController::class)->group(function(){
 
 
 Route::group(['middleware' => ['auth']], function() {
-    Route::group(['middleware' => ['cekUserLogin:admin']], function(){
+    Route::group(['middleware' => ['cekLogin:admin']], function(){
         Route::get('dashboardadmin', function(){
             return view('admin.index');
         });
+        Route::resource('tema', TemaController::class);
     });
-    Route::group(['middleware' => ['cekUserLogin:user']], function(){
+    Route::group(['middleware' => ['cekLogin:user']], function(){
         Route::get('dashboarduser', function(){
             return view('user.index');
         });
