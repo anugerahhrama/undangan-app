@@ -1,0 +1,33 @@
+
+body{
+    background-color: #2146C7;
+}
+
+.bg-register{
+    background-image: url('../img/register.png');
+    background-size: cover;
+}
+
+.title-register{
+    color: #2146C7;
+    font-weight: 700;
+}
+
+.text-register{
+    color: #82ABDE;
+    font-size: 15px;
+}
+
+.btn-register{
+    background-color: #2146C7;
+    font-weight: 600;
+}
+
+.bayangan{
+    box-shadow: 8px 10px 8px rgba(0, 0, 0, 0.2);
+}
+
+.bg-input{
+    background-color: #EEEEEE;
+}
+
