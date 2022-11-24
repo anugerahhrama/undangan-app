@@ -24,7 +24,6 @@ Route::controller(LoginController::class)->group(function(){
     Route::get('logout', 'logout');
 });
 
-
 Route::group(['middleware' => ['auth']], function() {
     Route::group(['middleware' => ['cekLogin:admin']], function(){
         Route::get('dashboardadmin', function(){
