@@ -8,60 +8,81 @@
       <div class="col-sm-6">
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="#">Home</a></li>
-          <li class="breadcrumb-item active">Dashboard </li>
+          <li class="breadcrumb-item"><a href="{{ route('user.index') }}">Data User</a></li>
+          <li class="breadcrumb-item active">Edit User </li>
         </ol>
       </div>
     </div>
   </div>
 </div>
 
-<section class="content pb-5 pt-4">
+<section class="content">
   <div class="container">
     <div class="row">
-      <div class="text-center p-3">
-        <h1>Edit User</h1>
-      </div>
       <div class="col-12">
         <div class="card">
           <div class="card-body">
-            <form action="">
-              <div class="row mb-4 mx-2 mt-2 px-5">
-                <div class="col">
+
+            <form action="{{ route('user.update', $user->id) }}" method="POST">
+
+              @csrf
+              @method('PUT')
+              <div class="row mb-4 mt-4">
+                <div class="col-md-6">
                   <div class="form-outline">
                     <label for="name" class="form-label">Nama</label>
-                    <input type="text" id="name" class="form-control" />
+                    <input type="text" id="name" class="form-control" value="{{ $user->nama }}" name="nama"/>
                   </div>
                 </div>
-                <div class="col">
+                <div class="col-md-6">
                   <div class="form-outline">
                     <label for="nohp" class="form-label">No. Hp</label>
-                    <input type="text" id="nohp" class="form-control" />
+                    <input type="text" id="nohp" class="form-control" value="{{ $user->no_hp }}" name="no_hp"/>
                   </div>
                 </div>
               </div>
-              <div class="row mb-4 mx-2 mt-2 px-5">
-                <div class="col-6">
+
+              <div class="row mb-4 mt-2">
+                <div class="col-md-6">
                   <div class="form-outline">
                     <label for="email" class="form-label">E-mail</label>
-                    <input type="email" id="email" class="form-control" />
+                    <input type="email" id="email" class="form-control" value="{{ $user->email }}" name="email"/>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-outline">
+                    <label for="alamat">Alamat</label>
+                    <input type="text" id="alamat" class="form-control" value="{{ $user->alamat }}" name="alamat" />
                   </div>
                 </div>
               </div>
-              <div class="row px-5 mx-4 mb-4">
-                <label for="alamat">Alamat</label>
-                <textarea type="text" id="alamat" class="form-control"></textarea>
-              </div>
-              <div class="px-5 mx-4 mb-4">
-                <div class="row">
-                  <div class="col-8"></div>
-                  <div class="col-4">
-                <a href="/data-user" class="btn btn-warning text-white rounded-3" style="width: 128px;">Kembali</a>
-                <button type="submit" class="btn btn-primary rounded-3" style="width: 128px;">Edit</button>
+
+              <div class="row mb-4 mt-2">
+                <div class="col-md-12">
+                  <div class="form-outline">
+                    <label for="email" class="form-label">Status</label>
+                    <select class="form-select" name="role" id="validationTooltip04" required> 
+                      <option selected disabled></option>
+                      <option value="user">User</option>
+                      <option value="admin">Admin</option>
+                    </select>
+                  </div>
                 </div>
               </div>
-              </div>
-            </form>
 
+              <input type="hidden" id="nohp" class="form-control" value="{{ $user->password }}" name="password"/>
+              {{-- <input type="hidden" name="role" value="{{ $user->role }}"> --}}
+
+              <div class="mb-4 text-center">
+                <div class="row">
+                  <div class="col-md-12">
+                    <button type="submit" class="btn btn-primary rounded-3 px-5">Edit</button>
+                    <a href="{{ route('user.index') }}" class="btn btn-warning text-white rounded-3 px-5">Kembali</a>
+                  </div>
+                </div>
+              </div>
+
+            </form>
           </div>
         </div>
       </div>

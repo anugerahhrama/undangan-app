@@ -3,11 +3,11 @@
 @section('content')
   <div class="content-header">
     <div class="container">
-      <div class="row mx-3">
+      <div class="row">
         <div class="col-sm-6">
           <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active">Dashboard </li>
+            <li class="breadcrumb-item active">Home</li>
+            <li class="breadcrumb-item active">Data User</li>
           </ol>
         </div>
       </div>
@@ -17,9 +17,6 @@
   <section class="content pb-5 pt-4">
     <div class="container">
       <div class="row">
-        <div class="text-center p-3">
-          <h1>Data User</h1>
-        </div>
         <div class="col-12">
           <div class="card">
             <div class="px-3 pt-3">
@@ -34,20 +31,30 @@
                     <th>Email</th>
                     <th>No. Hp</th>
                     <th>Alamat</th>
+                    <th>Status</th>
                     <th>Action</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>U001</td>
-                    <td>Samsudin</td>
-                    <td>samsudinsakti@gmail.com</td>
-                    <td>0909090909</td>
-                    <td>Blitar</td>
+                  @forelse ($datas as $data)
+                      <tr>
+                    <td>{{ $data->id }}</td>
+                    <td>{{ $data->nama }}</td>
+                    <td>{{ $data->email }}</td>
+                    <td>{{ $data->no_hp }}</td>
+                    <td>{{ $data->alamat }}</td>
+                    <td>{{ $data->role }}</td>
                     <td>
-                      <a href="/edit-user" class="btn btn-warning text-white">Edit</a>
-                      <a href="" class="btn btn-danger">Hapus</a>
+                      <form action="{{ route('user.destroy', $data->id) }}" method="POST">
+                      <a href="{{ route('user.edit', $data->id) }}" class="btn btn-warning text-white"><i class="bi bi-pen"></i></a>
+                      @csrf
+                      @method('DELETE')
+                      <button type="submit" class="btn btn-danger text-white"><i class="bi bi-trash"></i></button>
+                      </form>
                     </td>
+                  @empty
+                      <h1>data tidak ada</h1>
+                  @endforelse
                 </tbody>
               </table>
             </div>

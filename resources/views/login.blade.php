@@ -9,15 +9,17 @@
               <div class="text-center my-4">
                 <h4 class="title-register">LOGIN</h4>
               </div>
-              <form action="">
+              <form action="{{ route('proses') }}" method="POST">
+                @csrf
+                @method('POST')
                 <div class="form-outline mb-3">
-                  <input type="email" class="form-control rounded-4 shadow-sm bg-input" placeholder="E-Mail" />
+                  <input type="email" class="form-control rounded-4 shadow-sm bg-input" placeholder="E-Mail" name="email"/>
                 </div>
                 <div class="form-outline mb-3">
-                  <input type="password" class="form-control rounded-4 shadow-sm bg-input" placeholder="Password" />
+                  <input type="password" class="form-control rounded-4 shadow-sm bg-input" placeholder="Password" name="password" />
                 </div>
                 <div class="pt-3 mb-5 text-center">
-                  <button class="btn btn-primary btn-register rounded-pill shadow" style="width: 120px;">LOGIN</button>
+                  <button type="submit" class="btn btn-primary btn-register rounded-pill shadow" style="width: 120px;">LOGIN</button>
                 </div>                      
               </form>
               <div class="text-center">

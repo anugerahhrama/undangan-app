@@ -35,8 +35,8 @@ class UserData extends Seeder
             [
                 'nama' => 'anugerah ramadhani',
                 'email' => 'anugerah@gmail.com',
-                'password' => bcrypt('123'),
-                'no_hp' => '02328323',
+                'password' => bcrypt('12345'),
+                'no_hp' => '081231602448',
                 'alamat' => 'Blitar',
                 'role' => 'user'
             ],

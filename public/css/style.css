@@ -53,3 +53,8 @@ body{
 .warna{
     background-color: rgb(201, 201, 0) !important;
 }
+
+/* admin */
+.content-wrapper{
+    background-color: #d2d6de;
+}

@@ -15,7 +15,7 @@ class UserController extends Controller
     public function index()
     {
         $datas = User::all();
-        return view('admin.user.index', compact('datas'));
+        return view('admin.dataUser', compact('datas'));
     }
 
     /**
@@ -54,7 +54,7 @@ class UserController extends Controller
             'role' => $request->role
         ]);
 
-        return redirect(route('user.index'));
+        return view('user.index');
     }
 
     /**
@@ -75,7 +75,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        return view('admin.user.editUser', compact('user'));
+        return view('admin.editUser', compact('user'));
     }
 
     /**
