@@ -40,7 +40,7 @@ Route::group(['middleware' => ['auth']], function() {
 });
 
 Route::get('/', function () {
-    return view('userPage');
+    return view('user/base/base');
 });
 
 Route::get('/login', function () {
