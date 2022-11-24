@@ -46,7 +46,7 @@ Route::group(['middleware' => ['auth']], function() {
 });
 
 Route::get('/', function () {
-    return view('user/base/base');
+    return view('user/index');
 });
 
 // Route::get('/p', function () {
