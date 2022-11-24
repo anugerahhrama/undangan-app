@@ -7,5 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tema extends Model
 {
+    protected $fillable = [
+        'nama_tema','tema'
+    ];
     use HasFactory;
 }
