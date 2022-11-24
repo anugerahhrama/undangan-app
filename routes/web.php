@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\TemaController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -23,11 +24,16 @@ Route::controller(LoginController::class)->group(function(){
     Route::post('login/proses', 'proses')->name('proses');
     Route::get('logout', 'logout');
 });
-
+Route::controller(RegisterController::class)->group(function(){
+    Route::get('register', 'index')->name('register');
+    Route::post('register/store', 'store')->name('registerStore');
+});
+// Route::resource('register', RegisterController::class);
+// Route::post('user-create', [UserController::class, 'store'])->name('register');
 Route::group(['middleware' => ['auth']], function() {
     Route::group(['middleware' => ['cekLogin:admin']], function(){
         Route::get('dashboardadmin', function(){
-            return view('admin.index');
+            return view('admin.dashboard');
         });
         Route::resource('tema', TemaController::class);
         Route::resource('user', UserController::class);
@@ -39,42 +45,42 @@ Route::group(['middleware' => ['auth']], function() {
     });
 });
 
-Route::get('/', function () {
-    return view('userPage');
-});
+// Route::get('/', function () {
+//     return view('userPage');
+// });
 
-Route::get('/login', function () {
-    return view('login');
-});
+// Route::get('/login', function () {
+//     return view('login');
+// });
 
-Route::get('/register', function () {
-    return view('register');
-});
+// Route::get('/register', function () {
+//     return view('register');
+// });
 
-Route::get('/admin', function () {
-    return view('admin/dashboard');
-});
+// Route::get('/admin', function () {
+//     return view('admin/dashboard');
+// });
 
-Route::get('/data-user', function () {
-    return view('admin/dataUser');
-});
+// Route::get('/data-user', function () {
+//     return view('admin/dataUser');
+// });
 
-Route::get('/data-admin', function () {
-    return view('admin/dataAdmin');
-});
+// Route::get('/data-admin', function () {
+//     return view('admin/dataAdmin');
+// });
 
-Route::get('/tambah-user', function () {
-    return view('admin/formUser');
-});
+// Route::get('/tambah-user', function () {
+//     return view('admin/formUser');
+// });
 
-Route::get('/tambah-admin', function () {
-    return view('admin/formAdmin');
-});
+// Route::get('/tambah-admin', function () {
+//     return view('admin/formAdmin');
+// });
 
-Route::get('/edit-user', function () {
-    return view('admin/editUser');
-});
+// Route::get('/edit-user', function () {
+//     return view('admin/editUser');
+// });
 
-Route::get('/edit-admin', function () {
-    return view('admin/editAdmin');
-});
+// Route::get('/edit-admin', function () {
+//     return view('admin/editAdmin');
+// });
