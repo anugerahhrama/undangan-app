@@ -1,7 +1,7 @@
   @extends('base.base');
 
   @section('content')
-    <div class="col-xl-5 mt-5">
+    <div class="col-xl-5">
       <div class="card rounded-5 bayangan">
         <div class="row g-0">
           <div class="col">
