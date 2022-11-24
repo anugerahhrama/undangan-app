@@ -18,51 +18,47 @@
     <link rel="stylesheet" href="{{ url ('plugins/daterangepicker/daterangepicker.css') }}">
     <link rel="stylesheet" href="{{ url ('plugins/summernote/summernote-bs4.min.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
     <link rel="stylesheet" href="{{ url ('css/style.css') }}">
   </head>
 
   <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
 
-      <div class="preloader flex-column justify-content-center align-items-center bg-animate">
-        <img class="animation__shake" src="{{ url ('img/logo.png') }}" alt="AdminLTELogo" height="" width="200">
-      </div>
+      {{-- <div class="preloader flex-column justify-content-center align-items-center bg-animate">
+        <img class="animation__shake" src="{{ url ('img/logo.png') }}" alt="Undang Logo" height="" width="200">
+      </div> --}}
 
-      <nav class="main-header navbar navbar-expand navbar-white navbar-light dekorasi p-2">
+      <nav class="main-header navbar navbar-expand navbar-white navbar-light dekorasi">
         <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link text-white" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-      </li>
-    </ul>
+          <li class="nav-item">
+            <a class="nav-link text-white" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+          </li>
+        </ul>
       </nav>
 
-      <aside class="main-sidebar sidebar-dark-primary elevation-4 dekorasi">
-        <a href="index3.html" class="">
+      <aside class="main-sidebar sidebar-dark-primary elevation-4 dekorasi" style="">
+        <a href="dashboardadmin" class="">
           <img src="{{ url ('img/logo.png') }}" alt="Logo Undang" class="pt-3" style="opacity: .8">
         </a>
         <hr class="mx-3" style="color: white;">
 
         <div class="sidebar dekorasi">
           <!-- Sidebar Menu -->
-          <nav class="mt-2 ">
+          <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
               <li class="nav-item menu-open mx-5 pt-3">
-                <a href="/admin" class="menu-sidebar">
-                  <p>
-                    Dashboard
-                  </p>
-                </a>
                 <a href="/data-admin" class="menu-sidebar">
                   <p>
                     Data Admin
                   </p>
                 </a>
-                <a href="/data-user" class="menu-sidebar">
+                <a href="user" class="menu-sidebar">
                   <p>
                     Data User
                   </p>
                 </a>
-                <a href="#" class="menu-sidebar">
+                <a href="tema" class="menu-sidebar">
                   <p>
                     Data Tema
                   </p>
@@ -76,7 +72,7 @@
 
       @yield('content')
 
-        </div>
+      </div>
       <footer class="main-footer text-center">
         Dibuat dengan cinta😘
       </footer>

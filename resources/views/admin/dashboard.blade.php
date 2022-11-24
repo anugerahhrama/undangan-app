@@ -8,8 +8,8 @@
     <div class="row mx-3">
       <div class="col-sm-6">
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="#">Home</a></li>
-          <li class="breadcrumb-item active">Dashboard </li>
+          <li class="breadcrumb-item active">Home</li>
+          <li class="breadcrumb-item active">Dashboard</li>
         </ol>
       </div>
     </div>
@@ -18,21 +18,6 @@
 
 <section class="content pb-5">
   <div class="container">
-    <div class="row mx-3 py-4 mb-3">
-      <div class="col-lg-4">
-        <img src="{{ url ('img/profile.png') }}" alt="Profile" height="250">
-      </div>
-      <div class="col-lg-8">
-        <div>
-          <div class="my-3 text-profile">
-            <p>Nama &nbsp;&nbsp;: <strong>Samsudin</strong></p>
-            <p>Email &nbsp;&nbsp;&nbsp;: <strong>samsudinsakti@gmail.com</strong></p>
-            <p>No. Hp : <strong>090909090909</strong></p>
-            <p>Alamat : <strong>Blitar</strong></p>
-          </div>
-        </div>
-      </div>
-    </div>
     <div class="row mx-3">
       <div class="col-lg-4 col-6">
         <div class="small-box bg-info">

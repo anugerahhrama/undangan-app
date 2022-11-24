@@ -12,24 +12,27 @@
               </h4>
             </div>
 
-            <form action="" class="ms-3">
+            <form action="{{ route('registerStore') }}" class="ms-3" method="POST">
+              @csrf
+              @method('POST')
               <div class="form-outline mb-3">
-                <input type="text" id="name" class="form-control rounded-5 shadow-sm bg-input" style="width: 250px;" placeholder="Name"/>
+                <input type="text" id="name" class="form-control rounded-5 shadow-sm bg-input" style="width: 250px;" name="nama" placeholder="Name"/>
               </div>
               <div class="form-outline mb-3">
-                <input type="number" id="nohp" class="form-control rounded-5 shadow-sm bg-input" style="width: 250px;" placeholder="No. Hp"/>
+                <input type="number" id="nohp" class="form-control rounded-5 shadow-sm bg-input" style="width: 250px;" name="no_hp" placeholder="No. Hp"/>
               </div>
               <div class="form-outline mb-3">
-                <input type="text" id="alamat" class="form-control rounded-5 shadow-sm bg-input" style="width: 250px;" placeholder="Alamat"/>
+                <input type="text" id="alamat" class="form-control rounded-5 shadow-sm bg-input" style="width: 250px;" name="alamat" placeholder="Alamat"/>
               </div>
               <div class="form-outline mb-3">
-                <input type="email" id="email" class="form-control rounded-5 shadow-sm bg-input" style="width: 250px;" placeholder="E-Mail" />
+                <input type="email" id="email" class="form-control rounded-5 shadow-sm bg-input" style="width: 250px;" name="email" placeholder="E-Mail" />
               </div>
               <div class="form-outline mb-3">
-                <input type="password" id="password" class="form-control rounded-5 shadow-sm bg-input" style="width: 250px;" placeholder="Password" />
+                <input type="password" id="password" class="form-control rounded-5 shadow-sm bg-input" style="width: 250px;" name="password" placeholder="Password" />
               </div>
+              <input type="hidden" value="user" name="role">
               <div class="ps-4 ms-5 pt-3 mb-5">
-                <button class="btn btn-primary rounded-pill btn-register shadow" style="width: 105px;">DAFTAR</button>
+                <button type="submit" class="btn btn-primary rounded-pill btn-register shadow" style="width: 105px;">DAFTAR</button>
               </div>
             </form>
             <div class="text-center">
