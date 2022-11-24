@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\TemaController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,15 +16,25 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('userPage');
+// Route::get('login', [LoginController::class, 'index'])->name('login'); 
+
+Route::controller(LoginController::class)->group(function(){
+    Route::get('login', 'index')->name('login');
+    Route::post('login/proses', 'proses')->name('proses');
+    Route::get('logout', 'logout');
 });
 
-Route::get('/login', function () {
-    return view('login');
+Route::group(['middleware' => ['auth']], function() {
+    Route::group(['middleware' => ['cekLogin:admin']], function(){
+        Route::get('dashboardadmin', function(){
+            return view('admin.index');
+        });
+        Route::resource('tema', TemaController::class);
+        Route::resource('user', UserController::class);
+    });
+    Route::group(['middleware' => ['cekLogin:user']], function(){
+        Route::get('dashboarduser', function(){
+            return view('user.index');
+        });
+    });
 });
-
-Route::get('/register', function () {
-    return view('register');
-});
-
