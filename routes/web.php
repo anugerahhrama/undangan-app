@@ -45,7 +45,11 @@ Route::group(['middleware' => ['auth']], function() {
     });
 });
 
-// Route::get('/', function () {
+Route::get('/', function () {
+    return view('user/base/base');
+});
+
+// Route::get('/p', function () {
 //     return view('userPage');
 // });
 
