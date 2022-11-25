@@ -91,7 +91,7 @@
     </div>
   </section>
 
-  <section id="contact" class="pt-36 pb-10">
+  <section id="contact" class="pt-36 pb-10 bg-rose-50">
     <div class="container">
       <div class="w-full px-4">
         <div class="max-w-xl mx-auto text-center mb-10">
@@ -125,7 +125,7 @@
               </div>
               <div class="w-full px-4">
                 <button
-                  class="text-base font-semibold text-white bg-primary py-3 px-8 rounded-full w-full hover:opacity-70 hover:shadow-lg transition duration-500">Kirim</button>
+                  class="text-base font-semibold bg-rose-500 text-white bg-primary py-3 px-8 rounded-full w-full hover:opacity-70 hover:shadow-lg transition duration-500">Kirim</button>
               </div>
             </div>
           </form>

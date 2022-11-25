@@ -49,42 +49,19 @@ Route::get('/', function () {
     return view('user/index');
 });
 
-// Route::get('/p', function () {
-//     return view('userPage');
-// });
+Route::get('/tema1', function () {
+    return view('user/tema/undanganTema1');
+});
+Route::get('/tema2', function () {
+    return view('user/tema/undanganTema2');
+});
+Route::get('/tema3', function () {
+    return view('user/tema/undanganTema3');
+});
+Route::get('/register2', function () {
+    return view('register2');
+});
+Route::get('/login2', function () {
+    return view('login2');
+});
 
-// Route::get('/login', function () {
-//     return view('login');
-// });
-
-// Route::get('/register', function () {
-//     return view('register');
-// });
-
-// Route::get('/admin', function () {
-//     return view('admin/dashboard');
-// });
-
-// Route::get('/data-user', function () {
-//     return view('admin/dataUser');
-// });
-
-// Route::get('/data-admin', function () {
-//     return view('admin/dataAdmin');
-// });
-
-// Route::get('/tambah-user', function () {
-//     return view('admin/formUser');
-// });
-
-// Route::get('/tambah-admin', function () {
-//     return view('admin/formAdmin');
-// });
-
-// Route::get('/edit-user', function () {
-//     return view('admin/editUser');
-// });
-
-// Route::get('/edit-admin', function () {
-//     return view('admin/editAdmin');
-// });

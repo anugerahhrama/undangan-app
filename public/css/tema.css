@@ -1,0 +1,11 @@
+.bg-tema2{
+    background-image: url('../img/tema2.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bg-detail{
+    background-image: url('../img/tema2-detail.webp');
+    background-size: cover;
+    background-position: center;
+}
