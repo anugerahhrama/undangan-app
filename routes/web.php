@@ -64,4 +64,13 @@ Route::get('/register2', function () {
 Route::get('/login2', function () {
     return view('login2');
 });
+Route::get('/data-user', function () {
+    return view('user.dataUser.dataUser');
+});
+Route::get('/data-undangan', function () {
+    return view('user.dataUser.dataUndangan');
+});
+Route::get('/tambah-undangan', function () {
+    return view('user.dataUser.tambahUndangan');
+});
 
