@@ -67,7 +67,7 @@ Route::group(['middleware' => ['auth']], function() {
 });
 
 Route::get('/', function () {
-    return view('user/index');
+    return view('login');
 });
 
 Route::get('/tema1', function () {

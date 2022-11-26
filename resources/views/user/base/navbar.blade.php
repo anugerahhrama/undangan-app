@@ -35,9 +35,9 @@
                 </a>
               </li>
               <li class="group">
-                <div class=" lg:text-slate-900 py-2 mx-8 flex group-hover:text-rose-500">
-                  <a href="/login" class="bg-rose-500 hover:bg-rose-400 transition duration-300 ease-in-out hover:border-rose-400 py-1 px-2.5 text-white text-base font-semibold rounded-lg">
-                  Login
+                <div class=" lg:text-slate-900 mx-8 flex group-hover:text-rose-500">
+                  <a href="/logout" class="bg-rose-500 hover:bg-rose-400 transition duration-300 ease-in-out hover:border-rose-400 py-1 px-2.5 text-white text-base font-semibold rounded-lg">
+                  Logout
                   </a>
                 </div>
               </li>

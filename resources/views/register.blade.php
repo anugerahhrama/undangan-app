@@ -1,54 +1,40 @@
-@extends('base.base')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="{{ url('img/icon.png') }}">
+    <title>𝓤𝓷𝓭𝓪𝓷𝓰</title>
+    @vite('resources/css/app.css')
+</head>
+<body>
+  <section class="min-h-screen bg-rose-100 p-5 flex items-center justify-center">
+    <div class="bg-rose-50 max-w-3xl p-5 flex rounded-3xl shadow-lg border-rose-100">
+      <div class="md:w-1/2 w-full px-14">
+        <h1 class="text-xl font-semibold mt-8 mb-4 text-center text-rose-600">REGISTER</h1>
+        <p class="text-sm pb-5 text-slate-500 text-center">Daftar terlebih dahulu jika akunmu belum terdaftar</p>
+        <form action="{{ route('registerStore') }}" method="POST" class="flex flex-col mb-8">
+          @csrf
+          @method('POST')
+          <input type="text" name="nama" id="nama" class="mb-3 p-2 shadow-md focus:border-rose-300 focus:outline-none transition ease-in-out focus:bg-white border border-solid duration-300 rounded-lg py-1 " placeholder="Username">
+          <input type="number" name="no_hp" id="no_hp" class="mb-3 p-2 shadow-md focus:border-rose-300 focus:outline-none transition ease-in-out focus:bg-white border border-solid duration-300 rounded-lg py-1 " placeholder="No. Hp">
+          <input type="text" name="alamat" id="alamat" class="mb-3 p-2 shadow-md focus:border-rose-300 focus:outline-none transition ease-in-out focus:bg-white border border-solid duration-300 rounded-lg py-1 " placeholder="Alamat">
+          <input type="email" name="email" id="email" class="mb-3 p-2 shadow-md focus:border-rose-300 focus:outline-none transition ease-in-out focus:bg-white border border-solid duration-300 rounded-lg py-1 " placeholder="E-Mail">
+          <input type="password" name="password" id="password" class="mb-3 p-2 shadow-md focus:border-rose-300 focus:outline-none transition ease-in-out focus:bg-white border border-solid duration-300 rounded-lg py-1 " placeholder="Password">
+          <input type="hidden" name="role" value="user">
+          <button type="submit" class="bg-rose-500 hover:bg-rose-400 transition duration-300 ease-in-out hover:shadow-lg hover:border hover:border-solid hover:border-rose-600 mt-3 py-1.5 text-white font-semibold rounded-lg">Register</button>
+        </form>
 
-@section('content')
-  <div div class="col-xl-8 mt-2">
-    <div class="card rounded-5 text-black bayangan">
-      <div class="row g-0">
-        <div class="col-lg-7">
-          <div class="card-body p-md-5 mx-md-4">
-            <div class="text-center">
-              <h4 class="mt-2 mb-3 pb-3 title-register">
-                REGISTER
-              </h4>
-            </div>
-
-            <form action="{{ route('registerStore') }}" class="ms-3" method="POST">
-              @csrf
-              @method('POST')
-              <div class="form-outline mb-3">
-                <input type="text" id="name" class="form-control rounded-5 shadow-sm bg-input" style="width: 250px;" name="nama" placeholder="Name"/>
-              </div>
-              <div class="form-outline mb-3">
-                <input type="number" id="nohp" class="form-control rounded-5 shadow-sm bg-input" style="width: 250px;" name="no_hp" placeholder="No. Hp"/>
-              </div>
-              <div class="form-outline mb-3">
-                <input type="text" id="alamat" class="form-control rounded-5 shadow-sm bg-input" style="width: 250px;" name="alamat" placeholder="Alamat"/>
-              </div>
-              <div class="form-outline mb-3">
-                <input type="email" id="email" class="form-control rounded-5 shadow-sm bg-input" style="width: 250px;" name="email" placeholder="E-Mail" />
-              </div>
-              <div class="form-outline mb-3">
-                <input type="password" id="password" class="form-control rounded-5 shadow-sm bg-input" style="width: 250px;" name="password" placeholder="Password" />
-              </div>
-              <input type="hidden" value="user" name="role">
-              <div class="ps-4 ms-5 pt-3 mb-5">
-                <button type="submit" class="btn btn-primary rounded-pill btn-register shadow" style="width: 105px;">DAFTAR</button>
-              </div>
-            </form>
-            <div class="text-center">
-              <small class="text-register">Already have an account? <a href="login">Login</a></small>
-            </div>
-          </div>
-          
-        </div>
-        <div class="col-lg-5 pt-5 bg-register" style="border-radius: 0 2rem 2rem 0; border: none;">
-          <div class="text-center pt-5 text-white">
-            <img src="" alt="">
-            <h4>Selamat Datang di</h4>
-            <h3>WEBSITE KAMI</h3>
-          </div>
-        </div>
+        <p class="text-rose-300 text-center">Already have account? <a href="/login" class="underline text-rose-600">Login</a></p>
+      </div>
+      <div class="w-1/2 relative sm:block hidden">
+        <img src="{{ url ('../img/register-2.png') }}" alt="" class="rounded-3xl" style="width: 100%">
+        <div class="absolute top-28 left-1/4 text-rose-600 text-lg">Selamat datang di</div>
+        <div class="absolute top-36 left-1/4 text-rose-600 font-semibold text-2xl">Webisite Undangan Digital</div>
       </div>
     </div>
-  </div>
-@endsection
+  </section>
+    
+</body>
+</html>

@@ -4,7 +4,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Undang</title>
+    <title>𝓤𝓷𝓭𝓪𝓷𝓰</title>
+    <link rel="icon" href="{{ url('img/icon.png') }}">
 
     <link rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -29,7 +30,7 @@
         <img class="animation__shake" src="{{ url ('img/logo.png') }}" alt="Undang Logo" height="" width="200">
       </div> --}}
 
-      <nav class="main-header navbar navbar-dark navbar-expand dekorasi px-3">
+      <nav class="main-header navbar navbar-light navbar-expand dekorasi px-3">
         <!-- Left navbar links -->
         <ul class="navbar-nav">
           <li class="nav-item">
@@ -52,11 +53,11 @@
         </ul>
       </nav>
 
-      <aside class="main-sidebar sidebar-dark-primary elevation-4 dekorasi">
+      <aside class="main-sidebar sidebar-light-primary elevation-4 dekorasi">
         <!-- Brand Logo -->
-        <a href="dashboardadmin" class="brand-link">
-          <img src="" alt="" class="brand-image img-circle elevation-3" style="opacity: .8">
-          <span class="brand-text font-weight-light">Undang</span>
+        <a href="dashboardadmin" class="brand-link" style="text-decoration: none">
+          <img src="img/icon.png" alt="" class="brand-image img-circle">
+          <span class="brand-text font-weight-light name">𝓤𝓷𝓭𝓪𝓷𝓰</span>
         </a>
 
         <!-- Sidebar -->
@@ -64,10 +65,10 @@
           <!-- Sidebar user panel (optional) -->
           <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-              <img src="{{ url ('img/profile.png') }}" class="img-circle elevation-2" alt="User Image">
+              <img src="{{ url ('img/user.jpg') }}" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-              <a href="#" class="d-block">Alexander Pierce</a>
+              <a href="#" class="d-block" style="text-decoration: none">Alexander Pierce</a>
             </div>
           </div>
 
@@ -94,9 +95,9 @@
             </ul>
           </nav>
 
-          <div class="logout">
+          <div>
             <a href="/logout">
-              <button type="button" class="btn btn-block bg-gradient-danger">Logout</button>
+              <button type="button" class="btn btn-block logout">Logout</button>
             </a>
           </div>
 
