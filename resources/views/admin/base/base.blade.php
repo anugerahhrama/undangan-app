@@ -64,7 +64,7 @@
           <!-- Sidebar user panel (optional) -->
           <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-              <img src="{{ url ('img/profile.png') }}" class="img-circle elevation-2" alt="">
+              <img src="{{ url ('img/profile.png') }}" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
               <a href="#" class="d-block">Alexander Pierce</a>
@@ -89,12 +89,19 @@
               </li>
               <li class="nav-item">
                 <a href="tema" class="nav-link">
-                  <i class="fa fa-image nav-icon"></i>
+                  <i class="fa fa-images nav-icon"></i>
                   <p>Data Tema</p>
                 </a>
               </li>
             </ul>
           </nav>
+
+          <div class="logout">
+            <a href="/logout">
+              <button type="button" class="btn btn-block bg-gradient-danger">Logout</button>
+            </a>
+          </div>
+
           <!-- /.sidebar-menu -->
         </div>
         <!-- /.sidebar -->
