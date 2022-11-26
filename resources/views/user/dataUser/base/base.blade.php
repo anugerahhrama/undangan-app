@@ -7,18 +7,20 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <title>Document</title>
+  <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.4/dist/flowbite.min.css" />
   @vite('resources/css/app.css')
 </head>
 
 <body>
 
-  @include('user.base.navbar')
+  @include('user.dataUser.base.navbar')
   
   @yield('content')
 
-  @include('user.base.footer')
+  @include('user.dataUser.base.footer')
 
   <script src="{{ url ('js/script.js') }}"></script>
+  <script src="https://unpkg.com/flowbite@1.5.4/dist/flowbite.js"></script>
 
 </body>
 
