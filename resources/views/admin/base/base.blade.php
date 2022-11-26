@@ -53,12 +53,12 @@
                     Data Admin
                   </p>
                 </a>
-                <a href="user" class="menu-sidebar">
+                <a href="{{ route('user.index') }}" class="menu-sidebar">
                   <p>
                     Data User
                   </p>
                 </a>
-                <a href="tema" class="menu-sidebar">
+                <a href="{{ route('tema.index') }}" class="menu-sidebar">
                   <p>
                     Data Tema
                   </p>

@@ -13,10 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('temas', function (Blueprint $table) {
+        Schema::create('tamus', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_tema');
-            $table->string('tema');
+            $table->bigInteger('id_undangan')->unsigned()->index()->nullable();
+            $table->string('nama');
+            $table->string('alamat');
+            $table->string('url_undangan');
+            $table->string('url_presensi');
+            $table->foreign('id_undangan')->references('id')->on('undangans');
             $table->timestamps();
         });
     }
@@ -28,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('temas');
+        Schema::dropIfExists('tamus');
     }
 };
