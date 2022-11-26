@@ -15,7 +15,7 @@ class TemaController extends Controller
     public function index()
     {
         $datas = Tema::all();
-        return view('admin/tema/index', compact('datas'));
+        return view('admin/dataAdmin', compact('datas'));
     }
 
     /**
