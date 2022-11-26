@@ -81,15 +81,17 @@
                   <i class="fa fa-user nav-icon"></i>
                   <p>Data Admin</p>
                 </a>
-                <a href="{{ route('user.index') }}" class="menu-sidebar">
-                  <p>
-                    Data User
-                  </p>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('user.index') }}" class="nav-link">
+                  <i class="fa fa-users nav-icon"></i>
+                  <p>Data User</p>
                 </a>
-                <a href="{{ route('tema.index') }}" class="menu-sidebar">
-                  <p>
-                    Data Tema
-                  </p>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('tema.index') }}" class="nav-link">
+                  <i class="fa fa-images nav-icon"></i>
+                  <p>Data Tema</p>
                 </a>
               </li>
             </ul>
