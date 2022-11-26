@@ -48,7 +48,7 @@ body{
 }
 
 .dekorasi{
-    background-color: #2146C7;
+    background-color: white;
 }
 
 .warna{
@@ -57,11 +57,18 @@ body{
 
 /* admin */
 .content-wrapper{
-    background-color: #d2d6de;
+    background-color: #ffe4e6;
+}
+
+.name{
+    color: #f43f5e;
 }
 
 .logout{
-    margin-top: 20rem;
+    background-color: #f43f5e;
+    color: white;
 }
 
-
+.logout:hover{
+    background-color: #fda6b3;
+}
