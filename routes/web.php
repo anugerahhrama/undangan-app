@@ -76,5 +76,30 @@ Route::group(['middleware' => ['auth']], function() {
 Route::get('tamu/{id}/{id_tamu}', [TamuController::class, 'lihat'])->name('lihat_tamu');
 
 Route::get('/', function () {
-    return view('user/base/base');
+    return view('login');
+});
+
+Route::get('/tema1', function () {
+    return view('user/tema/undanganTema1');
+});
+Route::get('/tema2', function () {
+    return view('user/tema/undanganTema2');
+});
+Route::get('/tema3', function () {
+    return view('user/tema/undanganTema3');
+});
+Route::get('/register2', function () {
+    return view('register2');
+});
+Route::get('/login2', function () {
+    return view('login2');
+});
+Route::get('/data-user', function () {
+    return view('user.dataUser.dataUser');
+});
+Route::get('/data-undangan', function () {
+    return view('user.dataUser.dataUndangan');
+});
+Route::get('/tambah-undangan', function () {
+    return view('user.dataUser.tambahUndangan');
 });

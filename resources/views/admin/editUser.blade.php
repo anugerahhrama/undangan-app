@@ -16,9 +16,9 @@
   </div>
 </div>
 
-<section class="content">
+<section class="content pb-5">
   <div class="container">
-    <div class="row">
+    <div class="row mx-3">
       <div class="col-12">
         <div class="card">
           <div class="card-body">

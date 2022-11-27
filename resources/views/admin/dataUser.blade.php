@@ -38,20 +38,21 @@
                 <tbody>
                   @forelse ($datas as $data)
                       <tr>
-                    <td>{{ $data->id }}</td>
-                    <td>{{ $data->nama }}</td>
-                    <td>{{ $data->email }}</td>
-                    <td>{{ $data->no_hp }}</td>
-                    <td>{{ $data->alamat }}</td>
-                    <td>{{ $data->role }}</td>
-                    <td>
-                      <form action="{{ route('user.destroy', $data->id) }}" method="POST">
-                      <a href="{{ route('user.edit', $data->id) }}" class="btn btn-warning text-white"><i class="bi bi-pen"></i></a>
-                      @csrf
-                      @method('DELETE')
-                      <button type="submit" class="btn btn-danger text-white"><i class="bi bi-trash"></i></button>
-                      </form>
-                    </td>
+                        <td>{{ $data->id }}</td>
+                        <td>{{ $data->nama }}</td>
+                        <td>{{ $data->email }}</td>
+                        <td>{{ $data->no_hp }}</td>
+                        <td>{{ $data->alamat }}</td>
+                        <td>{{ $data->role }}</td>
+                        <td>
+                          <form action="{{ route('user.destroy', $data->id) }}" method="POST">
+                          <a href="{{ route('user.edit', $data->id) }}" class="btn btn-warning text-white"><i class="bi bi-pen"></i></a>
+                          @csrf
+                          @method('DELETE')
+                          <button type="submit" class="btn btn-danger text-white"><i class="bi bi-trash"></i></button>
+                          </form>
+                        </td>
+                      </tr>
                   @empty
                       <h1>data tidak ada</h1>
                   @endforelse
