@@ -14,12 +14,15 @@ return new class extends Migration
     public function up()
     {
         Schema::create('tamus', function (Blueprint $table) {
-            $table->id();
+            $table->string('id')->primary();
             $table->bigInteger('id_undangan')->unsigned()->index()->nullable();
             $table->string('nama');
+            $table->string('email');
             $table->string('alamat');
             $table->string('url_undangan');
             $table->string('url_presensi');
+            $table->string('status_undangan');
+            $table->string('status_presensi');
             $table->foreign('id_undangan')->references('id')->on('undangans');
             $table->timestamps();
         });
