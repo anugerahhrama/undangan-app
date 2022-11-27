@@ -54,6 +54,7 @@ Route::group(['middleware' => ['auth']], function() {
             Route::get('editUndangan/{id}', 'edit')->name('edit_undangan');
             Route::put('update_undangan/{id}', 'update')->name('update_undangan');
             Route::delete('hapus_undangan/{id}', 'hapus')->name('hapus_undangan');
+            Route::get('tema/{id}/{id_tema}', 'tema')->name('lihat_tema');
         });
         Route::controller(AcaraController::class)->group(function(){
             Route::get('susunan_acara/{id}', 'index')->name('susunan_acara');
@@ -63,8 +64,16 @@ Route::group(['middleware' => ['auth']], function() {
             Route::put('susunan_acara/{id}/{id_user}/simpan', 'update')->name('update_acara');
             Route::delete('susunan_acara/{id}/{id_user}/hapus', 'hapus')->name('hapus_acara');
         });
+        Route::controller(TamuController::class)->group(function(){
+            Route::get('tamu_undangan/{id}', 'index')->name('tamu_undangan');
+            Route::get('tamu_undangan/{id}/create', 'create')->name('tambah_tamu');
+            Route::post('tamu_undangan/{id}/simpan', 'simpan')->name('simpan_tamu');
+            Route::get('edit_tamu/{id}/{id_tamu}', 'edit')->name('edit_tamu');
+        });
     });
 });
+
+Route::get('tamu/{id}/{id_tamu}', [TamuController::class, 'lihat'])->name('lihat_tamu');
 
 Route::get('/', function () {
     return view('login');

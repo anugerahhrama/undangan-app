@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Acara;
 use App\Models\Kategori;
 use Illuminate\Http\Request;
 use App\Models\Tema;
@@ -15,9 +16,11 @@ class UndanganController extends Controller
         $user = Auth::user()->id;
         $datas = Undangan::join('users', 'undangans.id_user', '=', 'users.id')
         ->join('kategoris', 'undangans.id_kategori', '=', 'kategoris.id')
+        ->join('temas', 'undangans.id_tema' , '=', 'temas.id')
         ->where('undangans.id_user', '=', $user)
         ->get(['undangans.id_user', 'undangans.tanggal', 'undangans.hari', 'undangans.bulan', 'undangans.tahun','undangans.deskripsi',
-        'undangans.id', 'users.nama', 'undangans.judul_acara', 'kategoris.kategori']);
+        'undangans.id', 'users.nama', 'undangans.judul_acara', 'kategoris.kategori', 
+        'temas.nama_tema', 'temas.tema', 'undangans.id_tema']);
         // dd($datas);
         return view('user/undangan/index', compact('datas'));
     }
@@ -59,6 +62,9 @@ class UndanganController extends Controller
     public function edit($id){
         $datas = Undangan::find($id);
         $temas = Tema::all();
+        // $tema = Tema::join('undangans', 'undangans.id_tema', '=', 'temas.id')
+        // ->where('temas.id', '=', $id)
+        // ->get(['temas.id', 'undangans.id_tema','temas.nama_tema']);
         $kategoris = Kategori::all();
         return view('user/undangan/editUndangan', compact('datas', 'kategoris', 'temas'))->with(['user' => Auth::user(),]);
     }
@@ -100,4 +106,15 @@ class UndanganController extends Controller
         return redirect(route('data_undangan'));
     }
 
+    public function tema($id, $id_tema){
+        $tema = Tema::find($id_tema);
+        $data = Undangan::find($id);
+        // $url = 'user/undangan/tema/'.$tema->id;
+        // dd($url);
+        $acara = Acara::join('undangans', 'undangans.id', '=', 'acaras.id_detail')
+        ->where('acaras.id_detail', '=', $id)
+        ->get(['acaras.acara']);
+        return view('user/undangan/tema/'.$tema->id, compact('data', 'acara'));
+        // dd($user);
+    }
 }
