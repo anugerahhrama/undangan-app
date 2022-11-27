@@ -68,7 +68,7 @@
               <img src="{{ url ('img/user.jpg') }}" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-              <a href="#" class="d-block" style="text-decoration: none">Alexander Pierce</a>
+              <a href="#" class="d-block" style="text-decoration: none">P</a>
             </div>
           </div>
 

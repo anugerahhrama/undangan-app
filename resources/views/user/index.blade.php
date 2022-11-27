@@ -8,7 +8,7 @@
           <h1 class="text-base font-semibold text-rose-400 md:text-2xl">
             Selamat Datang di
             <span class="block text-3xl text-slate-800 font-bold md:text-5xl">
-            <h4>{{ $user->nama }}</h4>
+              <h4>{{ $user->nama }}</h4>
               Website Undangan Kami
             </span>
           </h1>
