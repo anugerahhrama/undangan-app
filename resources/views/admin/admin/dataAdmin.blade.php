@@ -1,6 +1,7 @@
 @extends('admin.base.base')
 
 @section('content')
+
   <div class="content-header">
     <div class="container">
       <div class="row mx-3">

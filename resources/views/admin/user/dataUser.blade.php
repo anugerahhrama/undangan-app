@@ -1,6 +1,7 @@
 @extends('admin.base.base')
 
 @section('content')
+
   <div class="content-header">
     <div class="container">
       <div class="row">
@@ -20,7 +21,7 @@
         <div class="col-12">
           <div class="card">
             <div class="px-3 pt-3">
-              <a href="tambah-admin" class="btn btn-primary">Tambah</a>
+              <a href="{{ route('user.create') }}" class="btn logout">Tambah</a>
             </div>
             <div class="card-body">
               <table id="example2" class="table table-bordered table-hover">
@@ -54,7 +55,9 @@
                         </td>
                       </tr>
                   @empty
-                      <h1>data tidak ada</h1>
+                      <div class="alert alert-warning" role="alert">
+                          Tidak ada data
+                      </div>
                   @endforelse
                 </tbody>
               </table>
