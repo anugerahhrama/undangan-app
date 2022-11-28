@@ -33,5 +33,7 @@
 <input type="number" placeholder="tahun" name="tahun"><br>
 <input type="text" name="judul_acara" placeholder="judul acara"><br>
 <input type="text" name="deskripsi" placeholder="deskripsi"><br>
+<input type="time" name="jam" placeholder="jam"><br>
+<input type="text" name="lokasi" placeholder="lokasi"><br>
 <button type="submit">Simpan</button>
 </form>

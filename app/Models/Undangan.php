@@ -16,7 +16,9 @@ class Undangan extends Model
         'judul_acara',
         'id_tema',
         'deskripsi',
-        'id_kategori'
+        'id_kategori',
+        'jam',
+        'lokasi'
     ];
     use HasFactory;
 }

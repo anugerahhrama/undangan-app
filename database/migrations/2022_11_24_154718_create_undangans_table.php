@@ -22,6 +22,8 @@ return new class extends Migration
             $table->integer('tahun');
             $table->string('judul_acara');
             $table->bigInteger('id_tema')->unsigned()->index()->nullable();
+            $table->string('lokasi');
+            $table->time('jam');
             $table->timestamps();
             $table->bigInteger('id_kategori')->unsigned()->index()->nullable();
             $table->foreign('id_kategori')->references('id')->on('kategoris');

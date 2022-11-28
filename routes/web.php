@@ -74,7 +74,8 @@ Route::group(['middleware' => ['auth']], function() {
 });
 
 Route::get('tamu/{id}/{id_tamu}', [TamuController::class, 'lihat'])->name('lihat_tamu');
-
+Route::get('presensi/{id}/{id_tamu}', [TamuController::class, 'presensi'])->name('presensi_tamu');
+Route::put('presensi/hadir/{id}/{id_tamu}', [TamuController::class, 'hadir'])->name('hadir_tamu');
 Route::get('/', function () {
     return view('login');
 });
