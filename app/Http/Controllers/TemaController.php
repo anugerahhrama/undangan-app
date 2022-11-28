@@ -46,7 +46,7 @@ class TemaController extends Controller
             'tema' => $request->tema
         ]);
 
-        return view('admin/tema/index');
+        return redirect(route('tema.index'));
     }
 
     /**
@@ -68,7 +68,7 @@ class TemaController extends Controller
      */
     public function edit(Tema $tema)
     {
-        return view('admin/tema/editTema', compact('tema'));
+        return view('admin.tema.editTema', compact('tema'));
     }
 
     /**

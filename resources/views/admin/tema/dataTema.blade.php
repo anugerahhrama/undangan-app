@@ -14,6 +14,7 @@
             </div>
         </div>
     </div>
+    
     <section class="content pb-5 pt-4">
         <div class="container">
             <div class="row">
@@ -33,14 +34,15 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <?php $no=1 ?>
                                     @forelse ($datas as $data)
                                         <tr>
-                                            <td>{{ $data->id }}</td>
+                                            <td>{{ $no++ }}</td>
                                             <td>{{ $data->nama_tema }}</td>
                                             <td>{{ $data->tema }}</td>
                                             <td>
-                                                <form action="{{ route('user.destroy', $data->id) }}" method="POST">
-                                                <a href="{{ route('user.edit', $data->id) }}" class="btn btn-warning text-white"><i class="bi bi-pen"></i></a>
+                                                <form action="{{ route('tema.destroy', $data->id) }}" method="POST">
+                                                <a href="{{ route('tema.edit', $data->id) }}" class="btn btn-warning text-white"><i class="bi bi-pen"></i></a>
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-danger text-white"><i class="bi bi-trash"></i></button>
