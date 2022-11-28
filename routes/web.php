@@ -69,13 +69,16 @@ Route::group(['middleware' => ['auth']], function() {
             Route::get('tamu_undangan/{id}/create', 'create')->name('tambah_tamu');
             Route::post('tamu_undangan/{id}/simpan', 'simpan')->name('simpan_tamu');
             Route::get('edit_tamu/{id}/{id_tamu}', 'edit')->name('edit_tamu');
+            Route::put('edit_tamu/{id}/{id_tamu}', 'update')->name('update_tamu');
+            Route::delete('delete_tamu/{id}/{id_tamu}', 'delete')->name('hapus_tamu');
+            Route::get('presensi/{id}/{id_tamu}', 'presensi')->name('presensi_tamu');
+            Route::put('presensi/hadir/{id}/{id_tamu}', 'hadir')->name('hadir_tamu');
+            Route::get('tamu_undangan/kirim/{id}/{id_tamu}', 'kirim')->name('kirim_tamu');
         });
     });
 });
 
 Route::get('tamu/{id}/{id_tamu}', [TamuController::class, 'lihat'])->name('lihat_tamu');
-Route::get('presensi/{id}/{id_tamu}', [TamuController::class, 'presensi'])->name('presensi_tamu');
-Route::put('presensi/hadir/{id}/{id_tamu}', [TamuController::class, 'hadir'])->name('hadir_tamu');
 Route::get('/', function () {
     return view('login');
 });
