@@ -20,7 +20,7 @@ class UndanganController extends Controller
         ->where('undangans.id_user', '=', $user)
         ->get(['undangans.id_user', 'undangans.tanggal', 'undangans.hari', 'undangans.bulan', 'undangans.tahun','undangans.deskripsi',
         'undangans.id', 'users.nama', 'undangans.judul_acara', 'kategoris.kategori', 
-        'temas.nama_tema', 'temas.tema', 'undangans.id_tema']);
+        'temas.nama_tema', 'temas.tema', 'undangans.id_tema', 'undangans.jam', 'undangans.lokasi']);
         // dd($datas);
         return view('user/undangan/index', compact('datas'));
     }
@@ -42,7 +42,9 @@ class UndanganController extends Controller
             'judul_acara' => 'required',
             'id_tema' => 'required',
             'deskripsi' => 'required',
-            'id_kategori' => 'required'
+            'id_kategori' => 'required',
+            'jam' => 'required',
+            'lokasi' => 'required'
         ]);
 
         $data = Undangan::create([
@@ -54,7 +56,9 @@ class UndanganController extends Controller
             'judul_acara' => $request->judul_acara,
             'id_tema' => $request->id_tema,
             'deskripsi' => $request->deskripsi,
-            'id_kategori' => $request->id_kategori
+            'id_kategori' => $request->id_kategori,
+            'jam' => $request->jam,
+            'lokasi' => $request->lokasi
         ]);
         return redirect(route('data_undangan'));
     }
@@ -80,7 +84,9 @@ class UndanganController extends Controller
             'judul_acara' => 'required',
             'id_tema' => 'required',
             'id_kategori' => 'required',
-            'deskripsi' => 'required'
+            'deskripsi' => 'required',
+            'jam' => 'required',
+            'lokasi' => 'required'
         ]);
         $undangan = Undangan::findOrFail($id);
          $datas = $undangan->update([
@@ -92,7 +98,9 @@ class UndanganController extends Controller
             'judul_acara' => $request->judul_acara,
             'id_tema' => $request->id_tema,
             'id_kategori' => $request->id_kategori,
-            'deskripsi' => $request->deskripsi
+            'deskripsi' => $request->deskripsi,
+            'jam' => $request->jam,
+            'lokasi' => $request->lokasi
         ]);
         // dd($datas);
 

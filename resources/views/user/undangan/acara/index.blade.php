@@ -2,7 +2,7 @@
 <a href="{{ route('tambah_acara', $datas->id) }}">Tambah</a>
 <table border="2">
     <tbody>
-        <a href="{{ route('lihat_data', ['id' => $datas->id, 'id_user' => $data->id])) }}">Lihat</a>
+        
         @foreach($dataAcara as $data)
             <tr>
                 <td>{{ $data->id }}</td>
