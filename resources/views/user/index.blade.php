@@ -6,7 +6,7 @@
       <div class="flex flex-wrap md:mx-20">
         <div class="self-center px-4 w-full lg:w-1/2">
           <h1 class="text-base font-semibold text-rose-400 md:text-2xl">
-            Selamat Datang di
+            Selamat Datang Di
             <span class="block text-3xl text-slate-800 font-bold md:text-5xl">
               <h4>{{ $user->nama }}</h4>
               Website Undangan Kami
@@ -16,7 +16,7 @@
             Mudah, Cepat, & Gampang
           </h2>
           <p class="mb-8 font-medium leading-relaxed text-slate-500">Buat undangan digital dengan cara yang mudah?</p>
-          <a href="/login" class="bg-rose-500 hover:bg-red-400 py-2.5 px-4 rounded-xl text-white font-semibold transition duration-300 ease-in-out hover:shadow-lg">
+          <a href="/data_undangan" class="bg-rose-500 hover:bg-red-400 py-2.5 px-4 rounded-xl text-white font-semibold transition duration-300 ease-in-out hover:shadow-lg">
             Buat Sekarang
           </a>
         </div>

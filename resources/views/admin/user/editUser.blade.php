@@ -9,7 +9,7 @@
         <ol class="breadcrumb">
           <li class="breadcrumb-item active">Home</li>
           <li class="breadcrumb-item active">Data User</li>
-          <li class="breadcrumb-item active">Edit User </li>
+          <li class="breadcrumb-item active">Edit User</li>
         </ol>
       </div>
     </div>
@@ -61,7 +61,7 @@
                 <div class="col-md-12">
                   <div class="form-outline">
                     <label for="email" class="form-label">Status</label>
-                    <select class="form-select" name="role" id="validationTooltip04" required> 
+                    <select class="form-select" name="role" id="validationTooltip04"> 
                       <option selected disabled></option>
                       <option value="user">User</option>
                       <option value="admin">Admin</option>
