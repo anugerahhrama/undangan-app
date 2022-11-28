@@ -10,6 +10,7 @@
                 <td>{{ $d->email }}</td>
                 <td>{{ $d->judul_acara }}</td>
                 <td><a href="{{route('lihat_tamu', ['id' => $datas->id, 'id_tamu' => $d->id ] )}}">Lihat</a></td>
+                <td><a href="{{route('presensi_tamu', ['id' => $datas->id, 'id_tamu' => $d->id ] )}}">Presensi</a></td>
                 <td><a href="{{route('edit_tamu', ['id' => $datas->id, 'id_tamu' => $d->id ] )}}">Edit</a></td>
             </tr>
     @empty

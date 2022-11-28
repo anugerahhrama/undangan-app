@@ -32,7 +32,6 @@ class TamuController extends Controller
             'nama' => 'required',
             'email' => 'required',
             'alamat' => 'required',
-            'url_presensi' => 'required',
             'status_undangan' => 'required',
             'status_presensi' => 'required'
         ]);
@@ -45,7 +44,7 @@ class TamuController extends Controller
             'email' => $request->email,
             'alamat' => $request->alamat,
             'url_undangan' => '127.0.0.1:8000/tamu/'.$request->id_undangan.'/'.$request->id,
-            'url_presensi' => $request->url_presensi,
+            'url_presensi' => '127.0.0.1:8000/presensi/'.$request->id_undangan.'/'.$request->id,
             'status_undangan' => $request->status_undangan,
             'status_presensi' => $request->status_presensi
         ]);
@@ -64,8 +63,24 @@ class TamuController extends Controller
     public function lihat($id, $id_tamu){
         $undangan = Undangan::find($id);
         $tamu = Tamu::find($id_tamu);
-        // dd($id_tamu);
-        return view('user/undangan/tamu/undangan', compact('tamu', 'undangan'));
+        // dd($tamu);
+        // return view('user/undangan/tamu/undangan', compact('tamu', 'undangan'));
+        return view('user/undangan/tamu/undanganTamu/'.$undangan->id_tema , compact('tamu', 'undangan'));
+    }
 
+    public function presensi($id, $id_tamu){
+        $undangan = Undangan::find($id);
+        $tamu = Tamu::find($id_tamu);
+        // dd($id_tamu);
+        return view('user/undangan/tamu/presensi', compact('tamu', 'undangan'));
+    }
+
+    public function hadir($id, $id_tamu){
+        $tamu = Tamu::find($id_tamu);
+        $tamu->update([
+            'status_presensi' => 'hadir'
+        ]);
+
+        return redirect(route('tamu_undangan', $id));
     }
 }
