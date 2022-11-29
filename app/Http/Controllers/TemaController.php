@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Tema;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TemaController extends Controller
 {
@@ -15,7 +16,9 @@ class TemaController extends Controller
     public function index()
     {
         $datas = Tema::all();
-        return view('admin.tema.dataTema', compact('datas'));
+        return view('admin.tema.dataTema', compact('datas'))->with([
+            'user' => Auth::user(),
+        ]);
     }
 
     /**
