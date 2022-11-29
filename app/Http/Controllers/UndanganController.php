@@ -60,6 +60,7 @@ class UndanganController extends Controller
             'jam' => $request->jam,
             'lokasi' => $request->lokasi
         ]);
+        // dd($request);
         return redirect(route('data_undangan'));
     }
 

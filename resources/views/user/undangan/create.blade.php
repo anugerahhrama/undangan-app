@@ -59,18 +59,22 @@
               <div class="w-full block lg:flex">
                 <div class="w-full lg:w-1/2 px-4 mb-8">
                   <label for="judul" class="text-base font-bold text-rose-500">Pembuat</label>
-                  <input type="text" readonly
+                  <input type="hidden" readonly 
                     class="w-full bg-slate-200 text-dark p-2 rounded-md focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary" 
                     value="{{ $user->nama }}"
                     />
-                    <input type="hidden" value="{{ $user->id }}">
+                    <input type="text"     
+                    class="w-full bg-slate-200 text-dark p-2 rounded-md focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary" 
+                    name="judul_acara"
+                    />
+                    <input type="hidden" value="{{ $user->id }}" name="id_user">
                 </div>
                 <div class="w-full lg:w-1/2 px-4 mb-8">
                   <label for="kategori" class="text-base font-bold text-rose-500">Tama</label>
                   <select type="text" id="tema" name="id_tema"
                     class="w-full bg-slate-200 text-dark p-2 rounded-md focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary">
                     @foreach ($temas as $tema)
-                    <option value="{{ $tama->id }}">{{ $tema->nama_tema }}</option>
+                    <option value="{{ $tema->id }}">{{ $tema->nama_tema }}</option>
                     @endforeach
                     {{--  <option value="rapat">{{ $tema->nama_tema }}</option>
                     <option value="acara_kegiatan">{{ $tema->nama_tema }}</option>  --}}
@@ -81,13 +85,16 @@
               <div class="w-full block lg:flex">
                 <div class="w-full lg:w-1/2 px-4 mb-8">
                   <label for="tema" class="text-base font-bold text-rose-500">Kategori</label>
-                  <select type="text" id="kategori" name="id_kategori"
+                  {{--  <select type="text" id="kategori" name="id_kategori"
                     class="w-full bg-slate-200 text-dark p-2 rounded-md focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary">
                     @foreach ($kategoris as $kategori)
-                    <option value="{{ $kategori->id }}">{{ $kategori->nama_tema }}</option>
+                    <option value="{{ $kategori->id }}">{{ $kategori->kagetori }}</option>
                     @endforeach
-                    {{--  <option value="2">Tema 2</option>
-                    <option value="3">Tema 3</option>  --}}
+                  </select>  --}}
+                  <select id="cars" name="id_kategori" class="w-full bg-slate-200 text-dark p-2 rounded-md focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary">
+                    @foreach($kategoris as $kategori)
+                    <option value="{{ $kategori->id }}">{{ $kategori->kategori }}</option>
+                    @endforeach
                   </select>
                 </div>
                 <div class="w-full lg:w-1/2 px-4 mb-8">
@@ -120,7 +127,7 @@
               </div>
               <div class="w-full px-4 mb-8">
                   <label for="jam" class="text-base font-bold text-rose-500">Jam Pelaksanaan</label>
-                  <input type="time" id="jam"
+                  <input type="time" id="jam" name="jam"
                     class="w-full bg-slate-200 text-dark p-2 rounded-md focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary" />
                 </div>
               <div class="w-full px-4 mb-8">
