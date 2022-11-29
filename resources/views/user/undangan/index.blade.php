@@ -33,9 +33,6 @@
                         kategori
                     </th>
                      <th scope="col" class="py-3 px-6">
-                        deskripsi
-                    </th>
-                     <th scope="col" class="py-3 px-6">
                         Tema
                     </th>
                      <th scope="col" class="py-3 px-6">
@@ -54,6 +51,32 @@
             </thead>
             <tbody>
                 <?php $no=1 ?>
+                <?php
+                            function tgl_indo($tanggal){
+                                $bulan = array (
+                                    1 =>   'Januari',
+                                    'Februari',
+                                    'Maret',
+                                    'April',
+                                    'Mei',
+                                    'Juni',
+                                    'Juli',
+                                    'Agustus',
+                                    'September',
+                                    'Oktober',
+                                    'November',
+                                    'Desember'
+                                );
+                                $pecahkan = explode('-', $tanggal);
+                                
+                                // variabel pecahkan 0 = tanggal
+                                // variabel pecahkan 1 = bulan
+                                // variabel pecahkan 2 = tahun
+                             
+                                return $pecahkan[2] . ' ' . $bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[0];
+                            }
+                        
+                        ?>
                 @forelse($datas as $data)
                 <tr class="bg-white border-b dark:border-rose-500">
                     <td class="py-4 px-6">
@@ -63,16 +86,13 @@
                         {{ $data->nama }}
                     </td>
                     <td class="py-4 px-6">
-                        {{ $data->hari }}-{{ $data->tanggal }}-{{ $data->bulan }}-{{ $data->tahun }}
+                        {{ $data->hari }} <br> <?= tgl_indo($data->tanggal) ?> 
                     </td>
                     <td class="py-4 px-6">
                         {{ $data->judul_acara }}
                     </td>
                     <td class="py-4 px-6">
                         {{ $data->kategori }}
-                    </td>
-                    <td class="py-4 px-6">
-                        {{ $data->deskripsi }}
                     </td>
                     <td class="py-4 px-6">
                         {{ $data->nama_tema }}
