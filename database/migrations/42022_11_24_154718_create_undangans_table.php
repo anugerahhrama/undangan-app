@@ -22,6 +22,7 @@ return new class extends Migration
             $table->bigInteger('id_tema')->unsigned()->index()->nullable();
             $table->string('deskripsi');
             $table->string('lokasi');
+            $table->string('deskripsi');
             $table->time('jam');
             $table->timestamps();
             $table->bigInteger('id_kategori')->unsigned()->index()->nullable();

@@ -21,7 +21,7 @@
                 <thead class="text-xs text-rose-700 uppercase bg-rose-200">
                     <tr>
                         <th scope="col" class="py-3 px-6">
-                            Id Surat
+                          Id Surat
                         </th>
                         <th scope="col" class="py-3 px-6">
                           Kategori
