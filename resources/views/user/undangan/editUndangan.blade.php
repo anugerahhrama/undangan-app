@@ -8,12 +8,13 @@
     <label for="cars">Tema</label>
     <select id="cars" name="id_tema">
     @foreach($temas as $tema)
-    <option value="{{ $tema->id }}" >{{ $tema->nama_tema }}</option>
+    <option value="{{ $tema->id }}" selected>{{ $tema->nama_tema }}</option>
     @endforeach
     </select>
     <select id="cars" name="id_kategori">
+    <option value="{{ $kategori_undangan->id }}" selected >{{ $kategori_undangan->kategori }}</option>
     @foreach($kategoris as $kategori)
-    <option value="{{ $kategori->id }}" selected >{{ $kategori->kategori }}</option>
+    <option value="{{ $kategori->id }}" >{{ $kategori->kategori }}</option>
     @endforeach
     </select>
     <br>
@@ -29,9 +30,7 @@
     <option value="minggu">minggu</option>
     <br>
 </select>
-<input type="number" name="tanggal" placeholder="tanggal" value="{{ $datas->tanggal }}"><br>
-<input type="text" name="bulan" placeholder="bulan" value="{{ $datas->bulan }}"><br>
-<input type="number" placeholder="tahun" name="tahun" value="{{ $datas->tahun }}"><br>
+<input type="date" name="tanggal" placeholder="tanggal" value="{{ $datas->tanggal }}"><br>
 <input type="text" name="judul_acara" placeholder="judul acara" value="{{ $datas->judul_acara }}"><br>
 <input type="text" name="deskripsi" value="{{ $datas->deskripsi }}"><br>
 <input type="time" name="jam" value="{{ $datas->jam }}"><br>

@@ -17,11 +17,10 @@ return new class extends Migration
             $table->id();
             $table->bigInteger('id_user')->unsigned()->index()->nullable();
             $table->string('hari');
-            $table->integer('tanggal');
-            $table->string('bulan');
-            $table->integer('tahun');
+            $table->date('tanggal');
             $table->string('judul_acara');
             $table->bigInteger('id_tema')->unsigned()->index()->nullable();
+            $table->string('deskripsi');
             $table->string('lokasi');
             $table->string('deskripsi');
             $table->time('jam');

@@ -21,9 +21,17 @@
                         <button type="submit">Hapus</button>
                     </form>
                 </td>
+                <?php  
+                    if($d->status_undangan == 'terkirim'){
+                ?>
+                <td>
+                    Terkirim
+                </td>
+                <?php }else{ ?>
                 <td>
                     <a href="{{ route('kirim_tamu', ['id' => $datas->id, 'id_tamu' => $d->id ]) }}" method="POST">Kirim</a>
                 </td>
+                <?php } ?>
             </tr>
     @empty
         <h1>Data tidak ada</h1>

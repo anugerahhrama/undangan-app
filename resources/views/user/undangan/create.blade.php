@@ -28,9 +28,7 @@
     <option value="minggu">minggu</option>
     <br>
 </select>
-<input type="number" name="tanggal" placeholder="tanggal"><br>
-<input type="text" name="bulan" placeholder="bulan"><br>
-<input type="number" placeholder="tahun" name="tahun"><br>
+<input type="date" name="tanggal" placeholder="tanggal"><br>
 <input type="text" name="judul_acara" placeholder="judul acara"><br>
 <input type="text" name="deskripsi" placeholder="deskripsi"><br>
 <input type="time" name="jam" placeholder="jam"><br>

@@ -11,8 +11,6 @@ class Undangan extends Model
         'id_user',
         'hari',
         'tanggal',
-        'bulan',
-        'tahun',
         'judul_acara',
         'id_tema',
         'deskripsi',

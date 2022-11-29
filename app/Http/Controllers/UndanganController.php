@@ -18,13 +18,15 @@ class UndanganController extends Controller
         ->join('kategoris', 'undangans.id_kategori', '=', 'kategoris.id')
         ->join('temas', 'undangans.id_tema' , '=', 'temas.id')
         ->where('undangans.id_user', '=', $user)
-        ->get(['undangans.id_user', 'undangans.tanggal', 'undangans.hari', 'undangans.bulan', 'undangans.tahun','undangans.deskripsi',
+        ->get(['undangans.id_user', 'undangans.tanggal', 'undangans.hari', 'undangans.deskripsi',
         'undangans.id', 'users.nama', 'undangans.judul_acara', 'kategoris.kategori', 
         'temas.nama_tema', 'temas.tema', 'undangans.id_tema', 'undangans.jam', 'undangans.lokasi']);
+        
         // dd($datas);
         return view('user/undangan/index', compact('datas'));
     }
 
+    
     public function create(){
         $temas = Tema::all();
         $kategoris = Kategori::all();
@@ -71,8 +73,10 @@ class UndanganController extends Controller
         // ->where('temas.id', '=', $id)
         // ->get(['temas.id', 'undangans.id_tema','temas.nama_tema']);
         $kategoris = Kategori::all();
-        return view('user/undangan/editUndangan', compact('datas', 'kategoris', 'temas'))->with(['user' => Auth::user(),]);
-    }
+        $kategori_undangan = Kategori::find($datas->id_kategori);
+        return view('user/undangan/editUndangan', compact('datas', 'kategoris', 'temas', 'kategori_undangan'))->with(['user' => Auth::user(),]);
+        // dd($kategoris);
+    }   
 
     public function update(Request $request, $id){
         
@@ -80,8 +84,6 @@ class UndanganController extends Controller
             'id_user' => 'required',
             'hari' => 'required',
             'tanggal' => 'required',
-            'bulan' => 'required',
-            'tahun' => 'required',
             'judul_acara' => 'required',
             'id_tema' => 'required',
             'id_kategori' => 'required',
@@ -94,8 +96,6 @@ class UndanganController extends Controller
             'id_user' => $request->id_user,
             'hari' => $request->hari,
             'tanggal' => $request->tanggal,
-            'bulan' => $request->bulan,
-            'tahun' => $request->tahun,
             'judul_acara' => $request->judul_acara,
             'id_tema' => $request->id_tema,
             'id_kategori' => $request->id_kategori,
