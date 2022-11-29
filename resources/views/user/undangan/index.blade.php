@@ -10,95 +10,83 @@
             </div>
         </div>
     </div>
-    <div class="w-full text-start mx-2">
-        <a href="{{ route("tambah_undangan") }}" class="bg-rose-500 py-2 px-3 rounded-lg text-white">Tambah</a>
-    </div>
-<div class="container px-4">   
-    <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
-        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-rose-500 dark:text-white">
-                <tr>
-                    <th scope="col" class="py-3 px-6">
-                        id
-                    </th>
-                    <th scope="col" class="py-3 px-6">
-                        Nama pemilik
-                    </th>
-                    <th scope="col" class="py-3 px-6">
-                        Waktu
-                    </th>
-                    <th scope="col" class="py-3 px-6">
-                        judul acara
-                    </th>
-                    <th scope="col" class="py-3 px-6">
-                        kategori
-                    </th>
-                     <th scope="col" class="py-3 px-6">
-                        Tema
-                    </th>
-                     <th scope="col" class="py-3 px-6">
-                        action
-                    </th>
-                     <th scope="col" class="py-3 px-6">
-                        susunan acara
-                    </th>
-                     <th scope="col" class="py-3 px-6">
-                        Tamu
-                    </th>
-                     <th scope="col" class="py-3 px-6">
-                        Lihat Tema
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php $no=1 ?>
-                <?php
-                            function tgl_indo($tanggal){
-                                $bulan = array (
-                                    1 =>   'Januari',
-                                    'Februari',
-                                    'Maret',
-                                    'April',
-                                    'Mei',
-                                    'Juni',
-                                    'Juli',
-                                    'Agustus',
-                                    'September',
-                                    'Oktober',
-                                    'November',
-                                    'Desember'
-                                );
-                                $pecahkan = explode('-', $tanggal);
-                                
-                                // variabel pecahkan 0 = tanggal
-                                // variabel pecahkan 1 = bulan
-                                // variabel pecahkan 2 = tahun
-                             
-                                return $pecahkan[2] . ' ' . $bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[0];
-                            }
+    <div class="container px-4 mb-12">
+        <a href="{{ route('tambah_undangan') }}">
+            <button type="button" class="text-white bg-rose-500 hover:bg-rose-800 focus:ring-4 focus:ring-rose-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-rose-500 dark:hover:bg-rose-300 focus:outline-none dark:focus:ring-rose-500">
+                Tambah
+            </button>
+        </a>   
+        <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
+            <table class="w-full text-sm text-center text-gray-500 dark:text-rose-400">
+                <thead class="text-xs text-rose-700 uppercase bg-rose-50 dark:bg-rose-500 dark:text-white">
+                    <tr>
+                        <th scope="col" class="py-3 px-6">
+                            id
+                        </th>
+                        <th scope="col" class="py-3 px-6">
+                            Waktu
+                        </th>
+                        <th scope="col" class="py-3 px-6">
+                            judul acara
+                        </th>
+                        <th scope="col" class="py-3 px-6">
+                            Tema
+                        </th>
+                        <th scope="col" class="py-3 px-6">
+                            action
+                        </th>
+                        <th scope="col" class="py-3 px-6">
+                            susunan acara
+                        </th>
+                        <th scope="col" class="py-3 px-6">
+                            Tamu
+                        </th>
+                        <th scope="col" class="py-3 px-6">
+                            Lihat Tema
+                        </th>
+                    </tr>
+                </thead>
+                <tbody class="text-rose-700 bg-rose-50 dark:bg-rose-500">
+                    <?php $no=1 ?>
+                    <?php
+                    function tgl_indo($tanggal){
+                        $bulan = array (
+                            1 =>   'Januari',
+                            'Februari',
+                            'Maret',
+                            'April',
+                            'Mei',
+                            'Juni',
+                            'Juli',
+                            'Agustus',
+                            'September',
+                            'Oktober',
+                            'November',
+                            'Desember'
+                        );
+                        $pecahkan = explode('-', $tanggal);
                         
-                        ?>
-                @forelse($datas as $data)
-                <tr class="bg-white border-b dark:border-rose-500">
-                    <td class="py-4 px-6">
-                        {{ $no++ }}
-                    </td>
-                    <td class="py-4 px-6">
-                        {{ $data->nama }}
-                    </td>
-                    <td class="py-4 px-6">
-                        {{ $data->hari }} <br> <?= tgl_indo($data->tanggal) ?> 
-                    </td>
-                    <td class="py-4 px-6">
-                        {{ $data->judul_acara }}
-                    </td>
-                    <td class="py-4 px-6">
-                        {{ $data->kategori }}
-                    </td>
-                    <td class="py-4 px-6">
-                        {{ $data->nama_tema }}
-                    </td>
-                      <td class="py-4 px-6">
+                        // variabel pecahkan 0 = tanggal
+                        // variabel pecahkan 1 = bulan
+                        // variabel pecahkan 2 = tahun
+                    
+                        return $pecahkan[2] . ' ' . $bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[0];
+                        }?>
+                    @forelse($datas as $data)
+                    <tr class="bg-white border-b">
+                        <td class="py-4 px-6">
+                            {{ $no++ }}
+                        </td>
+                        <td class="py-4 px-6">
+                            {{ $data->hari }} <br> <?= tgl_indo($data->tanggal) ?> 
+                        </td>
+                        <td class="py-4 px-6">
+                            {{ $data->judul_acara }}
+                        </td>
+                        <td class="py-4 px-6">
+                            {{ $data->nama_tema }}
+                        </td>
+                        <td class="py-4 px-6">
                             <form action="{{ route('hapus_undangan', $data->id) }}" method="POST">
                                 <div class="grid grid-cols-none lg:grid-cols-2">
                                     <div class="mb-2">
@@ -117,43 +105,44 @@
                                     </div>
                                 </div>
                             </form>
-                        </td>
-                        <td class="py-4 px-6">
-                            <a class="font-medium text-blue-600 dark:text-rose-700" href="{{ route('susunan_acara', $data->id) }}">
-                                <button class="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-medium text-rose-700 rounded-lg group bg-gradient-to-br from-red-200 via-red-300 to-yellow-200 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellow-200 dark:text-dark dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400">
-                                    <span class="relative px-2 py-2 transition-all ease-in duration-75 dark:bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
-                                        Susunan acara
-                                    </span>
-                                </button>
-                               
-                            </a>
-                        </td>
-                        <td class="py-4 px-6">
-                            <a class="font-medium text-blue-600 dark:text-blue-500" href="{{ route('tamu_undangan', $data->id) }}">
-                                <button class="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-medium text-rose-700 rounded-lg group bg-gradient-to-br from-red-200 via-red-300 to-yellow-200 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellow-200 dark:text-dark dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400">
-                                    <span class="relative px-2 py-2 transition-all ease-in duration-75 dark:bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
-                                        Daftar tamu
-                                    </span>
-                                </button>
-                            </a>
-                        </td>
-                        <td class="py-4 px-6">
-                            <a class="font-medium text-rose-600 dark:text-rose-500" href="{{ route('lihat_tema', ['id' => $data->id, 'id_tema' => $data->id_tema ] ) }}">
-                                <button class="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-medium text-rose-700 rounded-lg group bg-gradient-to-br from-red-200 via-red-300 to-yellow-200 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellow-200 dark:text-dark dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400">
-                                    <span class="relative px-2 py-2 transition-all ease-in duration-75 dark:bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
-                                        Lihat Tema
-                                    </span>
-                                </button>
-                            </a>
-                        </td>
-                </tr>
-                @empty
-                <div class="p-4 mb-4 text-sm text-yellow-700 bg-yellow-100 rounded-lg dark:bg-yellow-200 dark:text-yellow-800" role="alert">
-                     <h1>tidak ada data</h1>
-                </div>
-                @endforelse
-            </tbody>
-        </table>
+                            </td>
+                            <td class="py-4 px-6">
+                                <a class="font-medium text-blue-600 dark:text-rose-700" href="{{ route('susunan_acara', $data->id) }}">
+                                    <button class="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-medium text-rose-700 rounded-lg group bg-gradient-to-br from-red-200 via-red-300 to-yellow-200 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellow-200 dark:text-dark dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400">
+                                        <span class="relative px-2 py-2 transition-all ease-in duration-75 dark:bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                                            Susunan acara
+                                        </span>
+                                    </button>
+                                
+                                </a>
+                            </td>
+                            <td class="py-4 px-6">
+                                <a class="font-medium text-blue-600 dark:text-blue-500" href="{{ route('tamu_undangan', $data->id) }}">
+                                    <button class="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-medium text-rose-700 rounded-lg group bg-gradient-to-br from-red-200 via-red-300 to-yellow-200 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellow-200 dark:text-dark dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400">
+                                        <span class="relative px-2 py-2 transition-all ease-in duration-75 dark:bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                                            Daftar tamu
+                                        </span>
+                                    </button>
+                                </a>
+                            </td>
+                            <td class="py-4 px-6">
+                                <a class="font-medium text-rose-600 dark:text-rose-500" href="{{ route('lihat_tema', ['id' => $data->id, 'id_tema' => $data->id_tema ] ) }}">
+                                    <button class="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-medium text-rose-700 rounded-lg group bg-gradient-to-br from-red-200 via-red-300 to-yellow-200 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellow-200 dark:text-dark dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400">
+                                        <span class="relative px-2 py-2 transition-all ease-in duration-75 dark:bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                                            Lihat Tema
+                                        </span>
+                                    </button>
+                                </a>
+                            </td>
+                        </tr>
+                    @empty
+                    <div class="p-4 mb-4 text-sm text-yellow-700 bg-yellow-100 rounded-lg dark:bg-yellow-200 dark:text-yellow-800" role="alert">
+                        <h1>tidak ada data</h1>
+                    </div>
+                    @endforelse
+                </tbody>
+            </table>
+        </div>
     </div>
 </section>
 
