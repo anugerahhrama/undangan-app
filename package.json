@@ -31,5 +31,8 @@
   "bugs": {
     "url": "https://github.com/AnugerahR08/undangan-app/issues"
   },
-  "homepage": "https://github.com/AnugerahR08/undangan-app#readme"
+  "homepage": "https://github.com/AnugerahR08/undangan-app#readme",
+  "dependencies": {
+    "html5-qrcode": "^2.3.3"
+  }
 }

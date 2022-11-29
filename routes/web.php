@@ -36,7 +36,9 @@ Route::controller(RegisterController::class)->group(function(){
 Route::group(['middleware' => ['auth']], function() {
     Route::group(['middleware' => ['cekLogin:admin']], function(){
         Route::get('dashboardadmin', function(){
-            return view('admin.dashboard');
+            return view('admin.dashboard')->with([
+                'user' => Auth::user(),
+            ]);;
         });
         Route::resource('tema', TemaController::class);
         Route::resource('user', UserController::class);
@@ -74,6 +76,9 @@ Route::group(['middleware' => ['auth']], function() {
             Route::get('presensi/{id}/{id_tamu}', 'presensi')->name('presensi_tamu');
             Route::put('presensi/hadir/{id}/{id_tamu}', 'hadir')->name('hadir_tamu');
             Route::get('tamu_undangan/kirim/{id}/{id_tamu}', 'kirim')->name('kirim_tamu');
+            Route::get('scanner', function(){
+                return view('user/scanner');
+            });
         });
     });
 });

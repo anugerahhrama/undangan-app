@@ -47,7 +47,7 @@ class TamuController extends Controller
             'email' => $request->email,
             'alamat' => $request->alamat,
             'url_undangan' => '127.0.0.1:8000/tamu/'.$request->id_undangan.'/'.$request->id,
-            'url_presensi' => '127.0.0.1:8000/presensi/'.$request->id_undangan.'/'.$request->id,
+            'url_presensi' => 'presensi/'.$request->id_undangan.'/'.$request->id,
             'status_undangan' => $request->status_undangan,
             'status_presensi' => $request->status_presensi
         ]);
@@ -82,7 +82,7 @@ class TamuController extends Controller
             'email' => $request->email,
             'alamat' => $request->alamat,
             'url_undangan' => '127.0.0.1:8000/tamu/'.$request->id_undangan.'/'.$request->id,
-            'url_presensi' => '127.0.0.1:8000/presensi/'.$request->id_undangan.'/'.$request->id,
+            'url_presensi' => 'presensi/'.$request->id_undangan.'/'.$request->id,
             'status_undangan' => $request->status_undangan,
             'status_presensi' => $request->status_presensi
         ]);

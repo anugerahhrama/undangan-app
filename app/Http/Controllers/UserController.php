@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -15,7 +16,9 @@ class UserController extends Controller
     public function index()
     {
         $datas = User::all()->where('role' , '=',  'user');
-        return view('admin.user.dataUser', compact('datas'));
+        return view('admin.user.dataUser', compact('datas'))->with([
+            'user' => Auth::user(),
+        ]);
     }
 
     /**

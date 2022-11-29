@@ -10,60 +10,92 @@
             </div>
         </div>
     </div>
-
-    <div class="container px-4 mb-12">
-        <a href="{{ route('tambah_undangan') }}">
-            <button type="button" class="text-white bg-rose-500 hover:bg-rose-800 focus:ring-4 focus:ring-rose-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-rose-500 dark:hover:bg-rose-300 focus:outline-none dark:focus:ring-rose-500">
-                Tambah
-            </button>
-        </a>
-        <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
-            <table class="w-full text-sm text-center text-gray-500 dark:text-rose-400">
-                <thead class="text-xs text-rose-700 uppercase bg-rose-50 dark:bg-rose-500 dark:text-white">
-                    <tr>
-                        <th scope="col" class="py-3 px-6">
-                            id
-                        </th>
-                        <th scope="col" class="py-3 px-6">
-                            Waktu
-                        </th>
-                        <th scope="col" class="py-3 px-6">
-                            judul acara
-                        </th>
-                        <th scope="col" class="py-3 px-6">
-                            Tema
-                        </th>
-                        <th scope="col" class="py-3 px-6">
-                            action
-                        </th>
-                        <th scope="col" class="py-3 px-6">
-                            susunan acara
-                        </th>
-                        <th scope="col" class="py-3 px-6">
-                            Tamu
-                        </th>
-                        <th scope="col" class="py-3 px-6">
-                            Lihat Tema
-                        </th>
-                    </tr>
-                </thead>
-                <tbody class="text-rose-700 bg-rose-50 dark:bg-rose-500"> 
-                    <?php $no=1; ?>
-                    @forelse($datas as $data)
-                    <tr class="bg-white border-b">
-                        <td class="py-4 px-6">
-                            {{ $no++ }}
-                        </td>
-                        <td class="py-4 px-6">
-                            {{ $data->hari }},{{ $data->tanggal }}-{{ $data->bulan }}-{{ $data->tahun }}
-                        </td>
-                        <td class="py-4 px-6">
-                            {{ $data->judul_acara }}
-                        </td>
-                        <td class="py-4 px-6">
-                            {{ $data->nama_tema }}
-                        </td>
-                        <td class="py-4 px-6">
+<div class="container px-4">   
+    <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
+        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-rose-500 dark:text-white">
+                <tr>
+                    <th scope="col" class="py-3 px-6">
+                        id
+                    </th>
+                    <th scope="col" class="py-3 px-6">
+                        Nama pemilik
+                    </th>
+                    <th scope="col" class="py-3 px-6">
+                        Waktu
+                    </th>
+                    <th scope="col" class="py-3 px-6">
+                        judul acara
+                    </th>
+                    <th scope="col" class="py-3 px-6">
+                        kategori
+                    </th>
+                     <th scope="col" class="py-3 px-6">
+                        Tema
+                    </th>
+                     <th scope="col" class="py-3 px-6">
+                        action
+                    </th>
+                     <th scope="col" class="py-3 px-6">
+                        susunan acara
+                    </th>
+                     <th scope="col" class="py-3 px-6">
+                        Tamu
+                    </th>
+                     <th scope="col" class="py-3 px-6">
+                        Lihat Tema
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $no=1 ?>
+                <?php
+                            function tgl_indo($tanggal){
+                                $bulan = array (
+                                    1 =>   'Januari',
+                                    'Februari',
+                                    'Maret',
+                                    'April',
+                                    'Mei',
+                                    'Juni',
+                                    'Juli',
+                                    'Agustus',
+                                    'September',
+                                    'Oktober',
+                                    'November',
+                                    'Desember'
+                                );
+                                $pecahkan = explode('-', $tanggal);
+                                
+                                // variabel pecahkan 0 = tanggal
+                                // variabel pecahkan 1 = bulan
+                                // variabel pecahkan 2 = tahun
+                             
+                                return $pecahkan[2] . ' ' . $bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[0];
+                            }
+                        
+                        ?>
+                @forelse($datas as $data)
+                <tr class="bg-white border-b dark:border-rose-500">
+                    <td class="py-4 px-6">
+                        {{ $no++ }}
+                    </td>
+                    <td class="py-4 px-6">
+                        {{ $data->nama }}
+                    </td>
+                    <td class="py-4 px-6">
+                        {{ $data->hari }} <br> <?= tgl_indo($data->tanggal) ?> 
+                    </td>
+                    <td class="py-4 px-6">
+                        {{ $data->judul_acara }}
+                    </td>
+                    <td class="py-4 px-6">
+                        {{ $data->kategori }}
+                    </td>
+                    <td class="py-4 px-6">
+                        {{ $data->nama_tema }}
+                    </td>
+                      <td class="py-4 px-6">
                             <form action="{{ route('hapus_undangan', $data->id) }}" method="POST">
                                 <div class="grid grid-cols-none lg:grid-cols-2">
                                     <div class="mb-2">
@@ -111,15 +143,14 @@
                                 </button>
                             </a>
                         </td>
-                    </tr>
-                    @empty
-                    <div class="p-4 mb-4 text-sm text-yellow-700 bg-yellow-100 rounded-lg dark:bg-yellow-200 dark:text-yellow-800" role="alert">
-                        <h1>tidak ada data</h1>
-                    </div>
-                    @endforelse
-                </tbody>
-            </table>
-        </div>
+                </tr>
+                @empty
+                <div class="p-4 mb-4 text-sm text-yellow-700 bg-yellow-100 rounded-lg dark:bg-yellow-200 dark:text-yellow-800" role="alert">
+                     <h1>tidak ada data</h1>
+                </div>
+                @endforelse
+            </tbody>
+        </table>
     </div>
 </section>
 
