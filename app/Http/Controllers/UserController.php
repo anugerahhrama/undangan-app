@@ -14,7 +14,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $datas = User::all();
+        $datas = User::all()->where('role' , '=',  'user');
         return view('admin.user.dataUser', compact('datas'));
     }
 
