@@ -86,7 +86,7 @@ Route::group(['middleware' => ['auth']], function() {
 Route::get('tamu/{id}/{id_tamu}', [TamuController::class, 'lihat'])->name('lihat_tamu');
 
 Route::get('/', function () {
-    return view('login');
+    return view('user/index');
 });
 
 Route::get('/tema1', function () {
