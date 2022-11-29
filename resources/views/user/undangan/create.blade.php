@@ -56,7 +56,7 @@
             <div class="w-full lg:w-2/3 lg:mx-auto">
               <div class="w-full block lg:flex">
                 <div class="w-full lg:w-1/2 px-4 mb-8">
-                  <label for="judul" class="text-base font-bold text-rose-500">Pembuat</label>
+                  <label for="judul" class="text-base font-bold text-rose-500">Judul Undangan</label>
                   <input type="hidden" readonly 
                     class="w-full bg-slate-200 text-dark p-2 rounded-md focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary" 
                     value="{{ $user->nama }}"

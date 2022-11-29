@@ -10,6 +10,9 @@
             </div>
         </div>
     </div>
+    <div class="w-full text-start mx-2">
+        <a href="{{ route("tambah_undangan") }}" class="bg-rose-500 py-2 px-3 rounded-lg text-white">Tambah</a>
+    </div>
 <div class="container px-4">   
     <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
         <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
