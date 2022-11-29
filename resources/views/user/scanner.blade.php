@@ -11,15 +11,15 @@
     <div id="reader" width="600px"></div>
 </body>
 <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
-<!-- <script type="text/javascript">
+<script type="text/javascript">
   // This method will trigger user permissions
   Html5Qrcode.getCameras().then(devices => {
     if (devices && devices.length) {
       var cameraId = devices[0].id;
       const html5QrCode = new Html5Qrcode("reader");
       const qrCodeSuccessCallback = (decodedText, decodedResult) => {
-        alert(decodedText);// 這裡已經可以正確彈出掃描結果，但點按無法跳轉
-        // confirm(window.location = decodedText);
+        // alert(decodedText);// 這裡已經可以正確彈出掃描結果，但點按無法跳轉
+        confirm(window.location = decodedText);
       };
       const config = {
         fps: 25,
@@ -35,8 +35,8 @@
   }).catch(err => {
     // handle err
   });
-</script> -->
-<script>
+</script>
+{{-- <script>
     function onScanSuccess(decodedText, decodedResult) {
     // Handle on success condition with the decoded text or result.
     console.log(`Scan result: ${decodedText}`, decodedResult);
@@ -45,7 +45,7 @@
 var html5QrcodeScanner = new Html5QrcodeScanner(
 	"reader", { fps: 100, qrbox: 600 });
 html5QrcodeScanner.render(onScanSuccess);
-</script>
+</script> --}}
 <!-- <script>
     var html5QrcodeScanner = new Html5QrcodeScanner(
     "reader", { fps: 10, qrbox: 250 });
