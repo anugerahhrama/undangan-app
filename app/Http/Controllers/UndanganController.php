@@ -70,8 +70,10 @@ class UndanganController extends Controller
         // ->where('temas.id', '=', $id)
         // ->get(['temas.id', 'undangans.id_tema','temas.nama_tema']);
         $kategoris = Kategori::all();
-        return view('user/undangan/editUndangan', compact('datas', 'kategoris', 'temas'))->with(['user' => Auth::user(),]);
-    }
+        $kategori_undangan = Kategori::find($datas->id_kategori);
+        return view('user/undangan/editUndangan', compact('datas', 'kategoris', 'temas', 'kategori_undangan'))->with(['user' => Auth::user(),]);
+        // dd($kategoris);
+    }   
 
     public function update(Request $request, $id){
         

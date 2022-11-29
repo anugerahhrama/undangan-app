@@ -8,12 +8,13 @@
     <label for="cars">Tema</label>
     <select id="cars" name="id_tema">
     @foreach($temas as $tema)
-    <option value="{{ $tema->id }}" >{{ $tema->nama_tema }}</option>
+    <option value="{{ $tema->id }}" selected>{{ $tema->nama_tema }}</option>
     @endforeach
     </select>
     <select id="cars" name="id_kategori">
+    <option value="{{ $kategori_undangan->id }}" selected >{{ $kategori_undangan->kategori }}</option>
     @foreach($kategoris as $kategori)
-    <option value="{{ $kategori->id }}" selected >{{ $kategori->kategori }}</option>
+    <option value="{{ $kategori->id }}" >{{ $kategori->kategori }}</option>
     @endforeach
     </select>
     <br>

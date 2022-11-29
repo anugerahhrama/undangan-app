@@ -22,6 +22,7 @@ return new class extends Migration
             $table->integer('tahun');
             $table->string('judul_acara');
             $table->bigInteger('id_tema')->unsigned()->index()->nullable();
+            $table->string('deskripsi');
             $table->string('lokasi');
             $table->time('jam');
             $table->timestamps();
