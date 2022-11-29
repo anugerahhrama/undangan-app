@@ -8,7 +8,6 @@
           <h1 class="text-base font-semibold text-rose-400 md:text-2xl">
             Selamat Datang Di
             <span class="block text-3xl text-slate-800 font-bold md:text-5xl">
-              <h4>{{ $user->nama }}</h4>
               Website Undangan Kami
             </span>
           </h1>
@@ -16,7 +15,7 @@
             Mudah, Cepat, & Gampang
           </h2>
           <p class="mb-8 font-medium leading-relaxed text-slate-500">Buat undangan digital dengan cara yang mudah?</p>
-          <a href="/data_undangan" class="bg-rose-500 hover:bg-red-400 py-2.5 px-4 rounded-xl text-white font-semibold transition duration-300 ease-in-out hover:shadow-lg">
+          <a href="/login" class="bg-rose-500 hover:bg-red-400 py-2.5 px-4 rounded-xl text-white font-semibold transition duration-300 ease-in-out hover:shadow-lg">
             Buat Sekarang
           </a>
         </div>
