@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('undangans', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('id_user')->u nullable();
+            $table->bigInteger('id_user')->unsigned()->index()->nullable();
             $table->string('hari');
             $table->date('tanggal');
             $table->string('judul_acara');
