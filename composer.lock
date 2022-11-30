@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9aeab774f556df9c7f7ba06e07ce6f44",
+    "content-hash": "043867a55d80995858f072bb9b643a46",
     "packages": [
         {
             "name": "alfa6661/laravel-autonumber",

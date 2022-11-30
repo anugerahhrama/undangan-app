@@ -52,7 +52,6 @@ class AcaraController extends Controller
     }
 
     public function update($id, $id_user, Request $request){
-
         $this->validate($request,[
             'id_detail' => 'required',
             'acara' => 'required'
