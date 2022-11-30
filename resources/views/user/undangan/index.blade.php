@@ -1,4 +1,4 @@
-@extends('user/base/base')
+@extends('user/dataUser/base/base')
   
 @section('content')
 
@@ -17,7 +17,7 @@
             </button>
         </a>   
         <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
-            <table class="w-full text-sm text-center text-gray-500 dark:text-rose-400">
+            <table class="w-full border mx-auto text-sm text-center text-gray-500 dark:text-rose-400">
                 <thead class="text-xs text-rose-700 uppercase bg-rose-50 dark:bg-rose-500 dark:text-white">
                     <tr>
                         <th scope="col" class="py-3 px-6">
@@ -33,9 +33,6 @@
                             Tema
                         </th>
                         <th scope="col" class="py-3 px-6">
-                            action
-                        </th>
-                        <th scope="col" class="py-3 px-6">
                             susunan acara
                         </th>
                         <th scope="col" class="py-3 px-6">
@@ -43,6 +40,9 @@
                         </th>
                         <th scope="col" class="py-3 px-6">
                             Lihat Tema
+                        </th>
+                        <th scope="col" class="py-3 px-6">
+                            action
                         </th>
                     </tr>
                 </thead>
@@ -86,7 +86,35 @@
                         <td class="py-4 px-6">
                             {{ $data->nama_tema }}
                         </td>
-                        <td class="py-4 px-6">
+                            <td class="py-4 px-6">
+                                <a class="font-medium text-blue-600 dark:text-rose-700" href="{{ route('susunan_acara', $data->id) }}">
+                                    <button class="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-medium text-rose-700 rounded-lg group bg-gradient-to-br from-red-200 via-red-300 to-yellow-200 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellow-200 dark:text-dark dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400">
+                                        <span class="relative px-2 py-2 transition-all ease-in duration-75 dark:bg-white hover:text-white rounded-md group-hover:bg-opacity-0">
+                                            Susunan acara
+                                        </span>
+                                    </button>
+                                
+                                </a>
+                            </td>
+                            <td class="py-4 px-6">
+                                <a class="font-medium text-blue-600 dark:text-blue-500" href="{{ route('tamu_undangan', $data->id) }}">
+                                    <button class="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-medium text-rose-700 rounded-lg group bg-gradient-to-br from-red-200 via-red-300 to-yellow-200 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellow-200 dark:text-dark dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400">
+                                        <span class="relative px-2 py-2 transition-all ease-in duration-75 dark:bg-white hover:text-white rounded-md group-hover:bg-opacity-0">
+                                            Daftar tamu
+                                        </span>
+                                    </button>
+                                </a>
+                            </td>
+                            <td class="py-4 px-6">
+                                <a class="font-medium text-rose-600 dark:text-rose-500" href="{{ route('lihat_tema', ['id' => $data->id, 'id_tema' => $data->id_tema ] ) }}">
+                                    <button class="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-medium text-rose-700 rounded-lg group bg-gradient-to-br from-red-200 via-red-300 to-yellow-200 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellow-200 dark:text-dark dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400">
+                                        <span class="relative px-2 py-2 transition-all ease-in duration-75 dark:bg-white hover:text-white rounded-md group-hover:bg-opacity-0">
+                                            Lihat Tema
+                                        </span>
+                                    </button>
+                                </a>
+                            </td>
+                            <td class="py-4 px-6">
                             <form action="{{ route('hapus_undangan', $data->id) }}" method="POST">
                                 <div class="grid grid-cols-none lg:grid-cols-2">
                                     <div class="mb-2">
@@ -105,34 +133,6 @@
                                     </div>
                                 </div>
                             </form>
-                            </td>
-                            <td class="py-4 px-6">
-                                <a class="font-medium text-blue-600 dark:text-rose-700" href="{{ route('susunan_acara', $data->id) }}">
-                                    <button class="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-medium text-rose-700 rounded-lg group bg-gradient-to-br from-red-200 via-red-300 to-yellow-200 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellow-200 dark:text-dark dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400">
-                                        <span class="relative px-2 py-2 transition-all ease-in duration-75 dark:bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
-                                            Susunan acara
-                                        </span>
-                                    </button>
-                                
-                                </a>
-                            </td>
-                            <td class="py-4 px-6">
-                                <a class="font-medium text-blue-600 dark:text-blue-500" href="{{ route('tamu_undangan', $data->id) }}">
-                                    <button class="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-medium text-rose-700 rounded-lg group bg-gradient-to-br from-red-200 via-red-300 to-yellow-200 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellow-200 dark:text-dark dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400">
-                                        <span class="relative px-2 py-2 transition-all ease-in duration-75 dark:bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
-                                            Daftar tamu
-                                        </span>
-                                    </button>
-                                </a>
-                            </td>
-                            <td class="py-4 px-6">
-                                <a class="font-medium text-rose-600 dark:text-rose-500" href="{{ route('lihat_tema', ['id' => $data->id, 'id_tema' => $data->id_tema ] ) }}">
-                                    <button class="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-medium text-rose-700 rounded-lg group bg-gradient-to-br from-red-200 via-red-300 to-yellow-200 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellow-200 dark:text-dark dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400">
-                                        <span class="relative px-2 py-2 transition-all ease-in duration-75 dark:bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
-                                            Lihat Tema
-                                        </span>
-                                    </button>
-                                </a>
                             </td>
                         </tr>
                     @empty
