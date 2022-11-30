@@ -41,7 +41,7 @@
                                             <td>{{ $data->nama_tema }}</td>
                                             <td>{{ $data->tema }}</td>
                                             <td>
-                                                <form action="{{ route('tema.destroy', $data->id) }}" method="POST">
+                                                <form action="{{ route('tema.destroy', $data->id) }}" method="POST" onsubmit="return confirm('Yakin Akan Dihapus?')">
                                                 <a href="{{ route('tema.edit', $data->id) }}" class="btn btn-warning text-white"><i class="bi bi-pen"></i></a>
                                                 @csrf
                                                 @method('DELETE')

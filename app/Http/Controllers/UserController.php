@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Console\View\Components\Alert;
 
 class UserController extends Controller
 {
@@ -28,7 +29,9 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('admin.user.tambahUser'); 
+        return view('admin.user.tambahUser')->with([
+            'user' => Auth::user(),
+        ]); 
     }
 
     /**

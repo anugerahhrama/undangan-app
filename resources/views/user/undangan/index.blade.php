@@ -115,7 +115,6 @@
                                 </a>
                             </td>
                             <td class="py-4 px-6">
-                            <form action="{{ route('hapus_undangan', $data->id) }}" method="POST">
                                 <div class="grid grid-cols-none lg:grid-cols-2">
                                     <div class="mb-2">
                                         <a href="{{ route('edit_undangan', $data->id ) }}">
@@ -125,11 +124,13 @@
                                         </a>
                                     </div>
                                     <div>
+                                        <form action="{{ route('hapus_undangan', $data->id) }}" method="POST">
                                         @csrf
-                                        @method('DELETE')
-                                        <button class="text-white bg-red-500 hover:bg-red-200 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-2 py-2 dark:bg-red-700 dark:hover:bg-red-300 focus:outline-none dark:focus:ring-red-500" type="submit">
-                                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
-                                        </button>
+                                            <input type="hidden" name="_method" value="DELETE">
+                                            <button data-judul="{{ $data->judul_acara }}" class="btndelete text-white bg-red-500 hover:bg-red-200 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-2 py-2 dark:bg-red-700 dark:hover:bg-red-300 focus:outline-none dark:focus:ring-red-500" type="submit">
+                                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+                                            </button>
+                                        </form>
                                     </div>
                                 </div>
                             </form>
@@ -145,5 +146,29 @@
         </div>
     </div>
 </section>
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.1.slim.js" integrity="sha256-tXm+sa1uzsbFnbXt8GJqsgi2Tw+m4BLGDof6eUPjbtk=" crossorigin="anonymous"></script>
+<script>
+$('.btndelete').click(function(event) {
+    var form = $(this).closest('form');
+    var name = $(this).data('name');
+    var judul = $(this).attr('data-judul');
+    event.preventDefault();
+    swal({
+        title: "Apakah Anda Yakin Akan Menghapus " + judul + "?",
+        icon: "warning",
+        type: "warning",
+        buttons: ["Cancel","Yes!"],
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+    }).then((willDelete) => {
+        if (willDelete) {
+            form.submit();
+        }
+    });
+});
+</script>
 
 @endsection
