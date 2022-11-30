@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Acara;
 use App\Models\Kategori;
+use App\Models\Tamu;
 use Illuminate\Http\Request;
 use App\Models\Tema;
 use App\Models\User;
@@ -23,7 +24,7 @@ class UndanganController extends Controller
         'temas.nama_tema', 'temas.tema', 'undangans.id_tema', 'undangans.jam', 'undangans.lokasi']);
         
         // dd($datas);
-        return view('user/undangan/index', compact('datas'));
+        return view('user/undangan/index', compact('datas'))->with(['user' => Auth::user(),]);
     }
 
     
@@ -39,8 +40,6 @@ class UndanganController extends Controller
             'id_user' => 'required',
             'hari' => 'required',
             'tanggal' => 'required',
-            'bulan' => 'required',
-            'tahun' => 'required',
             'judul_acara' => 'required',
             'id_tema' => 'required',
             'deskripsi' => 'required',
@@ -53,8 +52,6 @@ class UndanganController extends Controller
             'id_user' => $request->id_user,
             'hari' => $request->hari,
             'tanggal' => $request->tanggal,
-            'bulan' => $request->bulan,
-            'tahun' => $request->tahun,
             'judul_acara' => $request->judul_acara,
             'id_tema' => $request->id_tema,
             'deskripsi' => $request->deskripsi,
@@ -62,6 +59,7 @@ class UndanganController extends Controller
             'jam' => $request->jam,
             'lokasi' => $request->lokasi
         ]);
+        // dd($request);
         return redirect(route('data_undangan'));
     }
 
@@ -110,7 +108,15 @@ class UndanganController extends Controller
 
     public function hapus($id){
         $undangan = Undangan::findOrFail($id);
-        $undangan->delete();
+        $tamus = Tamu::all()->where('id_undangan', '=', $id);
+        $acara = Acara::all()->where('id_detail', '=', $id);
+        // dd($tamus);
+        $tamus->each->delete();
+        $acara->each->delete();
+        if ($undangan != null) {
+            $undangan->delete();
+            return redirect(route('data_undangan'));
+        }
         return redirect(route('data_undangan'));
     }
 

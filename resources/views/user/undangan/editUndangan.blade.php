@@ -25,7 +25,7 @@
     <option value="selasa">selasa</option>
     <option value="rabu">rabu</option>
     <option value="kamis">kamis</option>
-    <option value="jumat">jum'at</option>
+    <option value="jumat">jumat</option>
     <option value="sabtu">Sabtu</option>
     <option value="minggu">minggu</option>
     <br>

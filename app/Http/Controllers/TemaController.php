@@ -28,7 +28,9 @@ class TemaController extends Controller
      */
     public function create()
     {
-        return view('admin.tema.tambahTema');
+        return view('admin.tema.tambahTema')->with([
+            'user' => Auth::user(),
+        ]); 
     }
 
     /**
@@ -71,7 +73,9 @@ class TemaController extends Controller
      */
     public function edit(Tema $tema)
     {
-        return view('admin.tema.editTema', compact('tema'));
+        return view('admin.tema.editTema', compact('tema'))->with([
+            'user' => Auth::user(),
+        ]);
     }
 
     /**

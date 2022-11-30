@@ -17,16 +17,16 @@ class TemaData extends Seeder
     {
         $tema = [
             [
-                'nama_tema' => 'pernikahan',
-                'tema' => 'fasfdsfsfd',
+                'nama_tema' => 'Tema 1',
+                'tema' => 'Tema 1',
             ],
             [
-                'nama_tema' => 'pernikahan2',
-                'tema' => 'fasfdsfsfd',
+                'nama_tema' => 'Tema 2',
+                'tema' => 'Tema 2',
             ],
             [
-                'nama_tema' => 'pernikahan3',
-                'tema' => 'fasfdsfsfd',
+                'nama_tema' => 'Tema 3',
+                'tema' => 'Tema 3',
             ],
         ];
 
