@@ -102,26 +102,16 @@
                 </div>
               </div>
               <div class="w-full block md:flex">
-                  <div class="lg:w-1/4 w-full px-4 mb-8">
+                  <div class="lg:w-1/2 w-full px-4 mb-8">
                     <label for="hari" class="text-base font-bold text-rose-500">Hari</label>
                     <input type="text" id="hari" name="hari"
                       class="w-full bg-slate-200 text-dark p-2 rounded-md focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary" />
                   </div>
-                  <div class="lg:w-1/4 w-full px-4 mb-8">
+                  <div class="lg:w-1/2 w-full px-4 mb-8">
                     <label for="tanggal" class="text-base font-bold text-rose-500">Tanggal</label>
-                    <input type="number" id="tanggal" name="tanggal"
+                    <input type="date" id="tanggal" name="tanggal"
                       class="w-full bg-slate-200 text-dark p-2 rounded-md focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary" />
                   </div>
-                <div class="lg:w-1/4 w-full px-4 mb-8">
-                  <label for="bulan" class="text-base font-bold text-rose-500">Bulan</label>
-                  <input type="text" id="bulan" name="bulan"
-                    class="w-full bg-slate-200 text-dark p-2 rounded-md focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary" />
-                </div>
-                <div class=" lg:w-1/4 w-full px-4 mb-8">
-                  <label for="tahun" class="text-base font-bold text-rose-500">Tahun</label>
-                  <input type="number" id="tahun" name="tahun"
-                    class="w-full bg-slate-200 text-dark p-2 rounded-md focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary" />
-                </div>
               </div>
               <div class="w-full px-4 mb-8">
                   <label for="jam" class="text-base font-bold text-rose-500">Jam Pelaksanaan</label>
@@ -137,9 +127,11 @@
                 <button type="submit"
                   class="text-base mb-3 font-semibold bg-rose-500 md:mx-4 text-white bg-primary py-3 px-8 rounded-xl w-full md:w-1/3 hover:opacity-70 hover:shadow-lg transition duration-500">Tambah
                 </button>
+                <button class="text-base mb-3 text-center  font-semibold bg-rose-500 md:mx-4 text-white bg-primary py-3 px-8 rounded-xl w-full md:w-1/3  hover:opacity-70 hover:shadow-lg transition duration-500">
                 <a href="/data_undangan"
-                  class="text-base mb-3 text-center  font-semibold bg-rose-500 md:mx-4 text-white bg-primary py-3 px-8 rounded-xl w-full md:w-1/3  hover:opacity-70 hover:shadow-lg transition duration-500">Kembali
+                  >Kembali
                 </a>
+                </button>
               </div>
             </div>
           </form>
