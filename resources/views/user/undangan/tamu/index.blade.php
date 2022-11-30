@@ -118,13 +118,13 @@
                 </tr>
               </thead>
               <tbody>
-                @foreach($dataAcara as $data)
+                @foreach($data as $d)
                   <tr class="bg-rose-50 border-b hover:bg-rose-100">
                     <td class="py-4 px-6">
-                      {{ $data->id }}
+                      {{ $d->id }}
                     </td>
                     <td class="py-4 px-6">
-                      {{ $data->acara }}
+                      {{ $d->acara }}
                     </td>
                     <td class="pt-4 px-6">
                       <form action="{{ route('hapus_acara', ['id' => $datas->id, 'id_user' => $data->id]) }}" method="POST">
