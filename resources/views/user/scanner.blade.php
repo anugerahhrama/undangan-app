@@ -1,4 +1,4 @@
-{{--  <!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -45,5 +45,5 @@ var html5QrcodeScanner = new Html5QrcodeScanner(
 	"reader", { fps: 10, qrbox: 600 });
 html5QrcodeScanner.render(onScanSuccess);
 </script>
-</html>  --}}
+</html> 
 
