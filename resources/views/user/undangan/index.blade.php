@@ -1,4 +1,4 @@
-@extends('user/base/base')
+@extends('user/dataUser/base/base')
   
 @section('content')
 
@@ -17,7 +17,7 @@
             </button>
         </a>   
         <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
-            <table class="w-full text-sm text-center text-gray-500 dark:text-rose-400">
+            <table class="w-full border mx-auto text-sm text-center text-gray-500 dark:text-rose-400">
                 <thead class="text-xs text-rose-700 uppercase bg-rose-50 dark:bg-rose-500 dark:text-white">
                     <tr>
                         <th scope="col" class="py-3 px-6">
@@ -33,9 +33,6 @@
                             Tema
                         </th>
                         <th scope="col" class="py-3 px-6">
-                            action
-                        </th>
-                        <th scope="col" class="py-3 px-6">
                             susunan acara
                         </th>
                         <th scope="col" class="py-3 px-6">
@@ -43,6 +40,9 @@
                         </th>
                         <th scope="col" class="py-3 px-6">
                             Lihat Tema
+                        </th>
+                        <th scope="col" class="py-3 px-6">
+                            action
                         </th>
                     </tr>
                 </thead>
@@ -86,30 +86,10 @@
                         <td class="py-4 px-6">
                             {{ $data->nama_tema }}
                         </td>
-                        <td class="py-4 px-6">
-                            <form action="{{ route('hapus_undangan', $data->id) }}" method="POST">
-                                <div class="grid grid-cols-none lg:grid-cols-2">
-                                    <div class="mb-2">
-                                        <a href="{{ route('edit_undangan', $data->id ) }}">
-                                            <button type="button" class="text-white bg-yellow-500 hover:bg-yellow-200 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-2 py-2 dark:bg-yellow-400 dark:hover:bg-yellow-300 focus:outline-none dark:focus:ring-yellow-500">
-                                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
-                                            </button>        
-                                        </a>
-                                    </div>
-                                    <div>
-                                        @csrf
-                                        @method('DELETE')
-                                        <button class="text-white bg-red-500 hover:bg-red-200 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-2 py-2 dark:bg-red-700 dark:hover:bg-red-300 focus:outline-none dark:focus:ring-red-500" type="submit">
-                                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
-                                        </button>
-                                    </div>
-                                </div>
-                            </form>
-                            </td>
                             <td class="py-4 px-6">
                                 <a class="font-medium text-blue-600 dark:text-rose-700" href="{{ route('susunan_acara', $data->id) }}">
                                     <button class="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-medium text-rose-700 rounded-lg group bg-gradient-to-br from-red-200 via-red-300 to-yellow-200 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellow-200 dark:text-dark dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400">
-                                        <span class="relative px-2 py-2 transition-all ease-in duration-75 dark:bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                                        <span class="relative px-2 py-2 transition-all ease-in duration-75 dark:bg-white hover:text-white rounded-md group-hover:bg-opacity-0">
                                             Susunan acara
                                         </span>
                                     </button>
@@ -119,7 +99,7 @@
                             <td class="py-4 px-6">
                                 <a class="font-medium text-blue-600 dark:text-blue-500" href="{{ route('tamu_undangan', $data->id) }}">
                                     <button class="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-medium text-rose-700 rounded-lg group bg-gradient-to-br from-red-200 via-red-300 to-yellow-200 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellow-200 dark:text-dark dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400">
-                                        <span class="relative px-2 py-2 transition-all ease-in duration-75 dark:bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                                        <span class="relative px-2 py-2 transition-all ease-in duration-75 dark:bg-white hover:text-white rounded-md group-hover:bg-opacity-0">
                                             Daftar tamu
                                         </span>
                                     </button>
@@ -128,11 +108,32 @@
                             <td class="py-4 px-6">
                                 <a class="font-medium text-rose-600 dark:text-rose-500" href="{{ route('lihat_tema', ['id' => $data->id, 'id_tema' => $data->id_tema ] ) }}">
                                     <button class="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-medium text-rose-700 rounded-lg group bg-gradient-to-br from-red-200 via-red-300 to-yellow-200 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellow-200 dark:text-dark dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400">
-                                        <span class="relative px-2 py-2 transition-all ease-in duration-75 dark:bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                                        <span class="relative px-2 py-2 transition-all ease-in duration-75 dark:bg-white hover:text-white rounded-md group-hover:bg-opacity-0">
                                             Lihat Tema
                                         </span>
                                     </button>
                                 </a>
+                            </td>
+                            <td class="py-4 px-6">
+                                <div class="grid grid-cols-none lg:grid-cols-2">
+                                    <div class="mb-2">
+                                        <a href="{{ route('edit_undangan', $data->id ) }}">
+                                            <button type="button" class="text-white bg-yellow-500 hover:bg-yellow-200 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-2 py-2 dark:bg-yellow-400 dark:hover:bg-yellow-300 focus:outline-none dark:focus:ring-yellow-500">
+                                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
+                                            </button>        
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <form action="{{ route('hapus_undangan', $data->id) }}" method="POST">
+                                        @csrf
+                                            <input type="hidden" name="_method" value="DELETE">
+                                            <button data-judul="{{ $data->judul_acara }}" class="btndelete text-white bg-red-500 hover:bg-red-200 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-2 py-2 dark:bg-red-700 dark:hover:bg-red-300 focus:outline-none dark:focus:ring-red-500" type="submit">
+                                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </form>
                             </td>
                         </tr>
                     @empty
@@ -145,5 +146,29 @@
         </div>
     </div>
 </section>
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.1.slim.js" integrity="sha256-tXm+sa1uzsbFnbXt8GJqsgi2Tw+m4BLGDof6eUPjbtk=" crossorigin="anonymous"></script>
+<script>
+$('.btndelete').click(function(event) {
+    var form = $(this).closest('form');
+    var name = $(this).data('name');
+    var judul = $(this).attr('data-judul');
+    event.preventDefault();
+    swal({
+        title: "Apakah Anda Yakin Akan Menghapus " + judul + "?",
+        icon: "warning",
+        type: "warning",
+        buttons: ["Cancel","Yes!"],
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+    }).then((willDelete) => {
+        if (willDelete) {
+            form.submit();
+        }
+    });
+});
+</script>
 
 @endsection

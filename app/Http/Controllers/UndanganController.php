@@ -23,7 +23,7 @@ class UndanganController extends Controller
         'temas.nama_tema', 'temas.tema', 'undangans.id_tema', 'undangans.jam', 'undangans.lokasi']);
         
         // dd($datas);
-        return view('user/undangan/index', compact('datas'));
+        return view('user/undangan/index', compact('datas'))->with(['user' => Auth::user(),]);
     }
 
     

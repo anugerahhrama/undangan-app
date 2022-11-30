@@ -15,7 +15,7 @@
           <nav id="nav-menu" class="hidden absolute py-5 lg:shadow-none lg:rounded-none bg-rose-200  shadow-lg rounded-lg max-w-[250px] w-full right-4 top-full lg:block lg:static lg:bg-transparent lg:max-w-full">
             <ul class="block lg:flex">
               <li class="group">
-                <a href="#hero" class="text-base text-white lg:text-slate-900 py-2 mx-8 flex group-hover:text-rose-500">
+                <a href="/dashboarduser" class="text-base text-white lg:text-slate-900 py-2 mx-8 flex group-hover:text-rose-500">
                   Home
                 </a>
               </li>

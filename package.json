@@ -33,6 +33,7 @@
   },
   "homepage": "https://github.com/AnugerahR08/undangan-app#readme",
   "dependencies": {
-    "html5-qrcode": "^2.3.3"
+    "html5-qrcode": "^2.3.3",
+    "sweetalert2": "^11.6.14"
   }
 }
