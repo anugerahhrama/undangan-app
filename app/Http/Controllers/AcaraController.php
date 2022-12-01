@@ -53,14 +53,14 @@ class AcaraController extends Controller
 
     public function update($id, $id_user, Request $request){
         $this->validate($request,[
-            'id_detail' => 'required',
+            // 'id_detail' => 'required',
             'acara' => 'required'
         ]);
 
         $acara = Acara::findOrFail($id_user);
 
         $cek = $acara->update([
-            'id_detail' => $request->id_detail,
+            // 'id_detail' => $request->id_detail,
             'acara' => $request->acara
         ]);
 

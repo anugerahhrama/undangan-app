@@ -56,7 +56,8 @@
                 
                 <div class="w-full lg:w-1/2 px-4 mb-8">
                   <label for="lokasi" class="text-base font-bold text-rose-500">Lokasi</label>
-                  <input type="text" id="lokasi" name="lokasi" class="w-full bg-slate-200 text-dark p-2 rounded-md focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary" />
+                  <input type="text" id="lokasi" name="lokasi" class="w-full bg-slate-200 mb-1 text-dark p-2 rounded-md focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary" />
+                  <small class="text-rose-500">Masukan lokasi sesuai yang terdaftar di Google Maps</small>
                 </div>
               </div>
 

@@ -39,7 +39,7 @@
           </a>
         </div>
       
-        <div class="w-full flex flex-wrap justify-center xl:w-10/12 xl:mx-auto">
+        <div class="w-full flex flex-wrap justify-center xl:w-10/12 xl:mx-auto pb-32">
           <div class="overflow-x-auto ml-8 relative shadow-md border-rose-200 border sm:rounded-lg">
             <table class="w-full text-sm text-left text-rose-500">
               <thead class="text-xs text-rose-700 uppercase bg-rose-200">

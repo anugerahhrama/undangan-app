@@ -24,9 +24,12 @@
                   Data Undangan
                 </a>
               </li>
+              <li class="group px-7 py-2 lg:p-0">
+                <a href="/scan" class="block px-3 py-1.5 rounded-lg text-white hover:shadow-md transition duration-300s ease-in-out font-bold hover:bg-rose-400 bg-rose-600">Scanner</a>
+              </li>
               <li class="group px-7">
                 <a href="/logout" class="block px-3 py-1.5 rounded-lg text-white hover:shadow-md transition duration-300s ease-in-out font-bold hover:bg-rose-400 bg-rose-600">Logout</a>
-            </li>
+              </li>
             </ul>
           </nav>
         </div>

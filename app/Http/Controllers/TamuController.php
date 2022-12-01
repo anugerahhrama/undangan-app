@@ -100,10 +100,11 @@ class TamuController extends Controller
     public function lihat($id, $id_tamu){
         $undangan = Undangan::find($id);
         $tamu = Tamu::find($id_tamu);
+        $acara = Acara::all()->where('id_detail','=',$id);
         $qrcode = QrCode::size(200)->generate($tamu->url_presensi);
         // dd($tamu);
         // return view('user/undangan/tamu/undangan', compact('tamu', 'undangan'));
-        return view('user/undangan/tamu/undanganTamu/'.$undangan->id_tema , compact('tamu', 'undangan', 'qrcode'));
+        return view('user/undangan/tamu/undanganTamu/'.$undangan->id_tema , compact('tamu', 'undangan','acara', 'qrcode'));
     }
 
     public function presensi($id, $id_tamu){

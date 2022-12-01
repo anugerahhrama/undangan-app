@@ -30,6 +30,7 @@ class UndanganController extends Controller
     public function create(){
         $temas = Tema::all();
         $kategoris = Kategori::all();
+        
         return view('user/undangan/create', compact('temas', 'kategoris'))->with(['user' => Auth::user(),]);
     }
 

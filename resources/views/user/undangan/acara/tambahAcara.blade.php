@@ -9,8 +9,8 @@
 
 @extends('user/dataUser/base/base')
 @section('content')
-  <section id="contact" class="pt-36 pb-10 bg-rose-50 min-h-screen">
-    <div class="container">
+  <section id="contact" class="pt-36 pb-10 mb-10 bg-rose-50 min-h-screen">
+    <div class="container ">
       <div class="w-full px-4">
         <div class="max-w-xl mx-auto text-center">
           <h4 class="font-semibold text-xl text-rose-500 mb-2">
