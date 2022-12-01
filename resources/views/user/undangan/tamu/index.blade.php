@@ -2,7 +2,7 @@
 
 @section('content')
 
-<section class="pt-32 md:pt-36 min-h-screen">
+<section class="pt-32 md:pt-36 min-h-screen mb-12">
   <div class="container">
     <div class="w-full px-7">
       <div class="max-w-xl mx-auto text-center">
@@ -16,7 +16,7 @@
           <button type="button" class="text-white bg-rose-500 hover:bg-rose-800 focus:ring-4 focus:ring-rose-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-rose-500 dark:hover:bg-rose-300 focus:outline-none dark:focus:ring-rose-500">
               Tambah Data Tamu
           </button>
-        </a>   
+        </a>  
       </div>
     
       <div class="container mb-12 text-center">
@@ -71,6 +71,21 @@
                   <td class="py-4 px-6">
                     {{ $d->status_presensi }}
                   </td>
+                  <?php  
+                  if($d->status_undangan == 'terkirim'){
+                  ?>
+                  <td class="py-4 px-6">
+                    terkirim 
+                  </td>
+                  <?php }else{ ?>
+                  <td class="py-4 px-6">
+                    <a class="font-medium text-rose-700 dark:text-rose-700" href="{{ route('kirim_tamu', ['id' => $datas->id, 'id_tamu' => $d->id ]) }}">
+                        <button type="button" class="text-rose-700 bg-white border border-rose-500 focus:outline-none hover:bg-rose-500 focus:ring-4 hover:text-white focus:ring-rose-500 font-medium rounded-full text-sm px-4 py-2 dark:bg-white dark:text-rose-700 dark:border-rose-700 dark:hover:bg-rose-500 dark:hover:text-white dark:hover:border-rose-700 dark:focus:ring-rose-500">
+                            Kirim
+                        </button>
+                    </a>
+                  </td>
+                  <?php } ?>
                   <td class="py-4 px-6">
                     <a class="font-medium text-rose-700 dark:text-rose-700" href="{{route('lihat_tamu', ['id' => $datas->id, 'id_tamu' => $d->id ] )}}">
                       <button type="button" class="text-rose-700 bg-white border border-rose-500 focus:outline-none hover:bg-rose-500 focus:ring-4 hover:text-white focus:ring-rose-500 font-medium rounded-full text-sm px-5 py-2 dark:bg-white dark:text-rose-700 dark:border-rose-700 dark:hover:bg-rose-500 dark:hover:text-white dark:hover:border-rose-700 dark:focus:ring-rose-500">
@@ -85,24 +100,8 @@
                       </button>
                     </a>
                   </td>
-                  <?php  
-                  if($d->status_undangan == 'terkirim'){
-                  ?>
                   <td class="py-4 px-6">
-                    <p class="bg-rose-500 py-2 px-3 text-white rounded-lg hover:bg-rose-400 hover:shadow-md tracking-wide">Terkirim</p> 
-                  </td>
-                  <?php }else{ ?>
-                  <td class="py-4 px-6">
-                    <a class="font-medium text-rose-700 dark:text-rose-700" href="{{ route('kirim_tamu', ['id' => $datas->id, 'id_tamu' => $d->id ]) }}">
-                        <button type="button" class="text-rose-700 bg-white border border-rose-500 focus:outline-none hover:bg-rose-500 focus:ring-4 hover:text-white focus:ring-rose-500 font-medium rounded-full text-sm px-5 py-2 dark:bg-white dark:text-rose-700 dark:border-rose-700 dark:hover:bg-rose-500 dark:hover:text-white dark:hover:border-rose-700 dark:focus:ring-rose-500">
-                            Kirim
-                        </button>
-                    </a>
-                  </td>
-                  <?php } ?>
-
-                  <td class="py-4 px-6">
-                    <div class="grid grid-cols-none lg:grid-cols-2">
+                    <div class="grid grid-cols-none lg:grid-cols-1">
                         <div class="mb-2">
                             <a href="{{route('edit_tamu', ['id' => $datas->id, 'id_tamu' => $d->id ] )}}">
                                 <button type="button" class="text-white bg-yellow-400 hover:bg-yellow-300 focus:ring-4 focus:ring-yellow-500 font-medium rounded-lg text-sm px-2 py-2 dark:bg-yellow-400 dark:hover:bg-yellow-300 focus:outline-none dark:focus:ring-yellow-500">
@@ -110,7 +109,7 @@
                                 </button>        
                             </a>
                         </div>
-                        <div class="pr-5">
+                        <div>
                             <form action="{{ route('hapus_tamu', ['id' => $datas->id, 'id_tamu' => $d->id ]) }}" method="POST">
                             @csrf
                             @method('DELETE')
@@ -132,6 +131,13 @@
           </table>
         </div>
       </div>
+      <div class="container text-center">
+      <a href="/data_undangan">
+        <button type="button" class="text-white bg-rose-500 hover:bg-rose-800 focus:ring-4 focus:ring-rose-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-rose-500 dark:hover:bg-rose-300 focus:outline-none dark:focus:ring-rose-500">
+            Kembali
+        </button>
+      </a>   
+    </div>
   </div>
 </section>
 
