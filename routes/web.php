@@ -43,11 +43,7 @@ Route::group(['middleware' => ['auth']], function() {
         });
         Route::resource('tema', TemaController::class);
         Route::resource('user', UserController::class);
-<<<<<<< HEAD
-        Route::get('admin', [AdminController::class, 'index'])->name('admin');
-=======
         Route::get('admin', [UserController::class, 'admin']);
->>>>>>> f6cfff6792a7ecc6cc70c4658920ecbdbf3c3e4c
     });
     Route::group(['middleware' => ['cekLogin:user']], function(){
         Route::get('dashboarduser', function(){
