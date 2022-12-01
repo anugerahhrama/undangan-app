@@ -40,7 +40,7 @@ class LoginController extends Controller
             return redirect()->intended('login'); 
         }
 
-        return back()->withErrors([
+        return back('login')->withErrors([
             'email' => 'Maaf email atau password anda salah',
         ])->onlyInput('email');
 

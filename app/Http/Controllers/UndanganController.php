@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Acara;
 use App\Models\Kategori;
+use App\Models\Tamu;
 use Illuminate\Http\Request;
 use App\Models\Tema;
 use App\Models\User;
@@ -100,7 +101,7 @@ class UndanganController extends Controller
             'jam' => $request->jam,
             'lokasi' => $request->lokasi
         ]);
-        // dd($datas);
+        // dd($request);
 
         return redirect(route('data_undangan'));
 
@@ -108,7 +109,15 @@ class UndanganController extends Controller
 
     public function hapus($id){
         $undangan = Undangan::findOrFail($id);
-        $undangan->delete();
+        $tamus = Tamu::all()->where('id_undangan', '=', $id);
+        $acara = Acara::all()->where('id_detail', '=', $id);
+        // dd($tamus);
+        $tamus->each->delete();
+        $acara->each->delete();
+        if ($undangan != null) {
+            $undangan->delete();
+            return redirect(route('data_undangan'));
+        }
         return redirect(route('data_undangan'));
     }
 

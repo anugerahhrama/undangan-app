@@ -63,8 +63,8 @@
                     <label for="email" class="form-label">Status</label>
                     <select class="form-select" name="role" id="validationTooltip04"> 
                       <option selected disabled></option>
-                      <option value="user" <?= ($user->role=='user')?'selected':'' ?>>User</option>
-                      <option value="admin" <?= ($user->role=='admin')?'selected':'' ?>>Admin</option>
+                      <option value="user" <?= ($user->role=='user')?'selected':'' ?> >User</option>
+                      <option value="admin" <?= ($user->role=='admin')?'selected':'' ?> >Admin</option>
                     </select>
                   </div>
                 </div>
