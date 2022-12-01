@@ -32,8 +32,6 @@
                     @foreach ($temas as $tema)
                     <option value="{{ $tema->id }}">{{ $tema->nama_tema }}</option>
                     @endforeach
-                    {{--  <option value="rapat">{{ $tema->nama_tema }}</option>
-                    <option value="acara_kegiatan">{{ $tema->nama_tema }}</option>  --}}
                   </select>
                 </div>
               </div>
@@ -41,12 +39,6 @@
               <div class="w-full block lg:flex">
                 <div class="w-full lg:w-1/2 px-4 mb-8">
                   <label for="tema" class="text-base font-bold text-rose-500">Kategori</label>
-                  {{--  <select type="text" id="kategori" name="id_kategori"
-                    class="w-full bg-slate-200 text-dark p-2 rounded-md focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary">
-                    @foreach ($kategoris as $kategori)
-                    <option value="{{ $kategori->id }}">{{ $kategori->kagetori }}</option>
-                    @endforeach
-                  </select>  --}}
                   <select id="cars" name="id_kategori" class="w-full bg-slate-200 text-dark p-2 rounded-md focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary">
                     @foreach($kategoris as $kategori)
                     <option value="{{ $kategori->id }}">{{ $kategori->kategori }}</option>
@@ -95,11 +87,17 @@
 
               <div class="w-full px-4 block md:flex justify-center">
                 <button type="submit"
-                  class="text-base mb-3 font-semibold bg-rose-500 md:mx-4 text-white bg-primary py-3 px-8 rounded-xl w-full md:w-1/3 hover:opacity-70 hover:shadow-lg transition duration-500">Tambah
+                  class="text-base mb-3 font-semibold bg-rose-500 md:mx-4 text-white bg-primary py-3 px-8 rounded-xl w-full md:w-1/3 hover:opacity-70 hover:shadow-lg transition duration-500">
+                  Tambah
                 </button>
-                <a href="/data_undangan"
-                  class="text-base mb-3 text-center  font-semibold bg-rose-500 md:mx-4 text-white bg-primary py-3 px-8 rounded-xl w-full md:w-1/3  hover:opacity-70 hover:shadow-lg transition duration-500">Kembali
-                </a>
+                <button type="reset" class="text-base mb-3 font-semibold bg-rose-500 md:mx-4 text-white bg-primary py-3 px-8 rounded-xl w-full md:w-1/3 hover:opacity-70 hover:shadow-lg transition duration-500">
+                  Reset
+                </button>
+                <button type="reset" class="text-base mb-3 font-semibold bg-rose-500 md:mx-4 text-white bg-primary py-3 px-8 rounded-xl w-full md:w-1/3 hover:opacity-70 hover:shadow-lg transition duration-500">
+                  <a href="/data_undangan">
+                    Kembali
+                  </a>
+                </button>
               </div>
             </div>
           </form>
