@@ -79,6 +79,9 @@ Route::group(['middleware' => ['auth']], function() {
             Route::get('scanner', function(){
                 return view('user/scanner');
             });
+            Route::get('/scan', function () {
+                return view('user/scanner');
+            });
         });
     });
 });
@@ -89,9 +92,7 @@ Route::get('/', function () {
     return view('user/index');
 });
 
-Route::get('/tema1', function () {
-    return view('user/tema/undanganTema1');
-});
+
 Route::get('/tema2', function () {
     return view('user/tema/undanganTema2');
 });
