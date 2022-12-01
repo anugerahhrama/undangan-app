@@ -22,6 +22,14 @@ class UserController extends Controller
         ]);
     }
 
+    public function admin()
+    {
+        $datas = User::all()->where('role' , '=',  'admin');
+        return view('admin.admin.dataAdmin', compact('datas'))->with([
+            'user' => Auth::user(),
+        ]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *

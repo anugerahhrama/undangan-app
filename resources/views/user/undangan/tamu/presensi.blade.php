@@ -46,9 +46,17 @@
             @method('PUT')
             <div class="w-full md:w-1/2 lg:mx-auto">
               <div class="w-full px-4 block md:flex justify-center">
+                <?php
+                  if($tamu->status_presensi == 'hadir'){
+                ?>
+                <h4 class="font-semibold text-xl text-rose-500 mb-2">
+                  Anda sudah melakukan presensi
+                </h4>
+                <?php }else{ ?>
                 <button type="submit"
                   class="text-base mb-3 font-semibold bg-rose-500 md:mx-4 text-white bg-primary py-3 px-8 rounded-xl w-full md:w-1/3 hover:opacity-70 hover:shadow-lg transition duration-500">Hadir
                 </button>
+                <?php } ?>
               </div>
             </div>
           </form>

@@ -10,6 +10,8 @@ use App\Models\Undangan;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Auth;
+use PHPUnit\Framework\Constraint\Count;
+
 class TamuController extends Controller
 {
     public function index($id){
@@ -17,6 +19,7 @@ class TamuController extends Controller
         $data = Tamu::join('undangans', 'undangans.id', '=', 'tamus.id_undangan')
         ->where('tamus.id_undangan', '=', $id)
         ->get(['tamus.id', 'tamus.id_undangan', 'tamus.status_undangan', 'tamus.status_presensi' , 'tamus.nama', 'tamus.email', 'undangans.judul_acara', 'tamus.url_undangan']);
+        
         return view('user/undangan/tamu/index', compact('datas', 'data'));
         // dd($data);
     }
@@ -138,4 +141,21 @@ class TamuController extends Controller
         ]);
         return redirect(route('tamu_undangan', $id));
     }
+
+    // public function cari($id, Request $request){
+    //     $tamu = Tamu::where('nama', 'like', '%'.$request->cari.'%')
+    //     ->where('id_undangan', '=', $id)
+    //     ->get('tamus.*');
+    //     $tamus = Tamu::all()->where('id_undangan', '=', $id);
+    //     $result = count($tamu);
+    //     if($result == 0){
+    //         dd($tamus);
+    //         // return $tamus;
+    //     }else if($request == null){
+    //         dd($tamus);
+    //     }else{
+    //         dd($tamu);
+    //         // return $tamu;
+    //     }
+    // }
 }
