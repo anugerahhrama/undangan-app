@@ -7,6 +7,7 @@ use App\Http\Controllers\TamuController;
 use App\Http\Controllers\TemaController;
 use App\Http\Controllers\UndanganController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 /*
@@ -42,6 +43,7 @@ Route::group(['middleware' => ['auth']], function() {
         });
         Route::resource('tema', TemaController::class);
         Route::resource('user', UserController::class);
+        Route::get('admin', [AdminController::class, 'index'])->name('admin');
     });
     Route::group(['middleware' => ['cekLogin:user']], function(){
         Route::get('dashboarduser', function(){
