@@ -7,6 +7,7 @@ use App\Http\Controllers\TamuController;
 use App\Http\Controllers\TemaController;
 use App\Http\Controllers\UndanganController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 /*
