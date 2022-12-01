@@ -31,6 +31,7 @@ class UndanganController extends Controller
     public function create(){
         $temas = Tema::all();
         $kategoris = Kategori::all();
+        
         return view('user/undangan/create', compact('temas', 'kategoris'))->with(['user' => Auth::user(),]);
     }
 
@@ -100,7 +101,7 @@ class UndanganController extends Controller
             'jam' => $request->jam,
             'lokasi' => $request->lokasi
         ]);
-        // dd($datas);
+        // dd($request);
 
         return redirect(route('data_undangan'));
 

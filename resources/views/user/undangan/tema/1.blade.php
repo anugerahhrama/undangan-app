@@ -1,10 +1,10 @@
-<h1>Tema pertama</h1>
+{{--  <h1>Tema pertama</h1>
 <h1>{{ $data->judul_acara }}</h1>
 <h5>{{ $data->hari }} {{ $data->tanggal }} {{ $data->bulan }} {{ $data->tahun }}</h5>
 <h4>{{ $data->deskripsi }}</h4>
 @foreach($acara as $ac)
 <h3>{{ $ac->acara }}</h3>
-@endforeach
+@endforeach  --}}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,11 +48,6 @@
                   Lokasi
                 </a>
               </li>
-              <li class="group">
-                <a href="#q" class="text-base font-semibold bg-cyan-600 rounded-md px-2 text-white py-2 mx-8 flex hover:bg-cyan-500">
-                  Kembali
-                </a>
-              </li>
             </ul>
           </nav>
         </div>
@@ -65,15 +60,15 @@
       <div class="flex flex-wrap md:mx-20">
         <div class="self-center px-4 w-full lg:w-1/2">
           <h1 class="text-base font-semibold text-cyan-500 md:text-2xl">
-              Uandangan
-            <span class="block text-3xl text-slate-800 font-bold md:text-5xl">
+              Undangan {{ $data->id_kategori }}
+            <span class="block text-3xl text-slate-800 font-bold md:text-5xl mb-3">
               {{ $data->judul_acara }}
             </span>
           </h1>
           <h2 class="mb-8 text-lg font-medium text-slate-500 md:text-2xl">
-            {{ $data->hari }} {{ $data->bulan }} {{ $data->tahun }}
+            {{ $data->hari }} {{ $data->tanggal }}
           </h2>
-          <a href="" class="bg-cyan-600 hover:bg-cyan-500 py-2.5 px-4 rounded-xl text-white font-semibold transition duration-300 ease-in-out hover:shadow-lg">
+          <a href="#lokasi" class="bg-cyan-600 hover:bg-cyan-500 py-2.5 px-4 rounded-xl text-white font-semibold transition duration-300 ease-in-out hover:shadow-lg">
             Lihat Lokasi
           </a>
         </div>
@@ -91,16 +86,20 @@
       <div class="w-full px-4">
         <div class="max-w-xl mx-auto text-center mb-16">
           <h4 class="font-semibold text-xl text-cyan-600 mb-2">
-            Detail Acara
+            Susunan Acara
           </h4>
-          <h2 class="font-bold text-slate-900 text-3xl mb-4">
+          <h2 class="font-bold text-slate-900 text-3xl mb-5">
             {{ $data->judul_acara }}
           </h2>
+          <div class="w-1/3 mx-auto">
           @foreach ($acara as $ac)
-          <p class="font-semibold text-base text-slate-500 md:text-lg">
-            {{ $ac->acara }}
-          </p>
+            <ul class="list-disc text-start">
+              <li class="font-semibold text-3xl text-slate-500 md:text-lg">
+                {{ $ac->acara }}
+              </li>
+            </ul>
           @endforeach
+          </div>
         </div>
       </div>
     </div>

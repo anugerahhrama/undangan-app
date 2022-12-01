@@ -15,9 +15,14 @@
             Mudah, Cepat, & Gampang
           </h2>
           <p class="mb-8 font-medium leading-relaxed text-slate-500">Buat undangan digital dengan cara yang mudah?</p>
-          <a href="{{ route('data_undangan') }}" class="bg-rose-500 hover:bg-red-400 py-2.5 px-4 rounded-xl text-white font-semibold transition duration-300 ease-in-out hover:shadow-lg">
+          <div class="">
+          <a href="{{ route('data_undangan') }}" class="bg-rose-500  hover:bg-red-400 py-2.5 px-4 rounded-lg text-white font-semibold transition duration-300 ease-in-out hover:shadow-lg">
             Buat Sekarang
           </a>
+          <a href="/scan" class="bg-rose-500 mx-2 hover:bg-red-400 py-2.5 px-4 rounded-lg text-white font-semibold transition duration-300 ease-in-out hover:shadow-lg">
+            Scanner
+          </a>
+          </div>
         </div>
         <div class="self-center px-4 w-full lg:w-1/2">
           <div class="relative mt-8 lg:mt-7">

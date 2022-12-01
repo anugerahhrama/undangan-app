@@ -43,7 +43,11 @@ Route::group(['middleware' => ['auth']], function() {
         });
         Route::resource('tema', TemaController::class);
         Route::resource('user', UserController::class);
+<<<<<<< HEAD
         Route::get('admin', [AdminController::class, 'index'])->name('admin');
+=======
+        Route::get('admin', [UserController::class, 'admin']);
+>>>>>>> f6cfff6792a7ecc6cc70c4658920ecbdbf3c3e4c
     });
     Route::group(['middleware' => ['cekLogin:user']], function(){
         Route::get('dashboarduser', function(){
@@ -81,6 +85,9 @@ Route::group(['middleware' => ['auth']], function() {
             Route::get('scanner', function(){
                 return view('user/scanner');
             });
+            Route::get('/scan', function () {
+                return view('user/scanner');
+            });
         });
     });
 });
@@ -91,9 +98,7 @@ Route::get('/', function () {
     return view('user/index');
 });
 
-Route::get('/tema1', function () {
-    return view('user/tema/undanganTema1');
-});
+
 Route::get('/tema2', function () {
     return view('user/tema/undanganTema2');
 });
