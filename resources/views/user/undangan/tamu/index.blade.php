@@ -150,7 +150,7 @@ $('.btndelete').click(function(event) {
     var judul = $(this).attr('data-judul');
     event.preventDefault();
     swal({
-        title: "Apakah Anda Yakin Akan Menghapus Tamu Undangan " + judul + "?",
+        title: "Apakah Anda Yakin Akan Menghapus Tamu Undangan Atas Nama " + judul + "?",
         icon: "warning",
         type: "warning",
         buttons: ["Cancel","Yes!"],

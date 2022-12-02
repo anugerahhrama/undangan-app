@@ -17,7 +17,7 @@
             Edit Susunan Acara
           </h4>
           <h2 class="font-bold text-slate-900 text-3xl mb-4">
-            Buat Undangan Baru
+            Edit Data Undangan Kamu
           </h2>
         </div>
         <div class="w-full lg:px-4 md:px-5 sm:px-6">
@@ -46,6 +46,12 @@
                 <button type="reset"
                   class="text-base mb-3 text-center  font-semibold bg-rose-500 md:mx-4 text-white bg-primary py-3 px-8 rounded-xl w-full md:w-1/3  hover:opacity-70 hover:shadow-lg transition duration-500">
                   Reset
+                </button>
+                <button
+                  class="text-base mb-3 text-center  font-semibold bg-rose-500 md:mx-4 text-white bg-primary py-3 px-8 rounded-xl w-full md:w-1/3  hover:opacity-70 hover:shadow-lg transition duration-500">
+                  <a href="/data_undangan">
+                    Kembali
+                  </a>
                 </button>
               </div>
             </div>
