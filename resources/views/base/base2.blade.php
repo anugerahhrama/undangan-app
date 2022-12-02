@@ -8,6 +8,7 @@
     @vite('resources/css/app.css')
 </head>
 <body class="bg-rose-500">
+    @include('flash-message')
     <div class="flex items-center justify-center min-h-screen">
         <div class="w-full lg:w-1/2 bg-white rounded-lg shadow-md border">
             <div class="border bg-slate-500 w-60">
