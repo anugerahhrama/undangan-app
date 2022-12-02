@@ -5,7 +5,7 @@
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <title>Kelompok 1 | undang</title>
 </head>
-<body style="text-align: center;">
+<body style="text-align: center; background-color: aqua;">
     <p>{{ $data['salam'] }}</p><br>
     <b>{{$data['nama']}}</b>
     <p>mohon maaf menggangu waktunya disini saya ingin menyampaikan <br> beberapa
