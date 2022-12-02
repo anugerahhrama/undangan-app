@@ -17,7 +17,7 @@
             Edit Susunan Acara
           </h4>
           <h2 class="font-bold text-slate-900 text-3xl mb-4">
-            Buat Undangan Baru
+            Edit Susunan Acara Kamu
           </h2>
         </div>
         <div class="w-full lg:px-4 md:px-5 sm:px-6">

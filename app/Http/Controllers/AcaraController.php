@@ -49,6 +49,7 @@ class AcaraController extends Controller
         $datas = Acara::find($id_user);
         $data = Undangan::find($id);
         return view('user/undangan/acara/edit', compact('datas', 'id', 'data'));
+        return redirect(route('susunan_acara', $id));
     }
 
     public function update($id, $id_user, Request $request){
