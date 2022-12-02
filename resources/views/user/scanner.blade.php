@@ -1,4 +1,3 @@
-
 @extends('user/dataUser/base/base')
 
 @section('content')
@@ -52,6 +51,5 @@
       // handle err
     });
   </script>
-
   
 @endsection

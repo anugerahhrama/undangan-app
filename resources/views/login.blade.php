@@ -21,9 +21,12 @@
           <button type="submit" class="bg-rose-500 hover:bg-rose-400 transition duration-300 ease-in-out hover:shadow-lg hover:border hover:border-solid hover:border-rose-600 mt-3 py-1.5 text-white font-semibold rounded-lg">Login</button>
         </form>
 
+        @error('back')
+        
+        @enderror
+
         <p class="text-rose-300 text-center text-sm md:text-base">Dont have an account? <a href="/register" class="underline text-rose-600">Register</a></p>
       </div>
-      
     </div>
   </section>
     

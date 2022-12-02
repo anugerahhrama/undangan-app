@@ -1,4 +1,4 @@
-{{--  <h1>Tema 1 Undangan Tamu</h1>
+<!-- {{--  <h1>Tema 1 Undangan Tamu</h1>
 <h1>Kepada :</h1>
 <h1>{{ $undangan->judul_acara }}</h1>
 <h1>{{ $tamu->nama }}</h1>
@@ -11,7 +11,7 @@
 {{--  <div class="">
     <iframe class="rounded-lg shadow-lg gmap_iframe min-w-full h-60 md:h-80" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?hl=en&amp;q={{ $undangan->lokasi }}&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
     </iframe>
-</div>  --}}
+</div>  --}} -->
 <!DOCTYPE html>
 <html lang="en">
 <head>

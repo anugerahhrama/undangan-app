@@ -1,13 +1,4 @@
-<h1>Tema 2 undangan tamu</h1>
-<h1>{{ $tamu->email }}</h1>
-{{ $qrcode }}
-<h1>Tema ke 2</h1>
-<h1>{{ $data->judul_acara }}</h1>
-<h5>{{ $data->hari }} {{ $data->tanggal }} {{ $data->bulan }} {{ $data->tahun }}</h5>
-<h4>{{ $data->deskripsi }}</h4>
-@foreach($acara as $ac)
-<h3>{{ $ac->acara }}</h3>
-@endforeach
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -69,13 +60,13 @@
       <div class="flex flex-wrap md:mx-20 md:pl-10">
         <div class="text-center w-full ">
           <h1 class="text-base font-semibold text-white md:text-2xl">
-              Undangan {{ $data->id_kategori }}
+              Undangan {{ $undangan->id_kategori }}
             <span class="block text-3xl text-white font-bold md:text-5xl">
-              {{ $data->judul_acara }}
+              {{ $undangan->judul_acara }}
             </span>
           </h1>
           <h2 class="mb-8 text-lg font-medium text-white md:text-2xl">
-            {{ $data->hari }}  {{ $data->tanggal }}
+            {{ $undangan->hari }}  {{ $undangan->tanggal }}
           </h2>
           <h1 class="text-base font-base md:text-22xl mb-1">Kepada yth: </h1>
           <h1 class="text-base font-medium md:text-2xl mb-1">{{ $tamu->nama }}</h1>
@@ -124,7 +115,7 @@
             Tempat Pelaksanaan
           </h2>
           <div class="">
-              <iframe class="rounded-lg shadow-lg gmap_iframe min-w-full h-60 md:h-80" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?hl=en&amp;q={{ $data->lokasi }}&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
+              <iframe class="rounded-lg shadow-lg gmap_iframe min-w-full h-60 md:h-80" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?hl=en&amp;q={{ $undangan->lokasi }}&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
               </iframe>
           </div>
         </div>
