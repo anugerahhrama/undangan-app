@@ -21,12 +21,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+  <script src="https://cdn.tailwindcss.com"></script>
   @vite('resources/css/app.css')
 </head>
 
 <body class="">
 
-    <section id="contact" class="pt-36 bg-rose-50 min-h-screen">
+  <section id="contact" class="pt-36 bg-rose-50 min-h-screen">
     <div class="container mx-auto">
       <div class="w-full px-4">
         <div class="max-w-xl mx-auto text-center mb-10">

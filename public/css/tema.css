@@ -3,6 +3,11 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
+.bg-tema3{
+    background-image: url('../img/tema3.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
 .bg-detail{
     background-image: url('../img/tema2-detail.webp');

@@ -74,7 +74,7 @@
                               </button>        
                             </a>
                           </div>
-                          <div>
+                          <div class="mx-auto">
                             @csrf
                             @method('DELETE')
                             <button class="text-white bg-red-500 hover:bg-red-200 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-2 py-2 dark:bg-red-700 dark:hover:bg-red-300 focus:outline-none dark:focus:ring-red-500" type="submit">
