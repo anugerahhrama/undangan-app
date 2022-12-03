@@ -1,20 +1,7 @@
-{{--  <h1>Edit Tamu</h1>
-<form action="{{ route('update_tamu', ['id' => $undangan->id, 'id_tamu' => $tamu->id ]) }}" method="POST">
-    @csrf
-    @method('PUT')
-    <input type="text" name="id" value="{{ $tamu->id }}" readonly>
-    <input type="text" name="id_undangan" value="{{ $tamu->id_undangan }}" readonly><br>
-    <input type="text" name="nama" placeholder="nama" value="{{ $tamu->nama }}"><br>
-    <input type="text" name="email" placeholder="email" value="{{ $tamu->email }}"><br>
-    <input type="text" name="alamat" placeholder="alamat" value="{{ $tamu->alamat }}"><br>
-    <input type="text" name="status_undangan" value="belum" readonly><br>
-    <input type="text" name="status_presensi" value="belum" readonly><br>
-    <button type="submit">Simpan</button>
-</form>  --}}
-
 @extends('user/dataUser/base/base')
+
 @section('content')
-  <section id="contact" class="pt-36 pb-10 bg-rose-50">
+  <section id="contact" class="pt-36 pb-10">
     <div class="container">
       <div class="w-full px-4">
         <div class="max-w-xl mx-auto text-center mb-10">
@@ -62,7 +49,7 @@
 
               <div class="w-full px-4 block md:flex justify-center">
                 <button type="submit"
-                  class="text-base mb-3 font-semibold bg-rose-500 md:mx-4 text-white bg-primary py-3 px-8 rounded-xl w-full md:w-1/3 hover:opacity-70 hover:shadow-lg transition duration-500">Edit
+                  class="text-base mb-3 font-semibold bg-blue-500 md:mx-4 text-white bg-primary py-3 px-8 rounded-xl w-full md:w-1/3 hover:opacity-70 hover:shadow-lg transition duration-500">Edit
                 </button>
                 <button
                   class="text-base mb-3 text-center  font-semibold bg-rose-500 md:mx-4 text-white bg-primary py-3 px-8 rounded-xl w-full md:w-1/3  hover:opacity-70 hover:shadow-lg transition duration-500">

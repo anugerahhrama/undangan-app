@@ -1,9 +1,10 @@
 <header class="top-0 left-0 z-10 flex items-center w-full bg-transparent absolute">
     <div class="container">
       <div class="relative flex items-center justify-between">
-        <div class="px-4 lg:px-12">
+        <div class="px-4 lg:px-12 flex items-center">
+          <img src="img/icon.png" alt="" class="h-10 mr-3 sm:h-14">
           <a href="#hero" class="block py-6 text-lg font-bold text-rose-500 lg:text-2xl md:text-xl">
-            UNDANG
+            𝑼𝒊𝒏𝒗𝒊𝒕𝒆
           </a>
         </div>
         <div class="flex items-center px-4">
@@ -38,14 +39,18 @@
                   <?php
                   if (Auth::check()) { ?>
                   <div class=" lg:text-slate-900 mx-8 flex group-hover:text-rose-500">
-                    <a href="/logout" class="bg-rose-500 hover:bg-rose-400 transition duration-300 ease-in-out hover:border-rose-400 py-1 px-2.5 text-white text-base font-semibold rounded-lg">
-                      Logout
+                    <a href="/logout">
+                      <button class="bg-rose-500 hover:bg-rose-400 transition duration-300 ease-in-out hover:border-rose-400 py-1 px-2.5 text-white text-base font-semibold rounded-lg">
+                        Logout
+                      </button>
                     </a>
                   </div>
                   <?php } else { ?>
                   <div class=" lg:text-slate-900 mx-8 flex group-hover:text-rose-500">
-                    <a href="/login" class="bg-rose-500 hover:bg-rose-400 transition duration-300 ease-in-out hover:border-rose-400 py-1 px-2.5 text-white text-base font-semibold rounded-lg">
-                      Login
+                    <a href="/login">
+                      <button class="bg-rose-500 hover:bg-rose-400 transition duration-300 ease-in-out hover:border-rose-400 py-1 px-2.5 text-white text-base font-semibold rounded-lg">
+                        Login
+                      </button>
                     </a>
                   </div>
                   <?php } ?>
@@ -56,3 +61,24 @@
       </div>
     </div>
   </header>
+
+@if(\Session::has('alert'))
+<script>
+  const Toast = Swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 2000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener('mouseenter', Swal.stopTimer)
+      toast.addEventListener('mouseleave', Swal.resumeTimer)
+    }
+  })
+
+  Toast.fire({
+    icon: 'success',
+    title: 'Login Berhasil'
+  })
+</script>
+@endif

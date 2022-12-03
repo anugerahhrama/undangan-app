@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>𝓤𝓷𝓭𝓪𝓷𝓰</title>
+    <title>𝑼𝒊𝒏𝒗𝒊𝒕𝒆</title>
     <link rel="icon" href="{{ url('img/icon.png') }}">
 
     <link rel="stylesheet"
@@ -56,8 +56,8 @@
       <aside class="main-sidebar sidebar-light-primary elevation-4 dekorasi">
         <!-- Brand Logo -->
         <a href="dashboardadmin" class="brand-link" style="text-decoration: none">
-          <img src="img/icon.png" alt="" class="brand-image img-circle">
-          <span class="brand-text font-weight-light name">𝓤𝓷𝓭𝓪𝓷𝓰</span>
+          <img src="{{ url('img/icon.png') }}" alt="" class="brand-image img-circle">
+          <span class="brand-text font-weight-light name">𝑼𝒊𝒏𝒗𝒊𝒕𝒆</span>
         </a>
 
         <!-- Sidebar -->
@@ -115,7 +115,7 @@
       </div>
 
       <footer class="main-footer text-center">
-        Dibuat dengan cinta😘
+        Copyright&copy𝑼𝒊𝒏𝒗𝒊𝒕𝒆 2022 
       </footer>
 
       <aside class="control-sidebar control-sidebar-dark dekorasi">
