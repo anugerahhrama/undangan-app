@@ -60,7 +60,7 @@
       <div class="flex flex-wrap md:mx-20">
         <div class="self-center px-4 w-full lg:w-1/2">
           <h1 class="text-base font-semibold text-cyan-500 md:text-2xl">
-              Undangan {{ $datas->kategori }}
+              Undangan {{ $data->kategori }}
             <span class="block text-3xl text-slate-800 font-bold md:text-5xl mb-3">
               {{ $data->judul_acara }}
             </span>

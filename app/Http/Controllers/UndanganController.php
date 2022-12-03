@@ -60,8 +60,13 @@ class UndanganController extends Controller
             'jam' => $request->jam,
             'lokasi' => $request->lokasi
         ]);
-        // dd($request);
-        return redirect(route('data_undangan'));
+        // dd($data);
+        if($data == true){
+            return redirect(route('data_undangan'))->with('success', 'data berhasil di upload');
+        }else{
+            return redirect(route('tambah_undangan'))->with('error', 'data gagal di update');
+        }
+        
     }
 
     public function edit($id){
@@ -102,8 +107,11 @@ class UndanganController extends Controller
             'lokasi' => $request->lokasi
         ]);
         // dd($request);
-
-        return redirect(route('data_undangan'));
+        if($datas == true){
+            return redirect(route('data_undangan'))->with('update', 'data berhasil di update');
+        }else{
+            return redirect(route('edit_undangan', $id))->with('error', 'data gagal di update');
+        }
 
     }
 

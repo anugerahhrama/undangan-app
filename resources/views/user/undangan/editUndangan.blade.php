@@ -14,15 +14,25 @@
           </h2>
         </div>
         <div class="w-full lg:px-4 md:px-5 sm:px-6">
-          <form action="{{ route('update_undangan', $datas->id ) }}" method="POST">
+        @if ($message = Session::get('error'))
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>{{ $message }}</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif 
+          <form action="{{ route('update_undangan', $datas->id ) }}" name="form" method="POST">
             @csrf
             @method('PUT')
+            
+            
+            
             <div class="w-full lg:w-2/3 lg:mx-auto">
               <div class="w-full block lg:flex">
                 <div class="w-full lg:w-1/2 px-4 mb-8">
                     <label for="judul" class="text-base font-bold text-rose-500">Judul Undangan</label>
                     <input type="text" class="w-full bg-slate-200 text-dark p-2 rounded-md focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary" name="judul_acara" value="{{ $datas->judul_acara }}"/>
                     <input type="hidden" value="{{ $user->id }}" name="id_user"><br>
+
                 </div>
 
                 <div class="w-full lg:w-1/2 px-4 mb-8">
@@ -74,6 +84,7 @@
                 <div class="w-full lg:w-1/3 px-4 mb-8">
                   <label for="jam" class="text-base font-bold text-rose-500">Jam Pelaksanaan</label>
                   <input type="time" id="jam" name="jam" class="w-full bg-slate-200 text-dark p-2 rounded-md focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary" value="{{ $datas->jam }}" />
+                 
                 </div>
               </div>
 
@@ -81,7 +92,8 @@
                 <label for="deskripsi" class="text-base font-bold text-rose-500">Deskripsi</label>
                 <textarea type="text" id="deskripsi" name="deskripsi"
                   class="w-full bg-slate-200 text-dark p-2 rounded-md focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary h-32">{{ $datas->deskripsi }}</textarea>
-              </div>
+
+                </div>
 
               <div class="w-full px-4 block md:flex justify-center">
                 <button type="submit"

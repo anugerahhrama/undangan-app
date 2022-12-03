@@ -42,7 +42,7 @@ class AcaraController extends Controller
             'acara' => $request->acara
         ]);
         
-        return redirect(route('susunan_acara', $id));
+        return redirect(route('susunan_acara', $id))->with('tambah', 'berhasil');
     }
 
     public function edit($id, $id_user){
@@ -66,7 +66,7 @@ class AcaraController extends Controller
         ]);
 
             
-        return redirect(route('susunan_acara', $id));
+        return redirect(route('susunan_acara', $id))->with('update', 'berhasil');
         // dd($cek);
     }
 

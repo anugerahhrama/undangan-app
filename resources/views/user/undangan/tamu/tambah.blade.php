@@ -24,14 +24,14 @@
                       <input type="hidden" name="id_undangan" value="{{ $datas->id }}" readonly>
                     <input type="text"     
                       class="w-full bg-slate-200 text-dark p-2 rounded-md focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary" 
-                      name="nama"
+                      name="nama" required
                       />
                 </div>
                 <div class="w-full lg:w-1/2 px-4 mb-8">
                   <label for="kategori" class="text-base font-bold text-rose-500">E-Mail</label>
                   <input type="email"     
                     class="w-full bg-slate-200 text-dark p-2 rounded-md focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary" 
-                    name="email"
+                    name="email" required
                     />
                 </div>
               </div>
@@ -40,7 +40,7 @@
                   <label for="judul" class="text-base font-bold text-rose-500">Alamat</label>
                     <textarea type="text"     
                       class="w-full bg-slate-200 text-dark p-2 rounded-md focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary" 
-                      name="alamat"
+                      name="alamat" required
                       ></textarea>
                       <input type="hidden" name="status_undangan" value="belum" readonly><br>
                       <input type="hidden" name="status_presensi" value="belum" readonly><br>
