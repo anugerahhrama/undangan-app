@@ -2,7 +2,7 @@
 
 @section('content')
 
-  <section id="contact" class="pt-36 pb-10 bg-rose-50">
+  <section id="contact" class="pt-36 pb-10">
     <div class="container">
       <div class="w-full px-4">
         <div class="max-w-xl mx-auto text-center mb-10">
@@ -87,10 +87,10 @@
 
               <div class="w-full px-4 block md:flex justify-center">
                 <button type="submit"
-                  class="text-base mb-3 font-semibold bg-rose-500 md:mx-4 text-white bg-primary py-3 px-8 rounded-xl w-full md:w-1/3 hover:opacity-70 hover:shadow-lg transition duration-500">
+                  class="text-base mb-3 font-semibold bg-blue-500 md:mx-4 text-white bg-primary py-3 px-8 rounded-xl w-full md:w-1/3 hover:opacity-70 hover:shadow-lg transition duration-500">
                   Tambah
                 </button>
-                <button type="reset" class="text-base mb-3 font-semibold bg-rose-500 md:mx-4 text-white bg-primary py-3 px-8 rounded-xl w-full md:w-1/3 hover:opacity-70 hover:shadow-lg transition duration-500">
+                <button type="reset" class="text-base mb-3 font-semibold bg-slate-500 md:mx-4 text-white bg-primary py-3 px-8 rounded-xl w-full md:w-1/3 hover:opacity-70 hover:shadow-lg transition duration-500">
                   Reset
                 </button>
                 <button type="reset" class="text-base mb-3 font-semibold bg-rose-500 md:mx-4 text-white bg-primary py-3 px-8 rounded-xl w-full md:w-1/3 hover:opacity-70 hover:shadow-lg transition duration-500">
