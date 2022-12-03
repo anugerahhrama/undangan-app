@@ -49,10 +49,6 @@ class RegisterController extends Controller
             'role' => $request->role
         ]);
 
-        if ($request->duplicate){
-            return redirect('register')->with('alert1', 'error');
-        }
-
         return redirect('login')->with('alert1', 'Berhasil Mendaftar');
     }
 

@@ -21,7 +21,11 @@
   <title>Document</title>
   @vite('resources/css/app.css')
 </head>
-
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+</style>
 <body>
 
   <header class="top-0 left-0 z-10 flex items-center w-full bg-transparent absolute">
@@ -110,9 +114,9 @@
           <h2 class="font-bold text-slate-900 text-3xl mb-5">
             {{ $undangan->judul_acara }}
           </h2>
-          <div class="w-2/3 border px-11 mx-auto">
+          <div class="w-2/3 px-11 mx-auto">
           @foreach ($acara as $ac)
-            <ul class="list-disc">
+            <ul class="">
               <li class="font-semibold text-3xl mb-1 text-slate-500 md:text-lg">
                 {{ $ac->acara }}
               </li>
@@ -151,7 +155,8 @@
             QR Code
           </h4>
           <div class="w-2/3 flex justify-center mx-auto">
-            {{ $qrcode }}
+          <img src="{{url('img/icon.png')}}">
+          {{ $qrcode }}
           </div>
         </div>
       </div>

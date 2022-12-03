@@ -21,6 +21,18 @@
     
       <div class="container mb-12 text-center">
         <div class="overflow-x-auto relative shadow-md sm:rounded-lg mt-2">
+          @if(Session::get('tambah'))
+            <script>alert('tamu berhasil ditambah');</script>
+          @endif
+          @if(Session::get('update'))
+            <script>alert('tamu berhasil diupdate');</script>
+          @endif
+          @if(Session::get('kirim'))
+            <script>alert('undangan berhasil dikirim');</script>
+          @endif
+          @if(Session::get('presensi'))
+            <script>alert('Tamu berhasil presensi');</script>
+          @endif
           <table class="w-full border mx-auto text-sm text-center text-rose-400 dark:text-rose-400">
             <thead class="text-xs bg-rose-500 text-white uppercase bg-rose-50 dark:bg-rose-500 dark:text-white">
               <tr>

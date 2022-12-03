@@ -35,6 +35,7 @@ Route::controller(RegisterController::class)->group(function(){
 // Route::resource('register', RegisterController::class);
 // Route::post('user-create', [UserController::class, 'store'])->name('register');
 Route::group(['middleware' => ['auth']], function() {
+
     Route::group(['middleware' => ['cekLogin:admin']], function(){
         Route::get('dashboardadmin', function(){
             return view('admin.dashboard')->with([
@@ -86,6 +87,7 @@ Route::group(['middleware' => ['auth']], function() {
             });
         });
     });
+
 });
 
 Route::get('tamu/{id}/{id_tamu}', [TamuController::class, 'lihat'])->name('lihat_tamu');

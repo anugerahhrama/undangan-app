@@ -55,7 +55,7 @@ class TamuController extends Controller
             'status_presensi' => $request->status_presensi
         ]);
         // dd($request);
-        return redirect(route('tamu_undangan', $id));
+        return redirect(route('tamu_undangan', $id))->with('tambah', 'berhasil');
     }
 
 
@@ -90,7 +90,7 @@ class TamuController extends Controller
             'status_presensi' => $request->status_presensi
         ]);
 
-        return redirect(route('tamu_undangan', $id));
+        return redirect(route('tamu_undangan', $id))->with('update', 'berhasil');
     }
 
     public function delete($id, $id_tamu){
@@ -104,7 +104,9 @@ class TamuController extends Controller
         $undangan = Undangan::find($id);
         $tamu = Tamu::find($id_tamu);
         $acara = Acara::all()->where('id_detail','=',$id);
-        $qrcode = QrCode::size(200)->generate($tamu->url_presensi);
+        $qrcode = QrCode::size(300)
+                        ->merge('/public/img/icon.png')
+                        ->generate($tamu->url_presensi);
         // dd($tamu);
         // return view('user/undangan/tamu/undangan', compact('tamu', 'undangan'));
         return view('user/undangan/tamu/undanganTamu/'.$undangan->id_tema , compact('tamu', 'undangan','acara', 'qrcode'));
@@ -123,7 +125,7 @@ class TamuController extends Controller
             'status_presensi' => 'hadir'
         ]);
 
-        return redirect(route('tamu_undangan', $id));
+        return redirect(route('tamu_undangan', $id))->with('presensi', 'berhasil');
     }
 
     public function kirim($id, $id_tamu){
@@ -139,7 +141,7 @@ class TamuController extends Controller
         $tamu->update([
             'status_undangan' => 'terkirim'
         ]);
-        return redirect(route('tamu_undangan', $id));
+        return redirect(route('tamu_undangan', $id))->with('kirim', 'berhasil');
     }
 
     // public function cari($id, Request $request){

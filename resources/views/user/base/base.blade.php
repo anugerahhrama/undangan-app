@@ -14,7 +14,7 @@
 </head>
 
 <body>
-
+  @include('flash-message')
   @include('user.base.navbar')
   
   @yield('content')
