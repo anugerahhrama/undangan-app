@@ -18,6 +18,14 @@
 
     <div class="container px-7 mb-12 text-center">
         <div class="overflow-x-auto relative shadow-md sm:rounded-lg mt-2">
+        @if ($message = Session::get('success'))
+                <script>alert('data berhasil ditambah');</script>
+            </div>
+        @endif 
+        @if ($message = Session::get('update'))
+                <script>alert('data berhasil diupdate');</script>
+            </div>
+        @endif
             <table class="w-full border mx-auto text-sm text-center text-rose-400 dark:text-rose-400">
                 <thead class="text-xs bg-rose-500 text-white uppercase bg-rose-50 dark:bg-rose-500 dark:text-white">
                     <tr>

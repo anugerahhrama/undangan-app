@@ -48,7 +48,7 @@ class RegisterController extends Controller
             'role' => $request->role
         ]);
 
-        return view('login');
+        return view('login')->with('register', 'berhasil');
     }
 
 }

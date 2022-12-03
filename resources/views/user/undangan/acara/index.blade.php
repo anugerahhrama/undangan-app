@@ -21,6 +21,12 @@
     
       <div class="container flex flex-wrap justify-center xl:w-10/12 xl:mx-auto mb-12 text-center">
         <div class="overflow-x-auto relative shadow-md sm:rounded-xl mt-2">
+        @if ($message = Session::get('tambah'))
+                <script>alert('acara berhasil ditambah');</script>
+        @endif
+        @if ($message = Session::get('update'))
+                <script>alert('acara berhasil diupdate');</script>
+        @endif
             <table class="w-full border text-sm text-center text-rose-400 dark:text-rose-400">
               <thead class="text-xs bg-rose-500 text-white uppercase bg-rose-50 dark:bg-rose-500 dark:text-white">
               <tr>
