@@ -106,9 +106,12 @@ class UndanganController extends Controller
             'jam' => $request->jam,
             'lokasi' => $request->lokasi
         ]);
+
         // dd($request);
         if($datas == true){
             return redirect(route('data_undangan'))->with('update', 'data berhasil di update');
+        }elseif($undangan == $request){
+            return redirect(route('data_undangan'))->with('noedit', 'data tidak di edit');
         }else{
             return redirect(route('edit_undangan', $id))->with('error', 'data gagal di update');
         }

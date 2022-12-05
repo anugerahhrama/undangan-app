@@ -19,11 +19,27 @@
     <div class="container px-7 mb-12 text-center">
         <div class="overflow-x-auto relative shadow-md sm:rounded-lg mt-2">
         @if ($message = Session::get('success'))
-                <script>alert('data berhasil ditambah');</script>
+            <script>
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Data Berhasil Di Tambah',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            </script>
             </div>
         @endif 
         @if ($message = Session::get('update'))
-                <script>alert('data berhasil diupdate');</script>
+            <script>
+              Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Data Berhasil Di Edit',
+                showConfirmButton: false,
+                timer: 1500
+              })
+            </script>
             </div>
         @endif
             <table class="w-full border mx-auto text-sm text-center text-rose-400 dark:text-rose-400">
@@ -144,8 +160,6 @@
     </div>
 </section>
 
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="https://code.jquery.com/jquery-3.6.1.slim.js" integrity="sha256-tXm+sa1uzsbFnbXt8GJqsgi2Tw+m4BLGDof6eUPjbtk=" crossorigin="anonymous"></script>
 <script>
 $('.btndelete').click(function(event) {
     var form = $(this).closest('form');
@@ -153,21 +167,38 @@ $('.btndelete').click(function(event) {
     var judul = $(this).attr('data-judul');
     event.preventDefault();
 
-    Swal.fire({
-        title: 'Are you sure?',
-        text: "You won't be able to revert this!",
+    const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+            confirmButton: 'text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 focus:outline-none',
+            cancelButton: 'focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2'
+        },
+        buttonsStyling: false
+    })
+
+    swalWithBootstrapButtons.fire({
+        title: 'Apakah Anda Yakin Akan Menghapus Undangan ' + judul + '?',
+        text: "Anda Tidak Akan Bisa Memulihkan Data Ini !",
         icon: 'warning',
         showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
+        confirmButtonText: 'Yes, delete it!',
+        cancelButtonText: 'No, cancel!',
+        reverseButtons: true
     }).then((result) => {
         if (result.isConfirmed) {
-            // form.submit()
-            Swal.fire(
+            form.submit(),
+            swalWithBootstrapButtons.fire(
             'Deleted!',
-            'Your file has been deleted.',
+            'Data Anda Berhasil Dihapus.',
             'success'
+            )
+        } else if (
+            /* Read more about handling dismissals below */
+            result.dismiss === Swal.DismissReason.cancel
+        ) {
+            swalWithBootstrapButtons.fire(
+            'Cancelled',
+            'Undangan '+ judul +' Aman :)',
+            'error'
             )
         }
     })

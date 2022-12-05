@@ -23,9 +23,7 @@
           <form action="{{ route('update_undangan', $datas->id ) }}" name="form" method="POST">
             @csrf
             @method('PUT')
-            
-            
-            
+          
             <div class="w-full lg:w-2/3 lg:mx-auto">
               <div class="w-full block lg:flex">
                 <div class="w-full lg:w-1/2 px-4 mb-8">
@@ -101,7 +99,7 @@
                 </button>
                <button
                   class="text-base mb-3 text-center  font-semibold bg-rose-500 md:mx-4 text-white bg-primary py-3 px-8 rounded-xl w-full md:w-1/3  hover:opacity-70 hover:shadow-lg transition duration-500">
-                  <a href="/data_undangan">
+                  <a href="{{ route('data_undangan') }}">
                     Kembali
                   </a>
                 </button>

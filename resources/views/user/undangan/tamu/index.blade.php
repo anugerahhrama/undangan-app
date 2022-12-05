@@ -50,16 +50,48 @@
       <div class="container mb-12 text-center">
         <div class="overflow-x-auto relative shadow-md sm:rounded-lg mt-2">
           @if(Session::get('tambah'))
-            <script>alert('tamu berhasil ditambah');</script>
+            <script>
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Data Berhasil Di Tambahkan',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            </script>
           @endif
           @if(Session::get('update'))
-            <script>alert('tamu berhasil diupdate');</script>
+            <script>
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Data Berhasil Di Edit',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            </script>
           @endif
           @if(Session::get('kirim'))
-            <script>alert('undangan berhasil dikirim');</script>
+            <script>
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Email Terkirim',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            </script>
           @endif
           @if(Session::get('presensi'))
-            <script>alert('Tamu berhasil presensi');</script>
+            <script>
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Tamu Berhasil Melakukan Presensi',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            </script>
           @endif
           <input type="text" id="search">
           <table id="table" class="w-full border mx-auto text-sm text-center text-rose-400 dark:text-rose-400">
@@ -183,29 +215,48 @@
   </div>
 </section>
 
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.6.1.slim.js" integrity="sha256-tXm+sa1uzsbFnbXt8GJqsgi2Tw+m4BLGDof6eUPjbtk=" crossorigin="anonymous"></script>
-<script src="/path/to/cdn/jquery.min.js"></script>
-<script src="{{('js/table-pagination.js')}}"></script>
 <script>
 $('.btndelete').click(function(event) {
     var form = $(this).closest('form');
     var name = $(this).data('name');
     var judul = $(this).attr('data-judul');
     event.preventDefault();
-    swal({
-        title: "Apakah Anda Yakin Akan Menghapus Tamu Undangan Atas Nama " + judul + "?",
-        icon: "warning",
-        type: "warning",
-        buttons: ["Cancel","Yes!"],
-        confirmButtonColor: '#E0144C',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
-    }).then((willDelete) => {
-        if (willDelete) {
-            form.submit();
+
+    const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+            confirmButton: 'text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 focus:outline-none',
+            cancelButton: 'focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2'
+        },
+        buttonsStyling: false
+    })
+
+    swalWithBootstrapButtons.fire({
+        title: 'Apakah Anda Yakin Akan Menghapus Tamu Atas Nama ' + judul + '?',
+        text: "Anda Tidak Akan Bisa Memulihkan Data Ini !",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, delete it!',
+        cancelButtonText: 'No, cancel!',
+        reverseButtons: true
+    }).then((result) => {
+        if (result.isConfirmed) {
+            form.submit(),
+            swalWithBootstrapButtons.fire(
+            'Deleted!',
+            'Data Anda Berhasil Terhapus.',
+            'success'
+            )
+        } else if (
+            /* Read more about handling dismissals below */
+            result.dismiss === Swal.DismissReason.cancel
+        ) {
+            swalWithBootstrapButtons.fire(
+            'Cancelled',
+            'Tamu atas nama '+ judul +' Aman :)',
+            'error'
+            )
         }
-    });
+    })
 });
 </script>
   <script>

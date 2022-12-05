@@ -36,15 +36,14 @@
                 </a>
               </li>
               <li class="group">
-                  <?php
-                  if (Auth::check()) { ?>
-                  <div class=" lg:text-slate-900 mx-8 flex group-hover:text-rose-500">
-                    <a href="/logout">
-                      <button class="bg-rose-500 hover:bg-rose-400 transition duration-300 ease-in-out hover:border-rose-400 py-1 px-2.5 text-white text-base font-semibold rounded-lg">
-                        Logout
-                      </button>
-                    </a>
-                  </div>
+                <?php if (Auth::check()) { ?>
+                  <a href="/logout">
+                    <div class="lg:text-slate-900 mx-8 flex group-hover:text-rose-500">
+                        <button class="logout bg-rose-500 hover:bg-rose-400 transition duration-300 ease-in-out hover:border-rose-400 py-1 px-2.5 text-white text-base font-semibold rounded-lg" type="submit">
+                          Logout
+                        </button>
+                    </div>
+                  </a>
                   <?php } else { ?>
                   <div class=" lg:text-slate-900 mx-8 flex group-hover:text-rose-500">
                     <a href="/login">
@@ -61,6 +60,12 @@
       </div>
     </div>
   </header>
+
+<script>
+$('.logout').click(function(event) {
+  alert('Yakin akan logout?')
+});
+</script>
 
 @if(\Session::has('alert'))
 <script>

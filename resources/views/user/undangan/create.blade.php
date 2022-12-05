@@ -70,7 +70,7 @@
 
                 <div class="w-full lg:w-1/3 px-4 mb-8">
                   <label for="tanggal" class="text-base font-bold text-rose-500">Tanggal</label>
-                  <input type="date" id="tanggal" name="tanggal" class="w-full bg-slate-200 text-dark p-2 rounded-md focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary" required/>
+                  <input type="date" id="tanggal" name="tanggal" class="w-full bg-slate-200 text-dark p-2 rounded-md focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary" placeholder="Masukkan Tanggal" required/>
                 </div>
                 
                 <div class="w-full lg:w-1/3 px-4 mb-8">
