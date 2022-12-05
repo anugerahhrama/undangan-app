@@ -32,9 +32,9 @@ class LoginController extends Controller
             $request->session()->regenerate();
             $user = Auth::user();
             if($user->role == 'admin'){
-                return redirect()->intended('dashboardadmin');
+                return redirect()->intended('dashboardadmin')->with(['user' => Auth::user(),]);
             }else if($user->role == 'user'){
-                return redirect()->intended('dashboarduser');
+                return redirect()->intended('dashboarduser')->with(['user' => Auth::user(),]);
             }
 
             return redirect()->intended('login'); 
