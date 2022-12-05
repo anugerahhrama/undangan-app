@@ -25,7 +25,6 @@ class LoginController extends Controller
 
     public function proses(Request $request)
     {
-
         $email = $request->email;
         $password = $request->password;
 
@@ -44,7 +43,8 @@ class LoginController extends Controller
                         if($user->role == 'admin'){
                             return redirect()->intended('dashboardadmin');
                         }else if($user->role == 'user'){
-                            return redirect()->intended('dashboarduser')->with('alert', 'Login Berhasil !');
+                            return redirect()->intended('dashboarduser')->with('alert', 'Login Berhasil !')->with([
+                            'user' => Auth::user()]);
                         }
                         return redirect()->intended('login'); 
                     }

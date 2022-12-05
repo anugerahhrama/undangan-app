@@ -6,7 +6,10 @@
       <div class="flex flex-wrap md:mx-20">
         <div class="self-center px-4 w-full lg:w-1/2">
           <h1 class="text-base font-semibold text-rose-400 md:text-2xl">
-            Selamat Datang {{ $user->nama }} Di
+            Selamat Datang
+            <?php if (Auth::check()) { ?> 
+              {{ $user->nama }}
+            <?php } ?> Di
             <span class="block text-3xl text-slate-800 font-bold md:text-5xl">
               Website Undangan Kami
             </span>

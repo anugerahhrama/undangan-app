@@ -22,10 +22,26 @@
       <div class="container flex flex-wrap justify-center xl:w-10/12 xl:mx-auto mb-12 text-center">
         <div class="overflow-x-auto relative shadow-md sm:rounded-xl mt-2">
         @if ($message = Session::get('tambah'))
-                <script>alert('acara berhasil ditambah');</script>
+          <script>
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Data Berhasil Di Tambah',
+                showConfirmButton: false,
+                timer: 1500
+            })
+          </script>
         @endif
         @if ($message = Session::get('update'))
-                <script>alert('acara berhasil diupdate');</script>
+          <script>
+            Swal.fire({
+              position: 'top-end',
+              icon: 'success',
+              title: 'Data Berhasil Di Edit',
+              showConfirmButton: false,
+              timer: 1500
+            })
+          </script>
         @endif
             <table class="w-full border text-sm text-center text-rose-400 dark:text-rose-400">
               <thead class="text-xs bg-rose-500 text-white uppercase bg-rose-50 dark:bg-rose-500 dark:text-white">
@@ -61,6 +77,7 @@
                             </a>
                           </div>
                           <div class="mx-auto">
+                            <form action="{{ route('hapus_acara', ['id' => $datas->id, 'id_user' => $data->id]) }}" method="POST">
                             @csrf
                             @method('DELETE')
                                 <input type="hidden" name="_method" value="DELETE">
@@ -92,27 +109,48 @@
   </div>
 </section>
 
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.6.1.slim.js" integrity="sha256-tXm+sa1uzsbFnbXt8GJqsgi2Tw+m4BLGDof6eUPjbtk=" crossorigin="anonymous"></script>
 <script>
 $('.btndelete').click(function(event) {
     var form = $(this).closest('form');
     var name = $(this).data('name');
     var judul = $(this).attr('data-judul');
     event.preventDefault();
-    swal({
-        title: "Apakah Anda Yakin Akan Menghapus Acara " + judul + "?",
-        icon: "warning",
-        type: "warning",
-        buttons: ["Cancel","Yes!"],
-        confirmButtonColor: '#E0144C',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
-    }).then((willDelete) => {
-        if (willDelete) {
-            form.submit();
+
+    const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+            confirmButton: 'text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 focus:outline-none',
+            cancelButton: 'focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2'
+        },
+        buttonsStyling: false
+    })
+
+    swalWithBootstrapButtons.fire({
+        title: 'Apakah Anda Yakin Akan Menghapus Susunan Acara ' + judul + '?',
+        text: "Anda Tidak Akan Bisa Memulihkan Data Ini !",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, delete it!',
+        cancelButtonText: 'No, cancel!',
+        reverseButtons: true
+    }).then((result) => {
+        if (result.isConfirmed) {
+            form.submit(),
+            swalWithBootstrapButtons.fire(
+            'Deleted!',
+            'Data Anda Berhasil Terhapus.',
+            'success'
+            )
+        } else if (
+            /* Read more about handling dismissals below */
+            result.dismiss === Swal.DismissReason.cancel
+        ) {
+            swalWithBootstrapButtons.fire(
+            'Cancelled',
+            'Susunan Acara '+ judul +' Aman :)',
+            'error'
+            )
         }
-    });
+    })
 });
 </script>
 
