@@ -4,10 +4,9 @@
 <style>
   /* #table_filter > label > input */
   #search{
-  width: 300px;
+  {{--  width: 300px;
   height: 50px;
   background: pink;
-  border: none;
   font-size: 10pt;
   float: left;
   color: #63717f;
@@ -28,10 +27,10 @@
 
   .dataTables_empty{
     display: none;
-  }
+  }  --}}
 </style>
 <section class="pt-32 md:pt-36 min-h-screen mb-12">
-  <div class="container">
+  <div class="container mx-auto">
     <div class="w-full px-7">
       <div class="max-w-xl mx-auto text-center">
         <h4 class="font-extrabold text-xl text-rose-500 mb-2">
@@ -93,10 +92,12 @@
                 })
             </script>
           @endif
-          <input type="text" id="search">
+          <div class="w-full flex justify-start">
+            <input type="text" class="mx-5 my-3 bg-rose-100 border border-rose-200 focus:ring-rose-600 focus:bg-rose-100 focus:ring-1 w-1/4 rounded-lg hover:border-rose-500" id="search" placeholder="Search">
+          </div>
           <table id="table" class="w-full border mx-auto text-sm text-center text-rose-400 dark:text-rose-400">
             <!-- <input type="text" id="search" placeholder="search..."> -->
-            <thead class="text-xs bg-rose-500 text-white uppercase bg-rose-50 dark:bg-rose-500 dark:text-white">
+            <thead class="text-xs bg-rose-500 text-white uppercase dark:bg-rose-500 dark:text-white">
               <tr data-name="data">
                 <th scope="col" class="py-3 px-6">
                   Nama
@@ -114,13 +115,13 @@
                   Status Presensi
                 </th>
                 <th scope="col" class="py-3 px-6">
+                  Kirim
+                </th>
+                <th scope="col" class="py-3 px-6">
                   Lihat Tamu
                 </th>
                 <th scope="col" class="py-3 px-6">
                   Presensi
-                </th>
-                <th scope="col" class="py-3 px-6">
-                  Kirim
                 </th>
                 <th scope="col" class="py-3 px-6">
                   Action
@@ -149,7 +150,11 @@
                   if($d->status_undangan == 'terkirim'){
                   ?>
                   <td class="py-4 px-6">
-                    terkirim 
+                    <div class="font-medium text-rose-700 dark:text-rose-700">
+                        <div class="text-rose-700 bg-white border border-rose-500 font-medium rounded-full text-sm px-4 py-2 dark:bg-white dark:text-rose-700">
+                            Terkirim
+                        </div>
+                    </div>
                   </td>
                   <?php }else{ ?>
                   <td class="py-4 px-6">
