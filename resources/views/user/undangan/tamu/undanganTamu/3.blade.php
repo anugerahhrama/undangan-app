@@ -57,7 +57,7 @@
   <section id="hero" class="pt-36 min-h-screen md:pt-36 bg-tema3">
     <div class="container pt-20">
       <div class="flex flex-wrap md:mx-20 md:pl-10">
-        <div class="text-center w-full ">
+        <div class="text-center text-white w-full ">
           <h1 class="text-base font-semibold text-white md:text-2xl">
               Undangan {{ $undangan->kategori }}
             <span class="block text-3xl text-white font-bold md:text-5xl">
@@ -138,7 +138,7 @@
   </section>
 
     <footer class="text-center bg-slate-700 text-white py-8">
-      <h1>Dibuat dengan Cinta😘</h1>
+      <h1>Copyright&copy𝑼𝒊𝒏𝒗𝒊𝒕𝒆 2022</h1>
     </footer>
 
     <script src="{{ url ('js/tema.js') }}"></script>

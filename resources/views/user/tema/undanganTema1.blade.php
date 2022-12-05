@@ -119,7 +119,7 @@
   </section>
 
     <footer class="text-center bg-cyan-700 text-white py-8">
-      <h1>Dibuat dengan Cinta😘</h1>
+      <h1>Copyright&copy𝑼𝒊𝒏𝒗𝒊𝒕𝒆 2022</h1>
     </footer>
 
     <script src="{{ url ('js/script.js') }}"></script>

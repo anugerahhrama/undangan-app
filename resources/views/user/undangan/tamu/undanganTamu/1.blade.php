@@ -61,9 +61,6 @@
     <div class="container">
       <div class="flex flex-wrap md:mx-20">
         <div class="self-center px-4 w-full lg:w-1/2">
-          
-
-
           <h1 class="text-base font-semibold text-cyan-500 md:text-2xl">
             Undangan {{ $undangan->kagetori }}
             <span class="block text-3xl text-slate-800 font-bold md:text-5xl">
@@ -149,7 +146,7 @@
   </section>
 
     <footer class="text-center bg-cyan-700 text-white py-8">
-      <h1>Dibuat dengan Cinta😘</h1>
+      <h1>Copyright&copy𝑼𝒊𝒏𝒗𝒊𝒕𝒆 2022</h1>
     </footer>
 
     <script src="{{ url ('js/script.js') }}"></script>
