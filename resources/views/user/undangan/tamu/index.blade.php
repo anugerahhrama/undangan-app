@@ -62,11 +62,6 @@
             <script>alert('Tamu berhasil presensi');</script>
           @endif
           <input type="text" id="search">
-          <select name="presensi" id="presensi">
-            <option value="belum">belum</option>
-            <option value="hadir">hadir</option>
-          </select>
-          <button id="cek_presensi">Cek</button>
           <table id="table" class="w-full border mx-auto text-sm text-center text-rose-400 dark:text-rose-400">
             <!-- <input type="text" id="search" placeholder="search..."> -->
             <thead class="text-xs bg-rose-500 text-white uppercase bg-rose-50 dark:bg-rose-500 dark:text-white">
@@ -190,6 +185,8 @@
 
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.1.slim.js" integrity="sha256-tXm+sa1uzsbFnbXt8GJqsgi2Tw+m4BLGDof6eUPjbtk=" crossorigin="anonymous"></script>
+<script src="/path/to/cdn/jquery.min.js"></script>
+<script src="{{('js/table-pagination.js')}}"></script>
 <script>
 $('.btndelete').click(function(event) {
     var form = $(this).closest('form');
@@ -239,20 +236,10 @@ var dataList = $(this).val().toLowerCase();
 });
 </script>
 <script>
-    // $hadir = document.getElementById('presensi').value;
-    // $('#table tr').each(function(){
-    //     $(this).attr('searchData', $(this).text().toLowerCase());
-    // });
-    // $('#presensi').on('keydown', function(){
-    // var dataList = $(this).val().toLowerCase();
-    //     $('#table tr').each(function(){
-    //         if ($(this).filter(dataList.length > 0 || dataList.length < 1)) {
-    //             $(this).show();
-    //         }else {
-    //             $(this).hide();
-    //         }
-    //     });
-    // });
+  $(function(){
+  $('#table').createTablePagination({
+    rowPerPage: 20,
+  });
+});
 </script>
-  
 @endsection
