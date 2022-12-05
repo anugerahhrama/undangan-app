@@ -32,8 +32,9 @@ class RegisterController extends Controller
     {
         $this->validate($request, [
             'nama' => 'required',
-            'email' => 'required',
+            'email' => 'required | unique:users,email',
             'password' => 'required',
+            'konfirmasi' => 'required | same:password',
             'alamat' => 'required',
             'no_hp' => 'required',
             'role' => 'required'
@@ -48,7 +49,7 @@ class RegisterController extends Controller
             'role' => $request->role
         ]);
 
-        return view('login')->with('register', 'berhasil');
+        return redirect('login')->with('alert1', 'Berhasil Mendaftar');
     }
 
 }

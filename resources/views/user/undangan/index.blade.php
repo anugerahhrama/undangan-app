@@ -144,7 +144,7 @@
     </div>
 </section>
 
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://code.jquery.com/jquery-3.6.1.slim.js" integrity="sha256-tXm+sa1uzsbFnbXt8GJqsgi2Tw+m4BLGDof6eUPjbtk=" crossorigin="anonymous"></script>
 <script>
 $('.btndelete').click(function(event) {
@@ -152,19 +152,25 @@ $('.btndelete').click(function(event) {
     var name = $(this).data('name');
     var judul = $(this).attr('data-judul');
     event.preventDefault();
-    swal({
-        title: "Apakah Anda Yakin Akan Menghapus " + judul + "?",
-        icon: "warning",
-        type: "warning",
-        buttons: ["Cancel","Yes!"],
-        confirmButtonColor: '#E0144C',
+
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
         confirmButtonText: 'Yes, delete it!'
-    }).then((willDelete) => {
-        if (willDelete) {
-            form.submit();
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // form.submit()
+            Swal.fire(
+            'Deleted!',
+            'Your file has been deleted.',
+            'success'
+            )
         }
-    });
+    })
 });
 </script>
 
