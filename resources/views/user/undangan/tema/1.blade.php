@@ -1,10 +1,3 @@
-{{--  <h1>Tema pertama</h1>
-<h1>{{ $data->judul_acara }}</h1>
-<h5>{{ $data->hari }} {{ $data->tanggal }} {{ $data->bulan }} {{ $data->tahun }}</h5>
-<h4>{{ $data->deskripsi }}</h4>
-@foreach($acara as $ac)
-<h3>{{ $ac->acara }}</h3>
-@endforeach  --}}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -125,7 +118,7 @@
   </section>
 
     <footer class="text-center bg-cyan-700 text-white py-8">
-      <h1>Dibuat dengan Cinta😘</h1>
+      <h1>Copyright&copy𝑼𝒊𝒏𝒗𝒊𝒕𝒆 2022</h1>
     </footer>
 
     <script src="{{ url ('js/script.js') }}"></script>
