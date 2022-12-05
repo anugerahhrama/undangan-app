@@ -1,9 +1,10 @@
 <header class="top-0 left-0 z-10 flex items-center w-full bg-transparent absolute">
     <div class="container">
       <div class="relative flex items-center justify-between">
-        <div class="px-4 lg:px-12">
+        <div class="px-4 lg:px-12 flex items-center">
+          <img src="{{ url('img/icon.png') }}" alt="" class="h-10 mr-3 sm:h-14">
           <a href="{{ route('data_undangan') }}" class="block py-6 text-lg font-bold text-rose-500 lg:text-2xl md:text-xl">
-            UNDANG
+             𝑼𝒊𝒏𝒗𝒊𝒕𝒆
           </a>
         </div>
         <div class="flex items-center px-4">

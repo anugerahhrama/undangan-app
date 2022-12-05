@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <title>𝓤𝓷𝓭𝓪𝓷𝓰</title>
+  <title>𝑼𝒊𝒏𝒗𝒊𝒕𝒆</title>
   <link rel="icon" href="{{ url('img/icon.png') }}">
   <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.4/dist/flowbite.min.css" />
   @vite('resources/css/app.css')

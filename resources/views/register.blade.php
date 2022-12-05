@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.slim.js" integrity="sha256-tXm+sa1uzsbFnbXt8GJqsgi2Tw+m4BLGDof6eUPjbtk=" crossorigin="anonymous"></script>
     <link rel="icon" href="{{ url('img/icon.png') }}">
-    <title>𝓤𝓷𝓭𝓪𝓷𝓰</title>
+    <title>𝑼𝒊𝒏𝒗𝒊𝒕𝒆</title>
     @vite('resources/css/app.css')
 </head>
 <body>
@@ -13,6 +15,18 @@
     <div class="bg-rose-50 max-w-3xl p-5 flex rounded-3xl shadow-lg border-rose-100">
       <div class="md:w-1/2 w-full px-14">
         <h1 class="text-xl font-semibold mt-8 mb-4 text-center text-rose-600">REGISTER</h1>
+        @if ($errors->any())
+          @foreach ($errors->all() as $error)
+            <script>
+              Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: '{{ $error }}',
+                confirmButtonColor:'#f43f5e'
+              })
+            </script>
+          @endforeach
+        @endif
         <p class="text-sm pb-5 text-slate-500 text-center">Daftar terlebih dahulu jika akunmu belum terdaftar</p>
         <form action="{{ route('registerStore') }}" method="POST" class="flex flex-col mb-8">
           @csrf
@@ -22,6 +36,7 @@
           <input type="text" name="alamat" id="alamat" class="mb-3 p-2 shadow-md focus:border-rose-300 focus:outline-none transition ease-in-out focus:bg-white border border-solid duration-300 rounded-lg py-1 " placeholder="Alamat">
           <input type="email" name="email" id="email" class="mb-3 p-2 shadow-md focus:border-rose-300 focus:outline-none transition ease-in-out focus:bg-white border border-solid duration-300 rounded-lg py-1 " placeholder="E-Mail">
           <input type="password" name="password" id="password" class="mb-3 p-2 shadow-md focus:border-rose-300 focus:outline-none transition ease-in-out focus:bg-white border border-solid duration-300 rounded-lg py-1 " placeholder="Password">
+          <input type="password" name="konfirmasi" id="konfirmasi" class="mb-3 p-2 shadow-md focus:border-rose-300 focus:outline-none transition ease-in-out focus:bg-white border border-solid duration-300 rounded-lg py-1 " placeholder="Konfirmasi Password">
           <input type="hidden" name="role" value="user">
           <button type="submit" class="bg-rose-500 hover:bg-rose-400 transition duration-300 ease-in-out hover:shadow-lg hover:border hover:border-solid hover:border-rose-600 mt-3 py-1.5 text-white font-semibold rounded-lg">Register</button>
         </form>

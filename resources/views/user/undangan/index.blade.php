@@ -18,6 +18,14 @@
 
     <div class="container px-7 mb-12 text-center">
         <div class="overflow-x-auto relative shadow-md sm:rounded-lg mt-2">
+        @if ($message = Session::get('success'))
+                <script>alert('data berhasil ditambah');</script>
+            </div>
+        @endif 
+        @if ($message = Session::get('update'))
+                <script>alert('data berhasil diupdate');</script>
+            </div>
+        @endif
             <table class="w-full border mx-auto text-sm text-center text-rose-400 dark:text-rose-400">
                 <thead class="text-xs bg-rose-500 text-white uppercase bg-rose-50 dark:bg-rose-500 dark:text-white">
                     <tr>
@@ -136,7 +144,7 @@
     </div>
 </section>
 
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://code.jquery.com/jquery-3.6.1.slim.js" integrity="sha256-tXm+sa1uzsbFnbXt8GJqsgi2Tw+m4BLGDof6eUPjbtk=" crossorigin="anonymous"></script>
 <script>
 $('.btndelete').click(function(event) {
@@ -144,19 +152,25 @@ $('.btndelete').click(function(event) {
     var name = $(this).data('name');
     var judul = $(this).attr('data-judul');
     event.preventDefault();
-    swal({
-        title: "Apakah Anda Yakin Akan Menghapus " + judul + "?",
-        icon: "warning",
-        type: "warning",
-        buttons: ["Cancel","Yes!"],
-        confirmButtonColor: '#E0144C',
+
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
         confirmButtonText: 'Yes, delete it!'
-    }).then((willDelete) => {
-        if (willDelete) {
-            form.submit();
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // form.submit()
+            Swal.fire(
+            'Deleted!',
+            'Your file has been deleted.',
+            'success'
+            )
         }
-    });
+    })
 });
 </script>
 

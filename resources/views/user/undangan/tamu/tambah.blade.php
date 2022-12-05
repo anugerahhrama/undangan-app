@@ -1,20 +1,7 @@
-{{--  <h1>Tambah Tamu</h1>
-<form action="{{ route('simpan_tamu', $datas->id) }}" method="POST">
-    @csrf
-    @method('POST')
-    <input type="text" name="id" value="{{ $kode }}">
-    <input type="text" name="id_undangan" value="{{ $datas->id }}" readonly><br>
-    <input type="text" name="nama" placeholder="nama"><br>
-    <input type="text" name="email" placeholder="email"><br>
-    <input type="text" name="alamat" placeholder="alamat"><br>
-    <input type="text" name="status_undangan" value="belum" readonly><br>
-    <input type="text" name="status_presensi" value="belum" readonly><br>
-    <button type="submit">Simpan</button>
-</form>  --}}
-
 @extends('user/dataUser/base/base')
+
 @section('content')
-  <section id="contact" class="pt-36 pb-10 bg-rose-50">
+  <section id="contact" class="pt-36 pb-10">
     <div class="container">
       <div class="w-full px-4">
         <div class="max-w-xl mx-auto text-center mb-10">
@@ -22,7 +9,7 @@
             Tambah Tamu
           </h4>
           <h2 class="font-bold text-slate-900 text-3xl mb-4">
-            Tambah data daftar tamu anda
+            Tambah Data Daftar Tamu Anda
           </h2>
         </div>
         <div class="w-full lg:px-4 md:px-5 sm:px-6">
@@ -37,14 +24,14 @@
                       <input type="hidden" name="id_undangan" value="{{ $datas->id }}" readonly>
                     <input type="text"     
                       class="w-full bg-slate-200 text-dark p-2 rounded-md focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary" 
-                      name="nama"
+                      name="nama" required
                       />
                 </div>
                 <div class="w-full lg:w-1/2 px-4 mb-8">
                   <label for="kategori" class="text-base font-bold text-rose-500">E-Mail</label>
                   <input type="email"     
                     class="w-full bg-slate-200 text-dark p-2 rounded-md focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary" 
-                    name="email"
+                    name="email" required
                     />
                 </div>
               </div>
@@ -53,7 +40,7 @@
                   <label for="judul" class="text-base font-bold text-rose-500">Alamat</label>
                     <textarea type="text"     
                       class="w-full bg-slate-200 text-dark p-2 rounded-md focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary" 
-                      name="alamat"
+                      name="alamat" required
                       ></textarea>
                       <input type="hidden" name="status_undangan" value="belum" readonly><br>
                       <input type="hidden" name="status_presensi" value="belum" readonly><br>
@@ -62,9 +49,9 @@
 
               <div class="w-full px-4 block md:flex justify-center">
                 <button type="submit"
-                  class="text-base mb-3 font-semibold bg-rose-500 md:mx-4 text-white bg-primary py-3 px-8 rounded-xl w-full md:w-1/3 hover:opacity-70 hover:shadow-lg transition duration-500">Tambah
+                  class="text-base mb-3 font-semibold bg-blue-500 md:mx-4 text-white bg-primary py-3 px-8 rounded-xl w-full md:w-1/3 hover:opacity-70 hover:shadow-lg transition duration-500">Tambah
                 </button>
-                <button type="reset" class="text-base mb-3 font-semibold bg-rose-500 md:mx-4 text-white bg-primary py-3 px-8 rounded-xl w-full md:w-1/3 hover:opacity-70 hover:shadow-lg transition duration-500">
+                <button type="reset" class="text-base mb-3 font-semibold bg-slate-500 md:mx-4 text-white bg-primary py-3 px-8 rounded-xl w-full md:w-1/3 hover:opacity-70 hover:shadow-lg transition duration-500">
                   Reset
                 </button>
                 <button type="reset" class="text-base mb-3 font-semibold bg-rose-500 md:mx-4 text-white bg-primary py-3 px-8 rounded-xl w-full md:w-1/3 hover:opacity-70 hover:shadow-lg transition duration-500">
