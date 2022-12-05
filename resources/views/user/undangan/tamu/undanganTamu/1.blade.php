@@ -155,7 +155,6 @@
             QR Code
           </h4>
           <div class="w-2/3 flex justify-center mx-auto">
-          <img src="{{url('img/icon.png')}}">
           {{ $qrcode }}
           </div>
         </div>
