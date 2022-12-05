@@ -63,7 +63,7 @@
 
 <script>
 $('.logout').click(function(event) {
-  alert('Yakin akan logout?')
+  confirm('Yakin?')
 });
 </script>
 

@@ -4,7 +4,7 @@
 <style>
   /* #table_filter > label > input */
   #search{
-  {{--  width: 300px;
+  width: 300px;
   height: 50px;
   background: pink;
   font-size: 10pt;
@@ -27,7 +27,7 @@
 
   .dataTables_empty{
     display: none;
-  }  --}}
+  } 
 </style>
 <section class="pt-32 md:pt-36 min-h-screen mb-12">
   <div class="container mx-auto">

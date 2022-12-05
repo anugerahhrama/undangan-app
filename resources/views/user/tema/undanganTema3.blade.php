@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+  <link rel="stylesheet" href="{{ url ('css/tema.css') }}">
   @vite('resources/css/app.css')
 </head>
 
@@ -27,17 +28,17 @@
           <nav id="nav-menu" class="hidden absolute py-5 lg:shadow-none lg:rounded-none bg-cyan-200  shadow-lg rounded-lg max-w-[250px] w-full right-4 top-full lg:block lg:static lg:bg-transparent lg:max-w-full">
             <ul class="block lg:flex">
               <li class="group">
-                <a href="#hero" class="text-base text-slate-700 lg:text-slate-900 py-2 mx-8 flex group-hover:text-cyan-700">
+                <a href="#hero" class="text-base text-cyan-200 lg:text-slate-900 py-2 mx-8 flex group-hover:text-slate-700">
                   Home
                 </a>
               </li>
               <li class="group">
-                <a href="#detail" class="text-base text-slate-700 lg:text-slate-900 py-2 mx-8 flex group-hover:text-cyan-700">
+                <a href="#detail" class="text-base text-cyan-200 lg:text-slate-900 py-2 mx-8 flex group-hover:text-slate-700">
                   Detail Acara
                 </a>
               </li>
               <li class="group">
-                <a href="#lokasi" class="text-base text-slate-700 lg:text-slate-900 py-2 mx-8 flex group-hover:text-cyan-700">
+                <a href="#lokasi" class="text-base text-cyan-200 lg:text-slate-900 py-2 mx-8 flex group-hover:text-slate-700">
                   Lokasi
                 </a>
               </li>
@@ -53,7 +54,7 @@
     </div>
   </header>
 
-  <section id="hero" class="pt-32 mb-20 md:pt-36">
+  <section id="hero" class="pt-36 min-h-screen md:pt-36 bg-tema3">
     <div class="container">
       <div class="flex flex-wrap md:mx-20">
         <div class="self-center px-4 w-full lg:w-1/2">
