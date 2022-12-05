@@ -239,22 +239,20 @@ var dataList = $(this).val().toLowerCase();
 });
 </script>
 <script>
-   $('#cek_presensi').click(function() {
-
-var price = $('#presensi').val();
-
-$('tr').show();
-
-$('tr td#status_presensi').each(function() {
-    if ($(this).text() === price )
-    {
-        $(this).parent().hide();
-    }else{
-      $(this).parent().show();
-    }
-});
-
-});
+    // $hadir = document.getElementById('presensi').value;
+    // $('#table tr').each(function(){
+    //     $(this).attr('searchData', $(this).text().toLowerCase());
+    // });
+    // $('#presensi').on('keydown', function(){
+    // var dataList = $(this).val().toLowerCase();
+    //     $('#table tr').each(function(){
+    //         if ($(this).filter(dataList.length > 0 || dataList.length < 1)) {
+    //             $(this).show();
+    //         }else {
+    //             $(this).hide();
+    //         }
+    //     });
+    // });
 </script>
   
 @endsection
