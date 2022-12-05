@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -58,20 +57,20 @@
   <section id="hero" class="pt-36 min-h-screen md:pt-36 bg-tema2">
     <div class="container pt-20">
       <div class="flex flex-wrap md:mx-20 md:pl-10">
-        <div class="text-center w-full ">
-          <h1 class="text-base font-semibold text-white md:text-2xl">
+        <div class="text-center text-white w-full ">
+          <h1 class="text-base font-semibold md:text-2xl">
               Undangan {{ $undangan->id_kategori }}
-            <span class="block text-3xl text-white font-bold md:text-5xl">
+            <span class="block text-3xl font-bold md:text-5xl">
               {{ $undangan->judul_acara }}
             </span>
           </h1>
           <h2 class="mb-8 text-lg font-medium text-white md:text-2xl">
             {{ $undangan->hari }}  {{ $undangan->tanggal }}
           </h2>
-          <h1 class="text-base font-base md:text-22xl mb-1">Kepada yth: </h1>
-          <h1 class="text-base font-medium md:text-2xl mb-1">{{ $tamu->nama }}</h1>
-          <h1 class="text-base font-medium md:text-2xl mb-1">{{ $tamu->email }}</h1>
-          <h1 class="text-base font-medium md:text-2xl mb-8">{{ $tamu->alamat }}</h1>
+          <h1 class="text-base text-cyan-300 font-base md:text-22xl mb-1">Kepada yth: </h1>
+          <h1 class="text-base text-cyan-300 font-medium md:text-2xl mb-1">{{ $tamu->nama }}</h1>
+          <h1 class="text-base text-cyan-300 font-medium md:text-2xl mb-1">{{ $tamu->email }}</h1>
+          <h1 class="text-base text-cyan-300 font-medium md:text-2xl mb-8">{{ $tamu->alamat }}</h1>
           <a href="" class="bg-cyan-600 hover:bg-cyan-500 py-2.5 px-4 rounded-xl text-white font-semibold transition duration-300 ease-in-out hover:shadow-lg">
             Lihat Lokasi
           </a>
@@ -139,7 +138,7 @@
   </section>
 
     <footer class="text-center bg-slate-700 text-white py-8">
-      <h1>Dibuat dengan Cinta😘</h1>
+      <h1>Copyright&copy𝑼𝒊𝒏𝒗𝒊𝒕𝒆 2022</h1>
     </footer>
 
     <script src="{{ url ('js/tema.js') }}"></script>

@@ -107,6 +107,7 @@ Route::get('/tema2', function () {
 Route::get('/tema3', function () {
     return view('user/tema/undanganTema3');
 });
+
 Route::get('/register2', function () {
     return view('register2');
 });
