@@ -1,7 +1,35 @@
 @extends('user/dataUser/base/base')
 
 @section('content')
+<style>
+  /* #table_filter > label > input */
+  #search{
+  width: 300px;
+  height: 50px;
+  background: pink;
+  border: none;
+  font-size: 10pt;
+  float: left;
+  color: #63717f;
+  padding-left: 45px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  margin-left: 10px;
+  margin-top: 5px;
+  }
+  #table_length{
+    display: none;
+  }
+  #table_filter > label > #text{
+    display: none;
+  }
 
+  .dataTables_empty{
+    display: none;
+  }
+</style>
 <section class="pt-32 md:pt-36 min-h-screen mb-12">
   <div class="container">
     <div class="w-full px-7">
@@ -65,9 +93,11 @@
                 })
             </script>
           @endif
-          <table class="w-full border mx-auto text-sm text-center text-rose-400 dark:text-rose-400">
+          <input type="text" id="search">
+          <table id="table" class="w-full border mx-auto text-sm text-center text-rose-400 dark:text-rose-400">
+            <!-- <input type="text" id="search" placeholder="search..."> -->
             <thead class="text-xs bg-rose-500 text-white uppercase bg-rose-50 dark:bg-rose-500 dark:text-white">
-              <tr>
+              <tr data-name="data">
                 <th scope="col" class="py-3 px-6">
                   Nama
                 </th>
@@ -99,7 +129,7 @@
             </thead>
             <tbody class="text-rose-700 bg-rose-500 dark:bg-rose-500">
               @forelse($data as $d)
-                <tr class="bg-white border-b hover:bg-rose-100">
+                <tr data-name="data" class="bg-white border-b hover:bg-rose-100">
                   <td class="py-4 px-6">
                     {{ $d->nama }}
                   </td>
@@ -109,10 +139,10 @@
                   <td class="py-4 px-6">
                     {{ $d->judul_acara }}
                   </td>
-                  <td class="py-4 px-6">
+                  <td class="py-4 px-6" id="status_undangan">
                     {{ $d->status_undangan }}
                   </td>
-                  <td class="py-4 px-6">
+                  <td class="py-4 px-6" id="status_presensi">
                     {{ $d->status_presensi }}
                   </td>
                   <?php  
@@ -229,5 +259,38 @@ $('.btndelete').click(function(event) {
     })
 });
 </script>
-  
+  <script>
+    $(document).ready(function($){
+
+      $hadir = document.getElementById('search').value;
+$('#table tr').each(function(){
+    $(this).attr('searchData', $(this).text().toLowerCase());
+});
+$('#search').on('keyup', function(){
+var dataList = $(this).val().toLowerCase();
+    $('#table tr').each(function(){
+        if ($(this).filter('[searchData *= ' + dataList + ']').length > 0 || dataList.length < 1) {
+            $(this).show();
+        }else {
+            $(this).hide();
+        }
+    });
+});
+$('#search').on('keydown', function(){
+var dataList = $(this).val().toLowerCase();
+    $('#table tr').each(function(){
+        if ($(this).val() == '') {
+            $(this).show();
+        }
+    });
+});
+});
+</script>
+<script>
+  $(function(){
+  $('#table').createTablePagination({
+    rowPerPage: 20,
+  });
+});
+</script>
 @endsection

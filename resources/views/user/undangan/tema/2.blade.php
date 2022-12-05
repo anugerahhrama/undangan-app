@@ -87,7 +87,7 @@
           </h2>
           <div class="w-1/3 mx-auto">
           @foreach ($acara as $ac)
-            <ul class="list-disc text-start">
+            <ul class="">
               <li class="font-semibold text-3xl text-slate-500 md:text-lg">
                 {{ $ac->acara }}
               </li>
