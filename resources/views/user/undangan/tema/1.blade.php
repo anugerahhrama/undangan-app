@@ -60,7 +60,7 @@
       <div class="flex flex-wrap md:mx-20">
         <div class="self-center px-4 w-full lg:w-1/2">
           <h1 class="text-base font-semibold text-cyan-500 md:text-2xl">
-              Undangan {{ $datas->kategori }}
+              Undangan {{ $data->kategori }}
             <span class="block text-3xl text-slate-800 font-bold md:text-5xl mb-3">
               {{ $data->judul_acara }}
             </span>
@@ -93,7 +93,7 @@
           </h2>
           <div class="w-1/3 mx-auto">
           @foreach ($acara as $ac)
-            <ul class="list-disc text-start">
+            <ul class="">
               <li class="font-semibold text-3xl text-slate-500 md:text-lg">
                 {{ $ac->acara }}
               </li>
