@@ -47,7 +47,7 @@
                       <td>{{ $data->alamat }}</td>
                       <td>{{ $data->role }}</td>
                       <td>
-                        <form action="{{ route('user.destroy', $data->id) }}" method="POST" onsubmit="return confirm('Yakin Akan Dihapus?')">
+                        <form action="{{ route('user.destroy', $data->id) }}" method="POST" onclick="return confirm('Yakin Akan Dihapus?')">
                         <a href="{{ route('user.edit', $data->id) }}" class="btn btn-warning text-white"><i class="bi bi-pen"></i></a>
                         @csrf
                         @method('DELETE')
