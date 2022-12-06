@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="{{ url ('plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
     <link rel="stylesheet" href="{{ url ('plugins/daterangepicker/daterangepicker.css') }}">
     <link rel="stylesheet" href="{{ url ('plugins/summernote/summernote-bs4.min.css') }}">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.slim.js" integrity="sha256-tXm+sa1uzsbFnbXt8GJqsgi2Tw+m4BLGDof6eUPjbtk=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
     <link rel="stylesheet" href="{{ url ('css/style.css') }}">
@@ -26,8 +28,8 @@
   <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
 
-      {{-- <div class="preloader flex-column justify-content-center align-items-center bg-animate">
-        <img class="animation__shake" src="{{ url ('img/logo.png') }}" alt="Undang Logo" height="" width="200">
+      {{-- <div class="preloader flex-column justify-content-center align-items-center bg-red">
+        <img class="animation__shake" src="{{ url ('img/icon.png') }}" height="" width="200">
       </div> --}}
 
       <nav class="main-header navbar navbar-light navbar-expand dekorasi px-3">
@@ -77,7 +79,7 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
               <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
               <li class="nav-item">
-                <a href="admin" class="nav-link">
+                <a href="{{ url ('admin') }}" class="nav-link">
                   <i class="fa fa-user nav-icon"></i>
                   <p>Data Admin</p>
                 </a>
@@ -122,8 +124,8 @@
       </aside>
     </div>
 
-    <script src="plugins/jquery/jquery.min.js"></script>
-    <script src="plugins/jquery-ui/jquery-ui.min.js"></script>
+    <script src="{{ url ('plugins/jquery/jquery.min.js') }}"></script>
+    <script src="{{ url ('plugins/jquery-ui/jquery-ui.min.js') }}"></script>
     <script>
       $.widget.bridge('uibutton', $.ui.button)
     </script>
@@ -172,6 +174,28 @@
         });
       });
     </script>
+
+    @if(\Session::has('alert'))
+      <script>
+        const Toast = Swal.mixin({
+          toast: true,
+          position: 'top-end',
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+          }
+        })
+
+        Toast.fire({
+          icon: 'success',
+          title: 'Login Berhasil'
+        })
+      </script>
+    @endif
+
   </body>
 
 </html>
