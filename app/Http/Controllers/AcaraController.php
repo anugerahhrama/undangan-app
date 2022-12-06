@@ -14,7 +14,7 @@ class AcaraController extends Controller
         $datas = Undangan::find($id);
         $dataAcara = Undangan::join('acaras', 'acaras.id_detail', '=', 'undangans.id')
         ->where('acaras.id_detail', '=', $id)
-        ->get([ 'acaras.id', 'acaras.acara']);
+        ->get([ 'acaras.id', 'acaras.acara', 'acaras.waktu']);
         return view('user/undangan/acara/index', compact('datas', 'dataAcara'))->with(['user' => Auth::user(),]);
         // dd($dataAcara);
     }
@@ -34,12 +34,14 @@ class AcaraController extends Controller
         $datas = Undangan::find($id);
         $this->validate($request,[
             'id_detail' => 'required',
-            'acara' => 'required'
+            'acara' => 'required',
+            'waktu' => 'required'
         ]);
 
         $data = Acara::create([
             'id_detail' => $id,
-            'acara' => $request->acara
+            'acara' => $request->acara,
+            'waktu' => $request->waktu
         ]);
         
         return redirect(route('susunan_acara', $id))->with('tambah', 'berhasil');
@@ -62,7 +64,8 @@ class AcaraController extends Controller
 
         $cek = $acara->update([
             // 'id_detail' => $request->id_detail,
-            'acara' => $request->acara
+            'acara' => $request->acara,
+            'waktu' => $request->waktu
         ]);
 
             

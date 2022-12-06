@@ -23,7 +23,7 @@
                 <div class="card">
                 <div class="card-body">
 
-                    <form action="{{ route('tema.index') }}" class="ms-3" method="POST">
+                    <form action="{{ route('tema.index') }}" class="ms-3" method="POST" enctype="multipart/form-data" >
 
                     @csrf
                     @method('POST')
@@ -53,6 +53,7 @@
                         </div>
                         </div>
                     </div>
+                    <!-- <input type="file" name="tema"> -->
 
                     </form>
                 </div>

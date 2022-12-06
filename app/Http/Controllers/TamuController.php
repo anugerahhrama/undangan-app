@@ -110,6 +110,7 @@ class TamuController extends Controller
         // dd($tamu);
         // return view('user/undangan/tamu/undangan', compact('tamu', 'undangan'));
         return view('user/undangan/tamu/undanganTamu/'.$undangan->id_tema , compact('tamu', 'undangan','acara', 'qrcode'));
+        // return redirect('resources/views/admin/undanganTema1.blade.php'.$undangan->id_tema , compact('tamu', 'undangan','acara', 'qrcode'));
     }
 
     public function presensi($id, $id_tamu){
