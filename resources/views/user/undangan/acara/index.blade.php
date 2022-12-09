@@ -52,6 +52,9 @@
                 <th scope="col" class="py-3-px-8">
                   Nama Susunan Acara
                 </th>
+                <th scope="col" class="py-3-px-8">
+                  Waktu Acara
+                </th>
                 <th scope="col" class="py-3 px-8">
                   Action
                 </th>
@@ -66,6 +69,9 @@
                   </td>
                   <td class="py-4 px-8">
                     {{ $data->acara }}
+                  </td>
+                  <td class="py-4 px-8">
+                    {{ $data->waktu }}
                   </td>
                   <td class="py-4 px-8">
                     <div class="grid grid-cols-none lg:grid-cols-2">

@@ -9,7 +9,8 @@ class Acara extends Model
 {
     protected $fillable = [
         'id_detail',
-        'acara'
+        'acara',
+        'waktu'
     ];
     use HasFactory;
 }

@@ -22,6 +22,11 @@
                   <div class="lg:w-1/2 mx-auto w-full px-4 mb-8">
                     <input type="hidden" id="id_detail" name="id_detail" value="{{ $datas->id }}" readonly
                       class="w-full bg-slate-200 text-dark p-2 rounded-md focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary" />
+                    <label for="tanggal" class="text-base font-bold text-rose-500">Waktu Kegiatan</label>
+                    <input type="time" id="acara" name="waktu"
+                      class="w-full bg-slate-200 text-dark p-2 rounded-md focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary" 
+                      placeholder="Acara" value="{{ $datas->waktu }}"/>
+                  </div> 
                   </div>
                   <div class="lg:w-1/2 w-full mx-auto px-4 mb-8">
                     <label for="tanggal" class="text-base font-bold text-rose-500">Nama Susunan Acara</label>

@@ -46,7 +46,8 @@ class UndanganController extends Controller
             'deskripsi' => 'required',
             'id_kategori' => 'required',
             'jam' => 'required',
-            'lokasi' => 'required'
+            'lokasi' => 'required',
+            'detail_lokasi' => 'required'
         ]);
 
         $data = Undangan::create([
@@ -58,7 +59,8 @@ class UndanganController extends Controller
             'deskripsi' => $request->deskripsi,
             'id_kategori' => $request->id_kategori,
             'jam' => $request->jam,
-            'lokasi' => $request->lokasi
+            'lokasi' => $request->lokasi,
+            'detail_lokasi' => $request->detail_lokasi
         ]);
         // dd($data);
         if($data == true){
@@ -92,7 +94,8 @@ class UndanganController extends Controller
             'id_kategori' => 'required',
             'deskripsi' => 'required',
             'jam' => 'required',
-            'lokasi' => 'required'
+            'lokasi' => 'required',
+            'detail_lokasi' => 'required'
         ]);
         $undangan = Undangan::findOrFail($id);
          $datas = $undangan->update([
@@ -104,7 +107,8 @@ class UndanganController extends Controller
             'id_kategori' => $request->id_kategori,
             'deskripsi' => $request->deskripsi,
             'jam' => $request->jam,
-            'lokasi' => $request->lokasi
+            'lokasi' => $request->lokasi,
+            'detail_lokasi' => $request->detail_lokasi
         ]);
 
         // dd($request);
