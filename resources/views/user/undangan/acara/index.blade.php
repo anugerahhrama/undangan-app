@@ -77,7 +77,7 @@
                     <div class="grid grid-cols-none lg:grid-cols-2">
                         <div class="mb-2 mr-1">
                             <a href="{{route('edit_acara', ['id' => $datas->id, 'id_user' => $data->id] )}}">
-                                <button type="button" class="text-white bg-yellow-47wQbNPTDJp9hMYdvogK2hAUiHsGeiybwaWe36bwtRQ3UTpYV7YuZ8FV5j9nauFCWwcjM6dTzpL5s2N79Rp5unwdMvc8ZKUpy-2 dark:bg-yellow-400 dark:hover:bg-yellow-300 focus:outline-none dark:focus:ring-yellow-500">
+                                <button type="button" class="text-white bg-yellow-400 hover:bg-yellow-300 focus:ring-4 focus:ring-yellow-500 font-medium rounded-lg text-sm px-2 py-2 dark:bg-yellow-400 dark:hover:bg-yellow-300 focus:outline-none dark:focus:ring-yellow-500">
                                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
                                 </button>        
                             </a>
