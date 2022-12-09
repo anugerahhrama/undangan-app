@@ -31,7 +31,7 @@
         <form action="{{ route('registerStore') }}" method="POST" class="flex flex-col mb-8">
           @csrf
           @method('POST')
-          <input type="text" name="nama" id="nama" class="mb-3 p-2 shadow-md focus:border-rose-300 focus:outline-none transition ease-in-out focus:bg-white border border-solid duration-300 rounded-lg py-1 " placeholder="Username">
+          <input type="text" name="nama" id="nama" class="mb-3 p-2 shadow-md focus:border-rose-300 focus:outline-none transition ease-in-out focus:bg-white border border-solid duration-300 rounded-lg py-1 " placeholder="Nama Lengkap">
           <input type="number" name="no_hp" id="no_hp" class="mb-3 p-2 shadow-md focus:border-rose-300 focus:outline-none transition ease-in-out focus:bg-white border border-solid duration-300 rounded-lg py-1 " placeholder="No. Hp">
           <input type="text" name="alamat" id="alamat" class="mb-3 p-2 shadow-md focus:border-rose-300 focus:outline-none transition ease-in-out focus:bg-white border border-solid duration-300 rounded-lg py-1 " placeholder="Alamat">
           <input type="email" name="email" id="email" class="mb-3 p-2 shadow-md focus:border-rose-300 focus:outline-none transition ease-in-out focus:bg-white border border-solid duration-300 rounded-lg py-1 " placeholder="E-Mail">
