@@ -143,4 +143,14 @@
       </div>
   </section>
 
+  <section style="display: flex;">
+  <iframe src="{{ route('demo_tema', ['id' => '1']) }}" height="1200px" ></iframe>
+  <iframe src="{{ route('demo_tema', ['id' => '2']) }}" height="1200px" ></iframe>
+  <iframe src="{{ route('demo_tema', ['id' => '3']) }}" height="1200px" ></iframe>
+  </section>
+  
+  <a href="{{ route('demo_tema', ['id' => '1']) }}">Tema 1</a>
+        <a href="{{ route('demo_tema', ['id' => '2']) }}">Tema 2</a>
+        <a href="{{ route('demo_tema', ['id' => '3']) }}">Tema 3</a>
+
 @endsection

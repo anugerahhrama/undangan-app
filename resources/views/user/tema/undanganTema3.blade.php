@@ -85,6 +85,26 @@
       <div class="w-full px-4">
         <div class="max-w-xl mx-auto text-center mb-16">
           <h4 class="font-semibold text-xl text-cyan-600 mb-2">
+            Susunan Acara
+          </h4>
+          <h2 class="font-bold text-slate-900 text-3xl mb-4">
+            Seminar Frontend
+          </h2>
+          <p class="font-semibold text-base text-slate-500 md:text-lg">
+            Pembukaan 08:00<br>
+            Sambutan 09:00<br>
+            Ramah Tamah 12:00<br>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="detail" class="pt-32 pb-10 bg-cyan-100">
+    <div class="conteiner">
+      <div class="w-full px-4">
+        <div class="max-w-xl mx-auto text-center mb-16">
+          <h4 class="font-semibold text-xl text-cyan-600 mb-2">
             Detail Acara
           </h4>
           <h2 class="font-bold text-slate-900 text-3xl mb-4">

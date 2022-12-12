@@ -8,8 +8,12 @@ use App\Http\Controllers\TemaController;
 use App\Http\Controllers\UndanganController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\DemoController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
+use App\Models\Undangan;
+use App\Models\Tema;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -38,7 +42,10 @@ Route::group(['middleware' => ['auth']], function() {
 
     Route::group(['middleware' => ['cekLogin:admin']], function(){
         Route::get('dashboardadmin', function(){
-            return view('admin.dashboard')->with([
+            $jumlah_user = User::where('role', '=', 'user')->count();
+            $tema = Tema::count();
+            $undangan = Undangan::count();
+            return view('admin.dashboard', compact('tema', 'undangan', 'jumlah_user'))->with([
                 'user' => Auth::user(),
             ]);;
         });
@@ -89,7 +96,7 @@ Route::group(['middleware' => ['auth']], function() {
     });
 
 });
-
+Route::get('demo_tema/{id}', [DemoController::class, 'index'])->name('demo_tema');
 Route::get('tamu/{id}/{id_tamu}', [TamuController::class, 'lihat'])->name('lihat_tamu');
 
 Route::get('/', function () {

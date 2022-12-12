@@ -21,7 +21,7 @@
       <div class="col-lg-4 col-6">
         <div class="small-box bg-info">
           <div class="inner">
-            <h3 class="text-white">150</h3>
+            <h3 class="text-white">{{$undangan}}</h3>
             <h4 class="text-white ">Jumlah Undangan</p>
           </div>
           <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
@@ -30,8 +30,8 @@
       <div class="col-lg-4 col-6">
         <div class="small-box bg-success">
           <div class="inner">
-            <h3 class="text-white">53</h3>
-            <h4 class="text-white ">Jumlah Undangan</p>
+            <h3 class="text-white">{{$jumlah_user}}</h3>
+            <h4 class="text-white ">Jumlah User</p>
           </div>
           <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
         </div>
@@ -39,8 +39,8 @@
       <div class="col-lg-4 col-6">
         <div class="small-box bg-success warna">
           <div class="inner">
-            <h3 class="text-white">44</h3>
-            <h4 class="text-white ">Jumlah Undangan</p>
+            <h3 class="text-white">{{$tema}}</h3>
+            <h4 class="text-white ">Jumlah Tema</p>
           </div>
           <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
         </div>
