@@ -48,6 +48,26 @@
     </div>
   </header>
 
+  <?php
+    function tgl_indo($tanggal){
+        $bulan = array (
+            1 =>   'Januari',
+            'Februari',
+            'Maret',
+            'April',
+            'Mei',
+            'Juni',
+            'Juli',
+            'Agustus',
+            'September',
+            'Oktober',
+            'November',
+            'Desember'
+        );
+        $pecahkan = explode('-', $tanggal);
+        return $pecahkan[2] . ' ' . $bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[0];
+    }?>
+
   <section id="hero" class="pt-32 mb-20 md:pt-36">
     <div class="container">
       <div class="flex flex-wrap md:mx-20">
@@ -59,7 +79,7 @@
             </span>
           </h1>
           <h2 class="mb-8 text-lg font-medium text-slate-500 md:text-2xl">
-            {{ $data->hari }} {{ $data->tanggal }}
+            {{ $data->hari }} <?= tgl_indo($data->tanggal) ?>
           </h2>
           <a href="#lokasi" class="bg-cyan-600 hover:bg-cyan-500 py-2.5 px-4 rounded-xl text-white font-semibold transition duration-300 ease-in-out hover:shadow-lg">
             Lihat Lokasi
@@ -88,7 +108,7 @@
           @foreach ($acara as $ac)
             <ul class="">
               <li class="font-semibold text-3xl text-slate-500 md:text-lg">
-                {{ $ac->acara }}
+                {{ $ac->acara }} {{ $ac->waktu }}
               </li>
             </ul>
           @endforeach

@@ -101,7 +101,7 @@
           @foreach ($acara as $ac)
             <ul class="">
               <li class="font-semibold text-3xl mb-1 text-slate-500 md:text-lg">
-                {{ $ac->acara }}
+                {{ $ac->acara }} {{ $ac->waktu }}
               </li>
             </ul>
           @endforeach
