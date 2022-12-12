@@ -55,8 +55,7 @@
 
               <div class="w-full px-4 mb-8">
                 <label for="deskripsi" class="text-base font-bold text-rose-500">Detail Lokasi</label>
-                <input type="text" id="detail_lokasi" name="detail_lokasi"
-                  class="w-full bg-slate-200 text-dark p-2 rounded-md focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary h-12" required></input>
+                <input type="text" id="detail_lokasi" name="detail_lokasi" class="w-full bg-slate-200 text-dark p-2 rounded-md focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary" required />
               </div>
 
               <div class="w-full block lg:flex">
@@ -87,8 +86,7 @@
 
               <div class="w-full px-4 mb-8">
                 <label for="deskripsi" class="text-base font-bold text-rose-500">Deskripsi</label>
-                <textarea type="text" id="deskripsi" name="deskripsi"
-                  class="w-full bg-slate-200 text-dark p-2 rounded-md focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary h-32" required></textarea>
+                <textarea type="text" id="deskripsi" name="deskripsi" class="w-full bg-slate-200 text-dark p-2 rounded-md focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary h-32" required></textarea>
               </div>
 
               <div class="w-full px-4 block md:flex justify-center">

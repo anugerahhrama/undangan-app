@@ -144,7 +144,7 @@ class UndanganController extends Controller
         // dd($url);
         $acara = Acara::join('undangans', 'undangans.id', '=', 'acaras.id_detail')
         ->where('acaras.id_detail', '=', $id)
-        ->get(['acaras.acara']);
+        ->get(['acaras.acara', 'acaras.waktu']);
         return view('user/undangan/tema/'.$tema->id, compact('data', 'acara'));
         // dd($user);
     }
