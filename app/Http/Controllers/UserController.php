@@ -17,6 +17,7 @@ class UserController extends Controller
     public function index()
     {
         $datas = User::all()->where('role' , '=',  'user');
+
         return view('admin.user.dataUser', compact('datas'))->with([
             'user' => Auth::user(),
         ]);
@@ -25,6 +26,7 @@ class UserController extends Controller
     public function admin()
     {
         $datas = User::all()->where('role' , '=',  'admin');
+
         return view('admin.admin.dataAdmin', compact('datas'))->with([
             'user' => Auth::user(),
         ]);
