@@ -24,7 +24,7 @@
           </a>
           <?php if (Auth::check()) { ?>
             <a href="/scan" class="bg-rose-500 mx-2 hover:bg-red-400 py-2.5 px-4 rounded-lg text-white font-semibold transition duration-300 ease-in-out hover:shadow-lg">
-             Scanner
+              Scanner
             </a>
           <?php } ?>
           </div>
