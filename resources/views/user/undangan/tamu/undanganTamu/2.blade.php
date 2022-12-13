@@ -54,7 +54,25 @@
     </div>
   </header>
 
-  <section id="hero" class="pt-36 min-h-screen md:pt-36 bg-tema2">
+  <?php 
+  if(isset($undangan) && isset($tamu)){ ?>
+    <!-- TEMA UNTUK TAMU -->
+
+
+    <?php }else if(isset($data) && isset($acara)){?>
+    <!-- TEMA UNTUK UNDANGAN -->
+
+    <?php }else { ?>
+      <!-- TEMA UNTUK DEMO -->
+      
+      
+      
+      <?php
+
+    } ?>  
+
+
+  <!-- <section id="hero" class="pt-36 min-h-screen md:pt-36 bg-tema2">
     <div class="container pt-20">
       <div class="flex flex-wrap md:mx-20 md:pl-10">
         <div class="text-center text-white w-full ">
@@ -135,7 +153,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
     <footer class="text-center bg-slate-700 text-white py-8">
       <h1>Copyright&copy𝑼𝒊𝒏𝒗𝒊𝒕𝒆 2022</h1>
