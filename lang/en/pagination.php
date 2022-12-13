@@ -13,4 +13,8 @@ return [
     */
     'previous' => '&laquo; Sebelumnya',
     'next' => 'Berikutnya &raquo;',
+    'showing' => 'Showing',
+    'to' => 'to',
+    'of' => 'of',
+    'results' => 'results'
 ];

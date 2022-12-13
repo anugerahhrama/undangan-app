@@ -208,6 +208,7 @@
               @endforelse
             </tbody>
           </table>
+          {{ $data->links() }}
         </div>
       </div>
       <div class="container text-center">

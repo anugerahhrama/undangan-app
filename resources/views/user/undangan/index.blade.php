@@ -72,7 +72,6 @@
                     </tr>
                 </thead>
                 <tbody class="text-rose-700 bg-rose-500 dark:bg-rose-500">
-                    <?php $no=1 ?>
                     <?php
                     function tgl_indo($tanggal){
                         $bulan = array (
@@ -92,10 +91,10 @@
                         $pecahkan = explode('-', $tanggal);
                         return $pecahkan[2] . ' ' . $bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[0];
                         }?>
-                    @forelse($datas as $data)
+                    @forelse($datas as $key => $data)
                     <tr class="bg-white border-b hover:bg-rose-100">
                         <td class="py-4 px-6">
-                            {{ $no++ }}
+                            {{ $datas->firstItem() + $key }}
                         </td>
                         <td class="py-4 px-6">
                             {{ $data->hari }} <br> <?= tgl_indo($data->tanggal) ?> 
@@ -156,9 +155,11 @@
                     @endforelse
                 </tbody>
             </table>
+            {{ $datas->links() }}
         </div>
     </div>
 </section>
+
 
 <script>
 $('.btndelete').click(function(event) {

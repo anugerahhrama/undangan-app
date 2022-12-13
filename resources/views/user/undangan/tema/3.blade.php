@@ -59,7 +59,7 @@
       <div class="flex flex-wrap md:mx-20 md:pl-10">
         <div class="text-center w-full ">
           <h1 class="text-base font-semibold text-white md:text-2xl">
-              Undangan {{ $data->id_kategori }}
+              Undangan {{ $data->kategori }}
             <span class="block text-3xl text-white font-bold md:text-5xl mb-5">
               {{ $data->judul_acara }}
             </span>

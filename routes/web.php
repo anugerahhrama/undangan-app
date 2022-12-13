@@ -40,7 +40,8 @@ Route::group(['middleware' => ['auth']], function() {
         Route::get('dashboardadmin', function(){
             return view('admin.dashboard')->with([
                 'user' => Auth::user(),
-            ]);;
+            ]);
+
         });
         Route::resource('tema', TemaController::class);
         Route::resource('user', UserController::class);

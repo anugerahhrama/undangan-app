@@ -18,7 +18,8 @@ class TamuController extends Controller
         $datas = Undangan::find($id);
         $data = Tamu::join('undangans', 'undangans.id', '=', 'tamus.id_undangan')
         ->where('tamus.id_undangan', '=', $id)
-        ->get(['tamus.id', 'tamus.id_undangan', 'tamus.status_undangan', 'tamus.status_presensi' , 'tamus.nama', 'tamus.email', 'undangans.judul_acara', 'tamus.url_undangan']);
+        ->select(['tamus.id', 'tamus.id_undangan', 'tamus.status_undangan', 'tamus.status_presensi' , 'tamus.nama', 'tamus.email', 'undangans.judul_acara', 'tamus.url_undangan'])
+        ->paginate(2);
         
         return view('user/undangan/tamu/index', compact('datas', 'data'));
         // dd($data);

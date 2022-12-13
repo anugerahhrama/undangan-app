@@ -17,12 +17,15 @@ class UndanganController extends Controller
         $user = Auth::user()->id;
         $datas = Undangan::join('users', 'undangans.id_user', '=', 'users.id')
         ->join('kategoris', 'undangans.id_kategori', '=', 'kategoris.id')
-        ->join('temas', 'undangans.id_tema' , '=', 'temas.id')
+        ->join('temas', 'undangans.id_tema', '=', 'temas.id')
         ->where('undangans.id_user', '=', $user)
-        ->get(['undangans.id_user', 'undangans.tanggal', 'undangans.hari', 'undangans.deskripsi',
-        'undangans.id', 'users.nama', 'undangans.judul_acara', 'kategoris.kategori', 
-        'temas.nama_tema', 'temas.tema', 'undangans.id_tema', 'undangans.jam', 'undangans.lokasi']);
-        
+        ->select([
+            'undangans.id_user', 'undangans.tanggal', 'undangans.hari', 'undangans.deskripsi',
+            'undangans.id', 'users.nama', 'undangans.judul_acara', 'kategoris.kategori',
+            'temas.nama_tema', 'temas.tema', 'undangans.id_tema', 'undangans.jam', 'undangans.lokasi'
+        ])
+        ->paginate(2);
+
         // dd($datas);
         return view('user/undangan/index', compact('datas'))->with(['user' => Auth::user(),]);
     }
