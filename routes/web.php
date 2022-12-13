@@ -9,6 +9,9 @@ use App\Http\Controllers\UndanganController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DemoController;
+use App\Http\Controllers\KomentarAdminController;
+use App\Http\Controllers\KomentarController;
+use App\Models\Komentar;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
@@ -52,10 +55,12 @@ Route::group(['middleware' => ['auth']], function() {
         Route::resource('tema', TemaController::class);
         Route::resource('user', UserController::class);
         Route::get('admin', [UserController::class, 'admin']);
+        Route::resource('komentar_admin', KomentarAdminController::class);
     });
     Route::group(['middleware' => ['cekLogin:user']], function(){
         Route::get('dashboarduser', function(){
-            return view('user.index')->with([
+            $komentar = Komentar::all();
+            return view('user.index', compact('komentar'))->with([
                 'user' => Auth::user(),
             ]);
         });
@@ -98,9 +103,10 @@ Route::group(['middleware' => ['auth']], function() {
 });
 Route::get('demo_tema/{id}', [DemoController::class, 'index'])->name('demo_tema');
 Route::get('tamu/{id}/{id_tamu}', [TamuController::class, 'lihat'])->name('lihat_tamu');
-
-Route::get('/', function () {
-    return view('user/index');
+Route::resource('komentar', KomentarController::class);
+Route::get('/', function(){
+    $komentar = Komentar::all();
+    return view('user.index', compact('komentar'));
 });
 
 Route::get('/tema1', function () {

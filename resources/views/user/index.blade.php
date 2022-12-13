@@ -116,31 +116,36 @@
           </p>
         </div>
         <div class="w-full lg:px-4 md:px-5 sm:px-6">
-          <form action="">
+          <form action="{{ route('komentar.store') }}" method="POST">
+            @csrf
+            @method('POST')
             <div class="w-full lg:w-2/3 lg:mx-auto">
               <div class="w-full px-4 mb-8">
                 <label for="name" class="text-base font-bold text-rose-500">Name</label>
-                <input type="text" id="name"
+                <input type="text" id="name" name="nama"
                   class="w-full bg-slate-200 text-dark p-2 rounded-md focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary" />
               </div>
               <div class="w-full px-4 mb-8">
                 <label for="email" class="text-base font-bold text-rose-500">Email</label>
-                <input type="email" id="email"
+                <input type="email" id="email" name="email"
                   class="w-full bg-slate-200 text-dark p-2 rounded-md focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary" />
               </div>
               <div class="w-full px-4 mb-8">
                 <label for="message" class="text-base font-bold text-rose-500">Pesan</label>
-                <textarea type="email" id="email"
+                <textarea type="email" id="email" name="pesan"
                   class="w-full bg-slate-200 text-dark p-2 rounded-md focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary h-32"></textarea>
               </div>
               <div class="w-full px-4">
                 <button
-                  class="text-base font-semibold bg-rose-500 text-white bg-primary py-3 px-8 rounded-full w-full hover:opacity-70 hover:shadow-lg transition duration-500">Kirim</button>
+                  type="submit" class="text-base font-semibold bg-rose-500 text-white bg-primary py-3 px-8 rounded-full w-full hover:opacity-70 hover:shadow-lg transition duration-500">Kirim</button>
               </div>
             </div>
           </form>
         </div>
       </div>
+      @foreach($komentar as $komen)
+          <p>{{ $komen->nama }}---{{ $komen->email }}----{{ $komen->pesan }}</p><br>
+      @endforeach
   </section>
 
   <section style="display: flex;">
