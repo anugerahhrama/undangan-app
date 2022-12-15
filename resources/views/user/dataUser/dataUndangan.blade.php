@@ -15,7 +15,7 @@
           <a href="" class="bg-rose-500 py-3 px-3.5 rounded-xl text-white font-semibold tracking-wide hover:bg-red-400 hover:border hover:border-solid hover:border-rose-700 transition duration-300 ease-in-out">Tambah Undangan</a>
         </div>
       
-        <div class="w-full flex flex-wrap mb-10  justify-center xl:w-10/12 xl:mx-auto">
+        <div class="w-full flex flex-wrap mb-10 border  justify-center xl:w-10/12 xl:mx-auto">
           <div class="overflow-x-auto ml-8 relative shadow-md border-rose-200 border sm:rounded-lg">
             <table class="w-full text-sm text-left text-rose-500">
                 <thead class="text-xs text-rose-700 uppercase bg-rose-200">

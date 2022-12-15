@@ -148,14 +148,56 @@
       @endforeach
   </section>
 
-  <section style="display: flex;">
-  <iframe src="{{ route('demo_tema', ['id' => '1']) }}" height="1200px" ></iframe>
+  <section class="pt-36 pb-36">
+    <div class="container mx-auto">
+      <div class="w-full px-4">
+        <div class="max-w-xl mx-auto text-center mb-10">
+          <h4 class="font-semibold text-xl text-rose-500 mb-2">
+            Demo
+          </h4>
+          <h2 class="font-bold text-slate-900 text-3xl mb-4">
+            Demo Tema Undangan
+          </h2>
+          <p class="font-medium text-base text-slate-500 md:text-lg">
+            Nikmati beragam tema undangan digital kami sekarang juga
+          </p>
+        </div>
+
+        <div class="justify-center flex flex-wrap gap-3">
+          
+          <div class="bg-slate-200 w-[350px] shadow-md  rounded-md">
+            <div class="bg-white mx-1.5 mt-[5px] rounded-md">
+              <iframe src="{{ route('demo_tema', ['id' => '1']) }}" class="h-[590px] w-[340px] rounded-lg" style="overflow: hidden;"></iframe>
+            </div>
+          </div>
+          <div class="bg-slate-200 w-[350px] shadow-md rounded-md">
+            <div class="bg-white mx-1.5 mt-[5px] rounded-md">
+              <iframe src="{{ route('demo_tema', ['id' => '1']) }}" class="h-[590px] w-[340px] rounded-lg" style="overflow: hidden;"></iframe>
+            </div>
+          </div>
+          <div class="bg-slate-200 w-[350px] shadow-md rounded-md">
+            <div class="bg-white mx-1.5 mt-[5px] rounded-md">
+              <iframe src="{{ route('demo_tema', ['id' => '1']) }}" class="h-[590px] w-[340px] rounded-lg" style="overflow: hidden;"></iframe>
+            </div>
+          </div>
+        </div>
+
+        
+
+      </div>
+    </div>
+  </section>
+
+  {{--  <section style="display: flex;">
+    <div class=" ">
+      <iframe src="{{ route('demo_tema', ['id' => '1']) }}"></iframe>
+    </div>
   <iframe src="{{ route('demo_tema', ['id' => '2']) }}" height="1200px" ></iframe>
   <iframe src="{{ route('demo_tema', ['id' => '3']) }}" height="1200px" ></iframe>
-  </section>
+  </section>  --}}
   
-  <a href="{{ route('demo_tema', ['id' => '1']) }}">Tema 1</a>
+  {{--  <a href="{{ route('demo_tema', ['id' => '1']) }}">Tema 1</a>
         <a href="{{ route('demo_tema', ['id' => '2']) }}">Tema 2</a>
-        <a href="{{ route('demo_tema', ['id' => '3']) }}">Tema 3</a>
+        <a href="{{ route('demo_tema', ['id' => '3']) }}">Tema 3</a>  --}}
 
 @endsection
