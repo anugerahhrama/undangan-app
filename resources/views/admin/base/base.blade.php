@@ -91,12 +91,12 @@
                   <p>Data User</p>
                 </a>
               </li>
-              <li class="nav-item">
+              {{-- <li class="nav-item">
                 <a href="{{ route('tema.index') }}" class="nav-link">
                   <i class="fa fa-images nav-icon"></i>
                   <p>Data Tema</p>
                 </a>
-              </li>
+              </li> --}}
             </ul>
           </nav>
           <hr>
