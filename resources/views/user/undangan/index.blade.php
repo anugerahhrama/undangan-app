@@ -108,7 +108,7 @@
                         <td class="py-4 px-6">
                             <a class="font-medium text-rose-700 dark:text-rose-700" href="{{ route('susunan_acara', $data->id) }}">
                                 <button type="button" class="text-rose-700 bg-white border border-rose-500 focus:outline-none hover:bg-rose-500 focus:ring-4 hover:text-white focus:ring-rose-500 font-medium rounded-full text-sm px-5 py-2 dark:bg-white dark:text-rose-700 dark:border-rose-700 dark:hover:bg-rose-500 dark:hover:text-white dark:hover:border-rose-700 dark:focus:ring-rose-500">
-                                    Susunan Acara
+                                    Acara
                                 </button>
                             </a>
                         </td>
@@ -167,7 +167,6 @@ $('.btndelete').click(function(event) {
     var name = $(this).data('name');
     var judul = $(this).attr('data-judul');
     event.preventDefault();
-
     const swalWithBootstrapButtons = Swal.mixin({
         customClass: {
             confirmButton: 'text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 focus:outline-none',
@@ -175,7 +174,6 @@ $('.btndelete').click(function(event) {
         },
         buttonsStyling: false
     })
-
     swalWithBootstrapButtons.fire({
         title: 'Apakah Anda Yakin Akan Menghapus Undangan ' + judul + '?',
         text: "Anda Tidak Akan Bisa Memulihkan Data Ini !",

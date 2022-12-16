@@ -67,6 +67,7 @@ body{
 .logout{
     background-color: #f43f5e;
     color: white;
+    border-radius: 10px;
 }
 
 .logout:hover{
