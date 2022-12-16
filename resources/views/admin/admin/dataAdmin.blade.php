@@ -47,11 +47,12 @@
                       <td>{{ $data->alamat }}</td>
                       <td>{{ $data->role }}</td>
                       <td>
-                        <form action="{{ route('user.destroy', $data->id) }}" method="POST" onsubmit="return confirm('Yakin Akan Dihapus?')">
+                        <form action="{{ route('user.destroy', $data->id) }}" method="POST">
                         <a href="{{ route('user.edit', $data->id) }}" class="btn btn-warning text-white"><i class="bi bi-pen"></i></a>
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger text-white"><i class="bi bi-trash"></i></button>
+                        <input  type="hidden" name="_method" value="DELETE">
+                        <button type="submit" data-judul="{{ $data->nama }}" class="btndelete btn btn-danger text-white"><i class="bi bi-trash"></i></button>
                         </form>
                       </td>
                     </tr>
@@ -68,4 +69,50 @@
     </div>
   </div>
 </section>
+
+<script>
+$('.btndelete').click(function(event) {
+    var form = $(this).closest('form');
+    var name = $(this).data('name');
+    var judul = $(this).attr('data-judul');
+    event.preventDefault();
+
+    const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+          confirmButton: 'btn btn-success',
+          cancelButton: 'btn btn-danger'
+        },
+        buttonsStyling: false
+    })
+
+    swalWithBootstrapButtons.fire({
+        title: 'Apakah Anda Yakin Akan Menghapus Admin ' + judul + '?',
+        text: "Anda Tidak Akan Bisa Memulihkan Data Ini !",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, delete it!',
+        cancelButtonText: 'No, cancel!',
+        reverseButtons: true
+    }).then((result) => {
+        if (result.isConfirmed) {
+            form.submit(),
+            swalWithBootstrapButtons.fire(
+            'Deleted!',
+            'Data Anda Berhasil Dihapus.',
+            'success'
+            )
+        } else if (
+            /* Read more about handling dismissals below */
+            result.dismiss === Swal.DismissReason.cancel
+        ) {
+            swalWithBootstrapButtons.fire(
+            'Cancelled',
+            'Admin '+ judul +' Aman :)',
+            'error'
+            )
+        }
+    })
+});
+</script>
+
 @endsection

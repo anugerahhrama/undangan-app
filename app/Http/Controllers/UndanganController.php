@@ -24,7 +24,7 @@ class UndanganController extends Controller
             'undangans.id', 'users.nama', 'undangans.judul_acara', 'kategoris.kategori',
             'temas.nama_tema', 'temas.tema', 'undangans.id_tema', 'undangans.jam', 'undangans.lokasi'
         ])
-        ->paginate(2);
+        ->paginate(10);
 
         // dd($datas);
         return view('user/undangan/index', compact('datas'))->with(['user' => Auth::user(),]);

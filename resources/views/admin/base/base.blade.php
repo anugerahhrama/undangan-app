@@ -6,9 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>𝑼𝒊𝒏𝒗𝒊𝒕𝒆</title>
     <link rel="icon" href="{{ url('img/icon.png') }}">
-
-    <link rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <link rel="stylesheet" href="{{ url ('plugins/fontawesome-free/css/all.min.css') }}">
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="stylesheet" href="{{ url ('plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css') }}">
@@ -18,11 +16,13 @@
     <link rel="stylesheet" href="{{ url ('plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
     <link rel="stylesheet" href="{{ url ('plugins/daterangepicker/daterangepicker.css') }}">
     <link rel="stylesheet" href="{{ url ('plugins/summernote/summernote-bs4.min.css') }}">
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="https://code.jquery.com/jquery-3.6.1.slim.js" integrity="sha256-tXm+sa1uzsbFnbXt8GJqsgi2Tw+m4BLGDof6eUPjbtk=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
     <link rel="stylesheet" href="{{ url ('css/style.css') }}">
+
+    <script src="{{ url ('//cdn.jsdelivr.net/npm/sweetalert2@11') }}"></script>
+    <script src="https://code.jquery.com/jquery-3.6.2.slim.js" integrity="sha256-OflJKW8Z8amEUuCaflBZJ4GOg4+JnNh9JdVfoV+6biw=" crossorigin="anonymous"></script>
+    <script src="{{ url ('https://kit.fontawesome.com/7170f40af1.js') }}" crossorigin="anonymous"></script>
   </head>
 
   <body class="hold-transition sidebar-mini layout-fixed">
@@ -67,9 +67,10 @@
           <!-- Sidebar user panel (optional) -->
           <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-              <img src="{{ url ('img/user.jpg') }}" class="img-circle elevation-2" alt="User Image">
+              {{-- <img src="{{ url ('img/user.jpg') }}" class="img-circle elevation-2" alt="User Image"> --}}
+              <i class="bi bi-person-circle fa-2x" style="color:#f43f5e"></i>
             </div>
-            <div class="info">
+            <div class="info mt-2">
               <a href="#" class="d-block" style="text-decoration: none">{{ $user->nama }}</a>
             </div>
           </div>
@@ -98,13 +99,19 @@
               </li>
             </ul>
           </nav>
-
-          <div>
-            <a href="/logout">
-              <button type="button" class="btn btn-block logout">Logout</button>
-            </a>
-          </div>
-
+          <hr>
+          <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+              <li class="nav-item">
+                <a href="/logout" class="nav-link">
+                  <i class="fa-solid fa-right-from-bracket nav-icon"></i>
+                  <p>Logout</p>
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <hr>
+          
           <!-- /.sidebar-menu -->
         </div>
         <!-- /.sidebar -->
@@ -188,7 +195,6 @@
             toast.addEventListener('mouseleave', Swal.resumeTimer)
           }
         })
-
         Toast.fire({
           icon: 'success',
           title: 'Login Berhasil'
@@ -199,3 +205,5 @@
   </body>
 
 </html>
+
+
