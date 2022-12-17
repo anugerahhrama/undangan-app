@@ -97,6 +97,7 @@
           </div>
           <table id="table" class="w-full border mx-auto text-sm text-center text-rose-400 dark:text-rose-400">
             <!-- <input type="text" id="search" placeholder="search..."> -->
+            
             <thead class="text-xs bg-rose-500 text-white uppercase dark:bg-rose-500 dark:text-white">
               <tr data-name="data">
                 <th scope="col" class="py-3 px-6">
@@ -131,6 +132,7 @@
             <tbody class="text-rose-700 bg-rose-500 dark:bg-rose-500">
               @forelse($data as $d)
                 <tr data-name="data" class="bg-white border-b hover:bg-rose-100">
+                  </td>
                   <td class="py-4 px-6">
                     {{ $d->nama }}
                   </td>
@@ -220,7 +222,6 @@
     </div>
   </div>
 </section>
-
 <script>
 $('.btndelete').click(function(event) {
     var form = $(this).closest('form');

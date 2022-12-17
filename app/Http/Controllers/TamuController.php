@@ -135,7 +135,7 @@ class TamuController extends Controller
         return redirect(route('tamu_undangan', $id))->with('presensi', 'berhasil');
     }
 
-    public function kirim($id, $id_tamu){
+    public function kirim($id, $id_tamu, Request $request){
         $tamu = Tamu::find($id_tamu);
         $undangan = Undangan::find($id);
         $qrcode = $tamu->url_undangan;
@@ -151,20 +151,5 @@ class TamuController extends Controller
         return redirect(route('tamu_undangan', $id))->with('kirim', 'berhasil');
     }
 
-    // public function cari($id, Request $request){
-    //     $tamu = Tamu::where('nama', 'like', '%'.$request->cari.'%')
-    //     ->where('id_undangan', '=', $id)
-    //     ->get('tamus.*');
-    //     $tamus = Tamu::all()->where('id_undangan', '=', $id);
-    //     $result = count($tamu);
-    //     if($result == 0){
-    //         dd($tamus);
-    //         // return $tamus;
-    //     }else if($request == null){
-    //         dd($tamus);
-    //     }else{
-    //         dd($tamu);
-    //         // return $tamu;
-    //     }
-    // }
+
 }
