@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Acara;
 use App\Models\Tamu;
 use App\Models\Undangan;
+use App\models\Kategori;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Auth;
@@ -110,7 +111,11 @@ class TamuController extends Controller
                         ->generate($tamu->url_presensi);
         // dd($tamu);
         // return view('user/undangan/tamu/undangan', compact('tamu', 'undangan'));
-        return view('user/undangan/tamu/undanganTamu/'.$undangan->id_tema , compact('tamu', 'undangan','acara', 'qrcode'));
+        $kategori = Kategori::join('undangans', 'undangans.id_kategori', '=', 'kategoris.id')
+        ->where('kategoris.id', '=', $undangan->id_kategori)
+        ->limit(1)
+        ->get('kategoris.kategori');
+        return view('user/undangan/tamu/undanganTamu/'.$undangan->id_tema , compact('tamu', 'undangan','acara', 'qrcode', 'kategori'));
         // return redirect('resources/views/admin/undanganTema1.blade.php'.$undangan->id_tema , compact('tamu', 'undangan','acara', 'qrcode'));
     }
 

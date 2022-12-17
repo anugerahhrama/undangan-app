@@ -149,7 +149,7 @@
                   <?php  
                   if($d->status_undangan == 'terkirim'){
                   ?>
-                  <td class="py-4 px-6 flex flex-wrap">
+                  <td class="py-4 px-6">
                     <div class="font-medium text-rose-700 dark:text-rose-700">
                         <div class="text-rose-700 bg-white border border-rose-500 font-medium rounded-full text-sm px-4 py-2 dark:bg-white dark:text-rose-700">
                             Terkirim
