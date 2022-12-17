@@ -141,8 +141,9 @@ class UndanganController extends Controller
 
     public function tema($id, $id_tema){
         $tema = Tema::find($id_tema);
+        $undang = Undangan::find($id);
         $data = Undangan::join('kategoris', 'kategoris.id', '=', 'undangans.id_kategori')
-        ->where('kategoris.id', '=', $id)
+        ->where('undangans.id', '=', $id)
         ->get(['kategoris.kategori', 'undangans.*']);
         // $kategori = Kategori::all()->where('id', '=', $id);
         // $url = 'user/undangan/tema/'.$tema->id;
@@ -151,6 +152,6 @@ class UndanganController extends Controller
         ->where('acaras.id_detail', '=', $id)
         ->get(['acaras.acara', 'acaras.waktu']);
         return view('user/undangan/tamu/undanganTamu/'.$tema->id, compact('data', 'acara'));
-        // dd($user);
+        // dd($data);
     }
 }

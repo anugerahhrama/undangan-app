@@ -172,12 +172,12 @@
           </div>
           <div class="bg-slate-200 w-[350px] shadow-md rounded-md">
             <div class="bg-white mx-1.5 mt-[5px] rounded-md">
-              <iframe src="{{ route('demo_tema', ['id' => '1']) }}" class="h-[590px] w-[340px] rounded-lg" style="overflow: hidden;"></iframe>
+              <iframe src="{{ route('demo_tema', ['id' => '2']) }}" class="h-[590px] w-[340px] rounded-lg" style="overflow: hidden;"></iframe>
             </div>
           </div>
           <div class="bg-slate-200 w-[350px] shadow-md rounded-md">
             <div class="bg-white mx-1.5 mt-[5px] rounded-md">
-              <iframe src="{{ route('demo_tema', ['id' => '1']) }}" class="h-[590px] w-[340px] rounded-lg" style="overflow: hidden;"></iframe>
+              <iframe src="{{ route('demo_tema', ['id' => '3']) }}" class="h-[590px] w-[340px] rounded-lg" style="overflow: hidden;"></iframe>
             </div>
           </div>
         </div>
@@ -187,17 +187,5 @@
       </div>
     </div>
   </section>
-
-  {{--  <section style="display: flex;">
-    <div class=" ">
-      <iframe src="{{ route('demo_tema', ['id' => '1']) }}"></iframe>
-    </div>
-  <iframe src="{{ route('demo_tema', ['id' => '2']) }}" height="1200px" ></iframe>
-  <iframe src="{{ route('demo_tema', ['id' => '3']) }}" height="1200px" ></iframe>
-  </section>  --}}
-  
-  {{--  <a href="{{ route('demo_tema', ['id' => '1']) }}">Tema 1</a>
-        <a href="{{ route('demo_tema', ['id' => '2']) }}">Tema 2</a>
-        <a href="{{ route('demo_tema', ['id' => '3']) }}">Tema 3</a>  --}}
 
 @endsection
