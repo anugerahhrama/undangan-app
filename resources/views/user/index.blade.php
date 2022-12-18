@@ -101,54 +101,7 @@
     </div>
   </section>
 
-  <section id="contact" class="pt-36 pb-10 bg-rose-50">
-    <div class="container">
-      <div class="w-full px-4">
-        <div class="max-w-xl mx-auto text-center mb-10">
-          <h4 class="font-semibold text-xl text-rose-500 mb-2">
-            Contact
-          </h4>
-          <h2 class="font-bold text-slate-900 text-3xl mb-4">
-            Hubungi Kami
-          </h2>
-          <p class="font-medium text-base text-slate-500 md:text-lg">
-            Kirim ulasan anda dengan menghubbungi melalui E-Mail
-          </p>
-        </div>
-        <div class="w-full lg:px-4 md:px-5 sm:px-6">
-          <form action="{{ route('komentar.store') }}" method="POST">
-            @csrf
-            @method('POST')
-            <div class="w-full lg:w-2/3 lg:mx-auto">
-              <div class="w-full px-4 mb-8">
-                <label for="name" class="text-base font-bold text-rose-500">Name</label>
-                <input type="text" id="name" name="nama"
-                  class="w-full bg-slate-200 text-dark p-2 rounded-md focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary" />
-              </div>
-              <div class="w-full px-4 mb-8">
-                <label for="email" class="text-base font-bold text-rose-500">Email</label>
-                <input type="email" id="email" name="email"
-                  class="w-full bg-slate-200 text-dark p-2 rounded-md focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary" />
-              </div>
-              <div class="w-full px-4 mb-8">
-                <label for="message" class="text-base font-bold text-rose-500">Pesan</label>
-                <textarea type="email" id="email" name="pesan"
-                  class="w-full bg-slate-200 text-dark p-2 rounded-md focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary h-32"></textarea>
-              </div>
-              <div class="w-full px-4">
-                <button
-                  type="submit" class="text-base font-semibold bg-rose-500 text-white bg-primary py-3 px-8 rounded-full w-full hover:opacity-70 hover:shadow-lg transition duration-500">Kirim</button>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
-      @foreach($komentar as $komen)
-          <p>{{ $komen->nama }}---{{ $komen->email }}----{{ $komen->pesan }}</p><br>
-      @endforeach
-  </section>
-
-  <section class="pt-36 pb-36">
+  <section class="bg-rose-50 pt-36 pb-36">
     <div class="container mx-auto">
       <div class="w-full px-4">
         <div class="max-w-xl mx-auto text-center mb-10">
@@ -163,8 +116,7 @@
           </p>
         </div>
 
-        <div class="justify-center flex flex-wrap gap-3">
-          
+        <div class="justify-center flex flex-wrap gap-3">  
           <div class="bg-slate-200 w-[350px] shadow-md  rounded-md">
             <div class="bg-white mx-1.5 mt-[5px] rounded-md">
               <iframe src="{{ route('demo_tema', ['id' => '1']) }}" class="h-[590px] w-[340px] rounded-lg" style="overflow: hidden;"></iframe>
@@ -181,10 +133,69 @@
             </div>
           </div>
         </div>
-
-        
-
       </div>
+    </div>
+  </section>
+
+  <section class="py-8 lg:py-16">
+    <div class="max-w-2xl mx-auto">
+      <div class="max-w-xl mx-auto text-center mb-10">
+        <h4 class="font-semibold text-xl text-rose-500 mb-2">
+          Contact
+        </h4>
+        <h2 class="font-bold text-slate-900 text-3xl mb-4">
+          Hubungi Kami
+        </h2>
+        <p class="font-medium text-base text-slate-500 md:text-lg">
+          Kirim ulasan anda dengan menghubbungi melalui E-Mail
+        </p>
+      </div>
+      <form action="{{ route('komentar.store') }}" method="POST">
+        @csrf
+        @method('POST')
+        <div class="mb-10 w-full lg:w-2/3 lg:mx-auto">
+          <div class="w-full px-4 mb-8">
+            <label for="name" class="text-base font-bold text-rose-500">Name</label>
+            <input type="text" id="name" name="nama" class="w-full bg-slate-200 text-dark p-2 rounded-md focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary" />
+          </div>
+          <div class="w-full px-4 mb-8">
+            <label for="email" class="text-base font-bold text-rose-500">Email</label>
+            <input type="email" id="email" name="email" class="w-full bg-slate-200 text-dark p-2 rounded-md focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary" />
+          </div>
+          <div class="w-full px-4 mb-8">
+            <label for="message" class="text-base font-bold text-rose-500">Pesan</label>
+            <textarea type="email" id="email" name="pesan" class="w-full bg-slate-200 text-dark p-2 rounded-md focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary h-32"></textarea>
+          </div>
+          <div class="w-full px-4">
+            <button type="submit" class="text-base font-semibold bg-rose-500 text-white bg-primary py-3 px-8 rounded-full w-full hover:opacity-70 hover:shadow-lg transition duration-500">Kirim</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="grid mx-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:mx-7 gap-6">
+      @foreach($komentar as $komen)
+      {{-- <p>{{ $komen->nama }}---{{ $komen->email }}----{{ $komen->pesan }}</p><br> --}}
+        <article class="border border-gray-200 drop-shadow bg-white rounded-lg">
+          <div class="max-w-sm p-6 rounded-lg shadow-md hover:bg-gray-100">
+            <footer class="flex justify-between items-center mb-2">
+                <div class="flex items-center">
+                    <p class="font-semibold inline-flex items-center mr-3 text-sm text-gray-900">
+                      <svg class="mr-2 w-7 h-7" style="color:#f43f5e" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                      </svg>
+                      {{ $komen->nama }}
+                    </p>
+                    <p class="text-sm text-gray-600">
+                      <time pubdate datetime="2022-02-08" title="February 8th, 2022">{{ $komen->updated_at }}</time>
+                    </p>
+                </div>
+            </footer>
+            <p class="text-gray-500 dark:text-gray-400">
+              {{ $komen->pesan }}
+            </p>
+          </div>
+        </article>
+      @endforeach
     </div>
   </section>
 
