@@ -97,6 +97,7 @@
           </div>
           <table id="table" class="w-full border mx-auto text-sm text-center text-rose-400 dark:text-rose-400">
             <!-- <input type="text" id="search" placeholder="search..."> -->
+            
             <thead class="text-xs bg-rose-500 text-white uppercase dark:bg-rose-500 dark:text-white">
               <tr data-name="data">
                 <th scope="col" class="py-3 px-6">
@@ -220,7 +221,6 @@
     </div>
   </div>
 </section>
-
 <script>
 $('.btndelete').click(function(event) {
     var form = $(this).closest('form');
