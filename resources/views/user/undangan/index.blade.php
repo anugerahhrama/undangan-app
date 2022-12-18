@@ -43,7 +43,7 @@
             </div>
         @endif
             <table class="w-full border mx-auto text-sm text-center text-rose-400 dark:text-rose-400">
-                <thead class="text-xs bg-rose-500 text-white uppercase bg-rose-50 dark:bg-rose-500 dark:text-white">
+                <thead class="text-xs bg-rose-500 text-white uppercase dark:bg-rose-500 dark:text-white">
                     <tr>
                         <th scope="col" class="py-3 px-6">
                             No
