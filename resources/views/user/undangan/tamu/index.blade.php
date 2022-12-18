@@ -132,7 +132,6 @@
             <tbody class="text-rose-700 bg-rose-500 dark:bg-rose-500">
               @forelse($data as $d)
                 <tr data-name="data" class="bg-white border-b hover:bg-rose-100">
-                  </td>
                   <td class="py-4 px-6">
                     {{ $d->nama }}
                   </td>
