@@ -69,6 +69,6 @@ class LoginController extends Controller
         
             $request->session()->regenerateToken();
         
-            return redirect('login')->with('alert1', 'Logout Berhasil!');
+            return redirect('/')->with('alert1', 'Logout Berhasil!');
         }
 }
