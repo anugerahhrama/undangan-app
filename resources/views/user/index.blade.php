@@ -137,6 +137,8 @@
     </div>
   </section>
 
+ <a href="{{ route('demo_tema', ['id' => '3']) }}">p</a>
+
   <section class="py-8 lg:py-16">
     <div class="max-w-2xl mx-auto">
       <div class="max-w-xl mx-auto text-center mb-10">
