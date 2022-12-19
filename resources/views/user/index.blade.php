@@ -172,7 +172,7 @@
         </div>
       </form>
     </div>
-    <div class="grid mx-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:mx-7 gap-6">
+    <div class="grid mx-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       @foreach($komentar as $komen)
       {{-- <p>{{ $komen->nama }}---{{ $komen->email }}----{{ $komen->pesan }}</p><br> --}}
         <article class="border border-gray-200 drop-shadow bg-white rounded-lg">
