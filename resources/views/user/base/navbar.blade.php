@@ -45,6 +45,15 @@
                     </div>
                   </a>
                   <?php } else { ?>
+                  @if(\Session::has('alert1'))
+                    <script>
+                      Swal.fire({
+                        icon: 'success',
+                        text: '{{$info = Session::get('alert1')}}',
+                        confirmButtonColor:'#f43f5e'
+                      })
+                    </script>
+                  @endif
                   <div class=" lg:text-slate-900 mx-8 flex group-hover:text-rose-500">
                     <a href="/login">
                       <button class="bg-rose-500 hover:bg-rose-400 transition duration-300 ease-in-out hover:border-rose-400 py-1 px-2.5 text-white text-base font-semibold rounded-lg">

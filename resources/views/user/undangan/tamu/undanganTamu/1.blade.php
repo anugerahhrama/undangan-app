@@ -1,3 +1,4 @@
+{{-- Tamu Lihat Tema --}}
 <?php 
   if(isset($tamu) && isset($acara) && isset($undangan) && isset($qrcode) && isset($kategori)){
 ?>
@@ -12,7 +13,6 @@
 </head>
 
 <body>
-
   <header class="top-0 left-0 z-10 flex items-center w-full bg-transparent absolute">
     <div class="container">
       <div class="relative flex items-center justify-between">
@@ -50,39 +50,59 @@
       </div>
     </div>
   </header>
-<section id="hero" class="pt-32 mb-20 md:pt-36">
-    <div class="container pt-20">
-      <div class="flex flex-wrap md:mx-20 md:pl-10">
-        <div class="text-white w-full ">
+
+  <?php
+    function tgl_indo($tanggal){
+        $bulan = array (
+            1 =>   'Januari',
+            'Februari',
+            'Maret',
+            'April',
+            'Mei',
+            'Juni',
+            'Juli',
+            'Agustus',
+            'September',
+            'Oktober',
+            'November',
+            'Desember'
+        );
+        $pecahkan = explode('-', $tanggal);
+        return $pecahkan[2] . ' ' . $bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[0];
+    }?>
+  <section id="hero" class="pt-32 mb-20 md:pt-36">
+    <div class="container">
+      <div class="flex flex-wrap md:mx-20">
+        <div class="self-center px-4 w-full lg:w-1/2">
           @foreach($kategori as $k)
-          <h1 class="text-base font-semibold text-white md:text-2xl text-black">
+          <h1 class="text-base font-semibold text-cyan-500 md:text-2xl">
               Undangan {{ $k->kategori }}
               @endforeach
-            <span class="block text-white font-bold md:text-5xl text-black">
+            <span class="block text-3xl text-slate-800 font-bold md:text-5xl mb-3">
               {{ $undangan->judul_acara }}
             </span>
           </h1>
-          <h2 class="mb-8 text-lg font-medium text-white md:text-2xl text-black">
-            {{ $undangan->hari }}  {{ $undangan->tanggal }}
+          <h2 class="mb-8 text-lg font-medium text-slate-500 md:text-2xl">
+            {{ $undangan->hari }} <?= tgl_indo($undangan->tanggal) ?>
           </h2>
           <h1 class="text-base font-base md:text-22xl mb-1 text-black">Kepada yth: </h1>
           <h1 class="text-base font-medium md:text-2xl mb-1 text-black">{{ $tamu->nama }}</h1>
           <h1 class="text-base font-medium md:text-2xl mb-1 text-black">{{ $tamu->email }}</h1>
           <h1 class="text-base font-medium md:text-2xl mb-8 text-black">{{ $tamu->alamat }}</h1>
-          <a href="" class="bg-cyan-600 hover:bg-cyan-500 py-2.5 px-4 rounded-xl text-white font-semibold transition duration-300 ease-in-out hover:shadow-lg">
+          <a href="#lokasi" class="bg-cyan-600 hover:bg-cyan-500 py-2.5 px-4 rounded-xl text-white font-semibold transition duration-300 ease-in-out hover:shadow-lg">
             Lihat Lokasi
           </a>
-          <div class="self-center px-4 w-full lg:w-1/2">
+        </div>
+        <div class="self-center px-4 w-full lg:w-1/2">
           <div class="relative mt-10 lg:mt-7">
             <img class="max-w-full mx-auto" width="800" height="800" src="{{ url ('img/seminarHero.png') }}">
           </div>
-        </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="detail" class="pt-32 pb-10 bg-detail">
+  <section id="detail" class="pt-32 pb-10 bg-cyan-100">
     <div class="conteiner">
       <div class="w-full px-4">
         <div class="max-w-xl mx-auto text-center mb-16">
@@ -92,11 +112,11 @@
           <h2 class="font-bold text-slate-900 text-3xl mb-5">
             {{ $undangan->judul_acara }}
           </h2>
-          <div class="w-2/3 border px-11 mx-auto">
+          <div class="w-1/3 mx-auto">
           @foreach ($acara as $ac)
-            <ul class="list-disc">
-              <li class="font-semibold text-3xl mb-1 text-slate-500 md:text-lg">
-                {{ $ac->acara }}
+            <ul class="">
+              <li class="font-semibold text-3xl text-slate-500 md:text-lg">
+                {{ $ac->acara }} {{ $ac->waktu }}
               </li>
             </ul>
           @endforeach
@@ -106,7 +126,7 @@
     </div>
   </section>
 
-  <section id="lokasi" class="pt-32 pb-10 bg-slate-200">
+  <section id="lokasi" class="pt-32 pb-10">
     <div class="conteiner">
       <div class="w-full px-4">
         <div class="lg:max-w-4xl max-w-2xl mx-auto text-center mb-16">
@@ -116,16 +136,20 @@
           <h2 class="font-bold text-slate-900 text-3xl mb-8">
             Tempat Pelaksanaan
           </h2>
-          <div class="">
+          <div class="mb-8">
               <iframe class="rounded-lg shadow-lg gmap_iframe min-w-full h-60 md:h-80" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?hl=en&amp;q={{ $undangan->lokasi }}&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
               </iframe>
+          </div>
+          <div class="block p-6 bg-white border border-gray-200 rounded-lg shadow-md hover:bg-gray-100">
+            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Detail Lokasi !</h5>
+            <p class="font-normal text-gray-700">{{ $undangan->detail_lokasi }}</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-    <section id="qr" class="pt-32 pb-10 bg-slate-50">
+  <section id="qr" class="pt-32 pb-10 bg-cyan-100">
     <div class="conteiner">
       <div class="w-full px-4">
         <div class="max-w-xl mx-auto text-center mb-16">
@@ -139,6 +163,7 @@
       </div>
     </div>
   </section>
+
   <footer class="text-center bg-cyan-700 text-white py-8">
       <h1>Copyright&copy𝑼𝒊𝒏𝒗𝒊𝒕𝒆 2022</h1>
     </footer>
@@ -147,10 +172,11 @@
 </body>
 
 </html>
+
+{{-- Undangan Lihat Tema --}}
 <?php 
   }else if(isset($data) && isset($acara)){
 ?>
-  <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -161,7 +187,6 @@
 </head>
 
 <body>
-
   <header class="top-0 left-0 z-10 flex items-center w-full bg-transparent absolute">
     <div class="container">
       <div class="relative flex items-center justify-between">
@@ -298,10 +323,11 @@
 </body>
 
 </html>
+
+{{-- Demo Tema --}}
 <?php 
   }else{
 ?>
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -312,7 +338,6 @@
 </head>
 
 <body>
-
   <header class="top-0 left-0 z-10 flex items-center w-full bg-transparent absolute">
     <div class="container">
       <div class="relative flex items-center justify-between">
