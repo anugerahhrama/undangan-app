@@ -1,4 +1,3 @@
-
 <footer class="p-4 bg-rose-500 sm:p-6">
     <div class="md:flex md:justify-between">
         <div class="mb-6 md:mb-0">
