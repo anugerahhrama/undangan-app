@@ -3,208 +3,42 @@
   if(isset($tamu) && isset($acara) && isset($undangan) && isset($qrcode) && isset($kategori)){
 ?>
 
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-  @vite('resources/css/app.css')
-</head>
-
-<body>
-  <header class="top-0 left-0 z-10 flex items-center w-full bg-transparent absolute">
-    <div class="container">
-      <div class="relative flex items-center justify-between">
-        <div class="px-4 lg:px-12">
-          <a href="#hero" class="block py-6 text-lg font-bold text-cyan-500 lg:text-2xl md:text-xl">
-            UNDANG
-          </a>
-        </div>
-        <div class="flex items-center px-4">
-          <button id="hamburger" name="hamburger" type="button" class="absolute block right-4 lg:hidden">
-            <span class="transition duration-300 ease-in-out origin-top-left hamburger-line"></span>
-            <span class="transition duration-300 ease-in-out hamburger-line"></span>
-            <span class="transition duration-300 ease-in-out origin-bottom-left hamburger-line"></span>
-          </button>
-          <nav id="nav-menu" class="hidden absolute py-5 lg:shadow-none lg:rounded-none bg-cyan-200  shadow-lg rounded-lg max-w-[250px] w-full right-4 top-full lg:block lg:static lg:bg-transparent lg:max-w-full">
-            <ul class="block lg:flex">
-              <li class="group">
-                <a href="#hero" class="text-base text-slate-700 lg:text-slate-900 py-2 mx-8 flex group-hover:text-cyan-700">
-                  Home
-                </a>
-              </li>
-              <li class="group">
-                <a href="#detail" class="text-base text-slate-700 lg:text-slate-900 py-2 mx-8 flex group-hover:text-cyan-700">
-                  Detail Acara
-                </a>
-              </li>
-              <li class="group">
-                <a href="#lokasi" class="text-base text-slate-700 lg:text-slate-900 py-2 mx-8 flex group-hover:text-cyan-700">
-                  Lokasi
-                </a>
-              </li>
-            </ul>
-          </nav>
-        </div>
+<html style="font-size: 16px;" lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Seminar front end​, SUSUNAN ACARA, DETAIL ACARA, Detail Lokasi, QR CODE">
+    <meta name="description" content="">
+    <title>tema</title>
+    <link rel="stylesheet" href="{{ url('css/nicepage2.css') }}" media="screen">
+    <link rel="stylesheet" href="{{ url('css/tema.css') }}" media="screen">
+    <script class="u-script" type="text/javascript" src="{{ url('js/jquery.js') }}" defer=""></script>
+    <script class="u-script" type="text/javascript" src="{{ url('js/nicepage.js') }}" defer=""></script>
+    <meta name="generator" content="Nicepage 5.1.5, nicepage.com">
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,47wQbNPTDJp9hMYdvogK2hAUiHsGeiybwaWe36bwtRQ3UTpYV7YuZ8FV5j9nauFCWwcjM6dTzpL5s2N79Rp5unwdMvc8ZKU800i">
+    <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,47wQbNPTDJp9hMYdvogK2hAUiHsGeiybwaWe36bwtRQ3UTpYV7YuZ8FV5j9nauFCWwcjM6dTzpL5s2N79Rp5unwdMvc8ZKU,500i,600,600i,700,700i,800,800i,900,900i|Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Archivo+Black:400">
+    <script type="application/ld+json">
+      {
+        "@context": "http://schema.org",
+        "@type": "Organization",
+        "name": "",
+        "logo": "images/icon.png"
+      }   
+    </script>
+    <meta name="theme-color" content="#478ac9">
+    <meta property="og:title" content="tema">
+    <meta property="og:type" content="website">
+  </head>
+  <body data-home-page="tema.html" data-home-page-title="tema" class="u-body u-overlap u-xl-mode" data-lang="en">
+    <header class="u-clearfix u-header u-header" id="sec-dd51">
+      <div class="u-clearfix u-sheet u-valign-top-xs u-sheet-1">
+        <a href="https://nicepage.com/c/tiles-website-templates" class="u-image u-logo u-image-1" data-image-width="260" data-image-height="305">
+          <img src="{{ url('img/icon.png') }}" class="u-logo-image u-logo-image-1">
+        </a>
       </div>
-    </div>
-  </header>
-  <section id="hero" class="pt-32 mb-20 md:pt-36">
-    <div class="container">
-      <div class="flex flex-wrap md:mx-20">
-        <div class="self-center px-4 w-full lg:w-1/2">
-          @foreach($kategori as $k)
-          <h1 class="text-base font-semibold text-cyan-500 md:text-2xl">
-              Undangan {{ $k->kategori }}
-              @endforeach
-            <span class="block text-3xl text-slate-800 font-bold md:text-5xl mb-3">
-              {{ $undangan->judul_acara }}
-            </span>
-          </h1>
-          <h2 class="mb-8 text-lg font-medium text-slate-500 md:text-2xl">
-            {{ $undangan->hari }}  {{ $undangan->tanggal }}
-          </h2>
-          <h1 class="text-base font-base md:text-22xl mb-1 text-black">Kepada yth: </h1>
-          <h1 class="text-base font-medium md:text-2xl mb-1 text-black">{{ $tamu->nama }}</h1>
-          <h1 class="text-base font-medium md:text-2xl mb-1 text-black">{{ $tamu->email }}</h1>
-          <h1 class="text-base font-medium md:text-2xl mb-8 text-black">{{ $tamu->alamat }}</h1>
-          <a href="#lokasi" class="bg-cyan-600 hover:bg-cyan-500 py-2.5 px-4 rounded-xl text-white font-semibold transition duration-300 ease-in-out hover:shadow-lg">
-            Lihat Lokasi
-          </a>
-        </div>
-        <div class="self-center px-4 w-full lg:w-1/2">
-          <div class="relative mt-10 lg:mt-7">
-            <img class="max-w-full mx-auto" width="800" height="800" src="{{ url ('img/seminarHero.png') }}">
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    </header>
 
-  <section id="detail" class="pt-32 pb-10 bg-detail">
-    <div class="conteiner">
-      <div class="w-full px-4">
-        <div class="max-w-xl mx-auto text-center mb-16">
-          <h4 class="font-semibold text-xl text-cyan-600 mb-2">
-            Susunan Acara
-          </h4>
-          <h2 class="font-bold text-slate-900 text-3xl mb-5">
-            {{ $undangan->judul_acara }}
-          </h2>
-          <div class="w-2/3 border px-11 mx-auto">
-          @foreach ($acara as $ac)
-            <ul class="list-disc">
-              <li class="font-semibold text-3xl mb-1 text-slate-500 md:text-lg">
-                {{ $ac->acara }}
-              </li>
-            </ul>
-          @endforeach
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="lokasi" class="pt-32 pb-10 bg-slate-200">
-    <div class="conteiner">
-      <div class="w-full px-4">
-        <div class="lg:max-w-4xl max-w-2xl mx-auto text-center mb-16">
-          <h4 class="font-semibold text-xl text-cyan-600 mb-2">
-            Lokasi
-          </h4>
-          <h2 class="font-bold text-slate-900 text-3xl mb-8">
-            Tempat Pelaksanaan
-          </h2>
-          <div class="mb-8">
-              <iframe class="rounded-lg shadow-lg gmap_iframe min-w-full h-60 md:h-80" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?hl=en&amp;q={{ $undangan->lokasi }}&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
-              </iframe>
-          </div>
-          <div class="block p-6 bg-white border border-gray-200 rounded-lg shadow-md hover:bg-gray-100">
-            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Detail Lokasi !</h5>
-            <p class="font-normal text-gray-700">{{ $undangan->detail_lokasi }}</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-    <section id="qr" class="pt-32 pb-10 bg-slate-50">
-    <div class="conteiner">
-      <div class="w-full px-4">
-        <div class="max-w-xl mx-auto text-center mb-16">
-          <h4 class="font-semibold text-xl text-cyan-600 mb-10">
-            QR Code
-          </h4>
-          <div class="w-2/3 flex justify-center mx-auto">
-            {{ $qrcode }}
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <footer class="text-center bg-cyan-700 text-white py-8">
-      <h1>Copyright&copy𝑼𝒊𝒏𝒗𝒊𝒕𝒆 2022</h1>
-    </footer>
-
-    <script src="{{ url ('js/script.js') }}"></script>
-</body>
-
-</html>
-
-{{-- Undangan Lihat Tema --}}
-<?php 
-  }else if(isset($data) && isset($acara)){
-?>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-  @vite('resources/css/app.css')
-</head>
-
-<body>
-  <header class="top-0 left-0 z-10 flex items-center w-full bg-transparent absolute">
-    <div class="container">
-      <div class="relative flex items-center justify-between">
-        <div class="px-4 lg:px-12">
-          <a href="#hero" class="block py-6 text-lg font-bold text-cyan-500 lg:text-2xl md:text-xl">
-            UNDANG
-          </a>
-        </div>
-        <div class="flex items-center px-4">
-          <button id="hamburger" name="hamburger" type="button" class="absolute block right-4 lg:hidden">
-            <span class="transition duration-300 ease-in-out origin-top-left hamburger-line"></span>
-            <span class="transition duration-300 ease-in-out hamburger-line"></span>
-            <span class="transition duration-300 ease-in-out origin-bottom-left hamburger-line"></span>
-          </button>
-          <nav id="nav-menu" class="hidden absolute py-5 lg:shadow-none lg:rounded-none bg-cyan-200  shadow-lg rounded-lg max-w-[250px] w-full right-4 top-full lg:block lg:static lg:bg-transparent lg:max-w-full">
-            <ul class="block lg:flex">
-              <li class="group">
-                <a href="#hero" class="text-base text-slate-700 lg:text-slate-900 py-2 mx-8 flex group-hover:text-cyan-700">
-                  Home
-                </a>
-              </li>
-              <li class="group">
-                <a href="#detail" class="text-base text-slate-700 lg:text-slate-900 py-2 mx-8 flex group-hover:text-cyan-700">
-                  Detail Acara
-                </a>
-              </li>
-              <li class="group">
-                <a href="#lokasi" class="text-base text-slate-700 lg:text-slate-900 py-2 mx-8 flex group-hover:text-cyan-700">
-                  Lokasi
-                </a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <?php
+    <?php
     function tgl_indo($tanggal){
         $bulan = array (
             1 =>   'Januari',
@@ -223,236 +57,373 @@
         $pecahkan = explode('-', $tanggal);
         return $pecahkan[2] . ' ' . $bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[0];
     }?>
-  @foreach($data as $d)
-  <section id="hero" class="pt-32 mb-20 md:pt-36">
-    <div class="container">
-      <div class="flex flex-wrap md:mx-20">
-        <div class="self-center px-4 w-full lg:w-1/2">
-          <h1 class="text-base font-semibold text-cyan-500 md:text-2xl">
-              Undangan {{ $d->kategori }}
-            <span class="block text-3xl text-slate-800 font-bold md:text-5xl mb-3">
-              {{ $d->judul_acara }}
-            </span>
-          </h1>
-          <h2 class="mb-8 text-lg font-medium text-slate-500 md:text-2xl">
-            {{ $d->hari }} <?= tgl_indo($d->tanggal) ?>
-          </h2>
-          <a href="#lokasi" class="bg-cyan-600 hover:bg-cyan-500 py-2.5 px-4 rounded-xl text-white font-semibold transition duration-300 ease-in-out hover:shadow-lg">
-            Lihat Lokasi
-          </a>
-        </div>
-        <div class="self-center px-4 w-full lg:w-1/2">
-          <div class="relative mt-10 lg:mt-7">
-            <img class="max-w-full mx-auto" width="800" height="800" src="{{ url ('img/seminarHero.png') }}">
+    <section class="u-align-center-xs u-clearfix u-image u-section-1" id="carousel_71ea" data-image-width="1788" data-image-height="1080">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-expanded-width-xs u-gradient u-radius-20 u-shape u-shape-round u-shape-1"></div>
+        <div class="u-align-center u-container-style u-expanded-width-xs u-group u-radius-20 u-shape-round u-white u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            @foreach($kategori as $k)
+            <h5 class="u-custom-font u-text u-text-default u-text-font u-text-1">undangan {{ $k->kategori }}</h5>
+            @endforeach
+            <h1 class="u-text u-text-palette-2-base u-text-2">{{ $undangan->judul_acara }}</h1>
+            <h5 class="u-custom-font u-text u-text-default u-text-font u-text-3">{{ $undangan->hari }}, <?= tgl_indo($undangan->tanggal) ?></h5>
+            <h5 class="u-custom-font u-text u-text-default u-text-font u-text-4">kepada yth.<br><span style="font-weight: 700;"></span>{{ $tamu->nama }}<br>di tempat.
+            </h5>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="detail" class="pt-32 pb-10 bg-cyan-100">
-    <div class="conteiner">
-      <div class="w-full px-4">
-        <div class="max-w-xl mx-auto text-center mb-16">
-          <h4 class="font-semibold text-xl text-cyan-600 mb-2">
-            Susunan Acara
-          </h4>
-          <h2 class="font-bold text-slate-900 text-3xl mb-5">
-            {{ $d->judul_acara }}
-          </h2>
-          <div class="w-1/3 mx-auto">
-          @foreach ($acara as $ac)
-            <ul class="">
-              <li class="font-semibold text-3xl text-slate-500 md:text-lg">
-                {{ $ac->acara }} {{ $ac->waktu }}
-              </li>
-            </ul>
-          @endforeach
+    <section class="u-align-center u-clearfix u-white u-section-2" id="carousel_a6c6">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <h2 class="u-text u-text-1">SUSUNAN ACARA<br>
+        </h2>
+        @foreach ($acara as $ac)
+        <p class="u-text u-text-2">{{ $ac->acara }} {{ $ac->waktu }}</p>
+        @endforeach
+      </div>
+    </section>
+
+    <section class="u-align-center u-clearfix u-palette-1-base u-section-3" id="carousel_698c">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <h2 class="u-text u-text-1">DETAIL ACARA<br>
+        </h2>
+        <div class="u-opacity u-opacity-45 u-palette-1-light-1 u-shape u-shape-circle u-shape-1"></div>
+        <p class="u-text u-text-2">{{ $undangan->deskripsi }}</p>
+      </div>
+    </section>
+
+    <section class="u-clearfix u-grey-5 u-section-4" id="carousel_0242">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
+          <div class="u-layout">
+            <div class="u-layout-row">
+              <div class="u-align-left u-container-style u-layout-cell u-left-cell u-size-30 u-layout-cell-1">
+                <div class="u-container-layout u-valign-top-sm u-valign-top-xs u-container-layout-1">
+                  <h2 class="u-text u-text-1">Detail Lokasi&nbsp;</h2>
+                  <p class="u-text u-text-2">{{ $undangan->detail_lokasi }}</p>
+                </div>
+              </div>
+              <div class="u-container-style u-layout-cell u-right-cell u-size-30 u-layout-cell-2">
+                <div class="u-container-layout u-container-layout-2">
+                  <div class="u-expanded u-grey-10 u-map">
+                    <div class="embed-responsive">
+                      <iframe class="embed-responsive-item"
+                      src="https://maps.google.com/maps?hl=en&amp;q={{ $undangan->lokasi }}&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="lokasi" class="pt-32 pb-10">
-    <div class="conteiner">
-      <div class="w-full px-4">
-        <div class="lg:max-w-4xl max-w-2xl mx-auto text-center mb-16">
-          <h4 class="font-semibold text-xl text-cyan-600 mb-2">
-            Lokasi
-          </h4>
-          <h2 class="font-bold text-slate-900 text-3xl mb-8">
-            Tempat Pelaksanaan
-          </h2>
-          <div class="">
-              <iframe class="rounded-lg shadow-lg gmap_iframe min-w-full h-60 md:h-80" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?hl=en&amp;q={{ $d->lokasi }}&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
-              </iframe>
+    <section class="u-align-center u-clearfix u-palette-1-base u-section-5" id="carousel_ba17">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
+          <div class="u-layout">
+            <div class="u-layout-row">
+              <div class="u-align-center-sm u-align-center-xs u-container-style u-image u-layout-cell u-size-24-xl u-size-25-lg u-size-25-md u-size-25-sm u-size-25-xs" data-image-width="1600" data-image-height="1600">
+                <div class="u-container-layout u-container-layout-1">{{ $qrcode }}</div>
+              </div>
+              <div class="u-align-center-sm u-align-center-xs u-align-left-lg u-align-left-md u-align-left-xl u-container-style u-layout-cell u-size-35-lg u-size-35-md u-size-35-sm u-size-35-xs u-size-36-xl u-layout-cell-2">
+                <div class="u-container-layout u-container-layout-2">
+                  <h2 class="u-custom-font u-text u-text-default u-text-1">QR CODE&nbsp;</h2>
+                  <p class="u-text u-text-default u-text-2">Gunakan qrcode diamping untuk melakukan absensi ketika sudah tiba di lokasi acara</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-  @endforeach
-
-    <footer class="text-center bg-cyan-700 text-white py-8">
-      <h1>Copyright&copy𝑼𝒊𝒏𝒗𝒊𝒕𝒆 2022</h1>
+    </section>
+    
+    <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-bcc2">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <p>Copyright&copy𝑼𝒊𝒏𝒗𝒊𝒕𝒆 2022</p>
+      </div>
     </footer>
+  </body>
+</html>
 
-    <script src="{{ url ('js/script.js') }}"></script>
-</body>
+{{-- Undangan Lihat Tema --}}
+<?php 
+  }else if(isset($data) && isset($acara)){
+?>
 
+<html style="font-size: 16px;" lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Seminar front end​, SUSUNAN ACARA, DETAIL ACARA, Detail Lokasi, QR CODE">
+    <meta name="description" content="">
+    <title>tema</title>
+    <link rel="stylesheet" href="{{ url('css/nicepage2.css') }}" media="screen">
+    <link rel="stylesheet" href="{{ url('css/tema.css') }}" media="screen">
+    <script class="u-script" type="text/javascript" src="{{ url('js/jquery.js') }}" defer=""></script>
+    <script class="u-script" type="text/javascript" src="{{ url('js/nicepage.js') }}" defer=""></script>
+    <meta name="generator" content="Nicepage 5.1.5, nicepage.com">
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,47wQbNPTDJp9hMYdvogK2hAUiHsGeiybwaWe36bwtRQ3UTpYV7YuZ8FV5j9nauFCWwcjM6dTzpL5s2N79Rp5unwdMvc8ZKU800i">
+    <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,47wQbNPTDJp9hMYdvogK2hAUiHsGeiybwaWe36bwtRQ3UTpYV7YuZ8FV5j9nauFCWwcjM6dTzpL5s2N79Rp5unwdMvc8ZKU,500i,600,600i,700,700i,800,800i,900,900i|Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Archivo+Black:400">
+    <script type="application/ld+json">
+      {
+        "@context": "http://schema.org",
+        "@type": "Organization",
+        "name": "",
+        "logo": "images/icon.png"
+      }   
+    </script>
+    <meta name="theme-color" content="#478ac9">
+    <meta property="og:title" content="tema">
+    <meta property="og:type" content="website">
+  </head>
+  <body data-home-page="tema.html" data-home-page-title="tema" class="u-body u-overlap u-xl-mode" data-lang="en">
+    <header class="u-clearfix u-header u-header" id="sec-dd51">
+      <div class="u-clearfix u-sheet u-valign-top-xs u-sheet-1">
+        <a href="https://nicepage.com/c/tiles-website-templates" class="u-image u-logo u-image-1" data-image-width="260" data-image-height="305">
+          <img src="{{ url('img/icon.png') }}" class="u-logo-image u-logo-image-1">
+        </a>
+      </div>
+    </header>
+
+    <?php
+    function tgl_indo($tanggal){
+        $bulan = array (
+            1 =>   'Januari',
+            'Februari',
+            'Maret',
+            'April',
+            'Mei',
+            'Juni',
+            'Juli',
+            'Agustus',
+            'September',
+            'Oktober',
+            'November',
+            'Desember'
+        );
+        $pecahkan = explode('-', $tanggal);
+        return $pecahkan[2] . ' ' . $bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[0];
+    }?>
+     @foreach($data as $d)
+    <section class="u-align-center-xs u-clearfix u-image u-section-1" id="carousel_71ea" data-image-width="1788" data-image-height="1080">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-expanded-width-xs u-gradient u-radius-20 u-shape u-shape-round u-shape-1"></div>
+        <div class="u-align-center u-container-style u-expanded-width-xs u-group u-radius-20 u-shape-round u-white u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h5 class="u-custom-font u-text u-text-default u-text-font u-text-1">undangan {{ $d->kategori }}</h5>
+            <h1 class="u-text u-text-palette-2-base u-text-2">{{ $d->judul_acara }}</h1>
+            <h5 class="u-custom-font u-text u-text-default u-text-font u-text-3">{{ $d->hari }}, <?= tgl_indo($d->tanggal) ?></h5>
+            {{-- <h5 class="u-custom-font u-text u-text-default u-text-font u-text-4">kepada yth<br>bpk.abdu<span style="font-weight: 700;"></span>l aziz<br>di tempat
+            </h5> --}}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="u-align-center u-clearfix u-white u-section-2" id="carousel_a6c6">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <h2 class="u-text u-text-1">SUSUNAN ACARA<br>
+        </h2>
+        @foreach ($acara as $ac)
+        <p class="u-text u-text-2">{{ $ac->acara }} {{ $ac->waktu }}</p>
+        @endforeach
+      </div>
+    </section>
+
+    <section class="u-align-center u-clearfix u-palette-1-base u-section-3" id="carousel_698c">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <h2 class="u-text u-text-1">DETAIL ACARA<br>
+        </h2>
+        <div class="u-opacity u-opacity-45 u-palette-1-light-1 u-shape u-shape-circle u-shape-1"></div>
+        <p class="u-text u-text-2">{{ $d->deskripsi }}</p>
+      </div>
+    </section>
+
+    <section class="u-clearfix u-grey-5 u-section-4" id="carousel_0242">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
+          <div class="u-layout">
+            <div class="u-layout-row">
+              <div class="u-align-left u-container-style u-layout-cell u-left-cell u-size-30 u-layout-cell-1">
+                <div class="u-container-layout u-valign-top-sm u-valign-top-xs u-container-layout-1">
+                  <h2 class="u-text u-text-1">Detail Lokasi&nbsp;</h2>
+                  <p class="u-text u-text-2">{{ $d->detail_lokasi }}</p>
+                </div>
+              </div>
+              <div class="u-container-style u-layout-cell u-right-cell u-size-30 u-layout-cell-2">
+                <div class="u-container-layout u-container-layout-2">
+                  <div class="u-expanded u-grey-10 u-map">
+                    <div class="embed-responsive">
+                      <iframe class="embed-responsive-item"
+                      src="https://maps.google.com/maps?hl=en&amp;q={{ $d->lokasi }}&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {{-- <section class="u-align-center u-clearfix u-palette-1-base u-section-5" id="carousel_ba17">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
+          <div class="u-layout">
+            <div class="u-layout-row">
+              <div class="u-align-center-sm u-align-center-xs u-container-style u-image u-layout-cell u-size-24-xl u-size-25-lg u-size-25-md u-size-25-sm u-size-25-xs u-image-1" data-image-width="1600" data-image-height="1600">
+                <div class="u-container-layout u-container-layout-1"></div>
+              </div>
+              <div class="u-align-center-sm u-align-center-xs u-align-left-lg u-align-left-md u-align-left-xl u-container-style u-layout-cell u-size-35-lg u-size-35-md u-size-35-sm u-size-35-xs u-size-36-xl u-layout-cell-2">
+                <div class="u-container-layout u-container-layout-2">
+                  <h2 class="u-custom-font u-text u-text-default u-text-1">QR CODE&nbsp;</h2>
+                  <p class="u-text u-text-default u-text-2">Gunakan qrcode diamping untuk melakukan absensi ketika sudah tiba di lokasi acara</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section> --}}
+    @endforeach
+    
+    <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-bcc2">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <p>Copyright&copy𝑼𝒊𝒏𝒗𝒊𝒕𝒆 2022</p>
+      </div>
+    </footer>
+  </body>
 </html>
 
 {{-- Demo Tema --}}
 <?php 
   }else{
 ?>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-  @vite('resources/css/app.css')
-</head>
 
-<body>
-  <header class="top-0 left-0 z-10 flex items-center w-full bg-transparent absolute">
-    <div class="container">
-      <div class="relative flex items-center justify-between">
-        <div class="px-4 lg:px-12">
-          <a href="#hero" class="block py-6 text-lg font-bold text-cyan-500 lg:text-2xl md:text-xl">
-            UNDANG
-          </a>
-        </div>
-        <div class="flex items-center px-4">
-          <button id="hamburger" name="hamburger" type="button" class="absolute block right-4 lg:hidden">
-            <span class="transition duration-300 ease-in-out origin-top-left hamburger-line"></span>
-            <span class="transition duration-300 ease-in-out hamburger-line"></span>
-            <span class="transition duration-300 ease-in-out origin-bottom-left hamburger-line"></span>
-          </button>
-          <nav id="nav-menu" class="hidden absolute py-5 lg:shadow-none lg:rounded-none bg-cyan-200  shadow-lg rounded-lg max-w-[250px] w-full right-4 top-full lg:block lg:static lg:bg-transparent lg:max-w-full">
-            <ul class="block lg:flex">
-              <li class="group">
-                <a href="#hero" class="text-base text-slate-700 lg:text-slate-900 py-2 mx-8 flex group-hover:text-cyan-700">
-                  Home
-                </a>
-              </li>
-              <li class="group">
-                <a href="#detail" class="text-base text-slate-700 lg:text-slate-900 py-2 mx-8 flex group-hover:text-cyan-700">
-                  Detail Acara
-                </a>
-              </li>
-              <li class="group">
-                <a href="#lokasi" class="text-base text-slate-700 lg:text-slate-900 py-2 mx-8 flex group-hover:text-cyan-700">
-                  Lokasi
-                </a>
-              </li>
-              <li class="group">
-                <a href="#q" class="text-base font-semibold bg-cyan-600 rounded-md px-2 text-white py-2 mx-8 flex hover:bg-cyan-500">
-                  Kembali
-                </a>
-              </li>
-            </ul>
-          </nav>
-        </div>
+<html style="font-size: 16px;" lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Seminar front end​, SUSUNAN ACARA, DETAIL ACARA, Detail Lokasi, QR CODE">
+    <meta name="description" content="">
+    <title>tema</title>
+    <link rel="stylesheet" href="{{ url('css/nicepage2.css') }}" media="screen">
+    <link rel="stylesheet" href="{{ url('css/tema.css') }}" media="screen">
+    <script class="u-script" type="text/javascript" src="{{ url('js/jquery.js') }}" defer=""></script>
+    <script class="u-script" type="text/javascript" src="{{ url('js/nicepage.js') }}" defer=""></script>
+    <meta name="generator" content="Nicepage 5.1.5, nicepage.com">
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,47wQbNPTDJp9hMYdvogK2hAUiHsGeiybwaWe36bwtRQ3UTpYV7YuZ8FV5j9nauFCWwcjM6dTzpL5s2N79Rp5unwdMvc8ZKU800i">
+    <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,47wQbNPTDJp9hMYdvogK2hAUiHsGeiybwaWe36bwtRQ3UTpYV7YuZ8FV5j9nauFCWwcjM6dTzpL5s2N79Rp5unwdMvc8ZKU,500i,600,600i,700,700i,800,800i,900,900i|Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Archivo+Black:400">
+    <script type="application/ld+json">
+      {
+        "@context": "http://schema.org",
+        "@type": "Organization",
+        "name": "",
+        "logo": "images/icon.png"
+      }   
+    </script>
+    <meta name="theme-color" content="#478ac9">
+    <meta property="og:title" content="tema">
+    <meta property="og:type" content="website">
+  </head>
+  <body data-home-page="tema.html" data-home-page-title="tema" class="u-body u-overlap u-xl-mode" data-lang="en">
+    <header class="u-clearfix u-header u-header" id="sec-dd51">
+      <div class="u-clearfix u-sheet u-valign-top-xs u-sheet-1">
+        <a href="https://nicepage.com/c/tiles-website-templates" class="u-image u-logo u-image-1" data-image-width="260" data-image-height="305">
+          <img src="{{ url('img/icon.png') }}" class="u-logo-image u-logo-image-1">
+        </a>
       </div>
-    </div>
-  </header>
+    </header>
 
-  <section id="hero" class="pt-32 mb-20 md:pt-36">
-    <div class="container">
-      <div class="flex flex-wrap md:mx-20">
-        <div class="self-center px-4 w-full lg:w-1/2">
-          <h1 class="text-base font-semibold text-cyan-500 md:text-2xl">
-            Undangan Seminar
-            <span class="block text-3xl text-slate-800 font-bold md:text-5xl">
-              Backend Developer
-            </span>
-          </h1>
-          <h2 class="mb-8 text-lg font-medium text-slate-500 md:text-2xl">
-            Sabtu 11 November 2022
-          </h2>
-          <a href="" class="bg-cyan-600 hover:bg-cyan-500 py-2.5 px-4 rounded-xl text-white font-semibold transition duration-300 ease-in-out hover:shadow-lg">
-            Lihat Lokasi
-          </a>
-        </div>
-        <div class="self-center px-4 w-full lg:w-1/2">
-          <div class="relative mt-10 lg:mt-7">
-            <img class="max-w-full mx-auto" width="800" height="800" src="{{ url ('img/seminarHero.png') }}">
+    <section class="u-align-center-xs u-clearfix u-image u-section-1" id="carousel_71ea" data-image-width="1788" data-image-height="1080">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-expanded-width-xs u-gradient u-radius-20 u-shape u-shape-round u-shape-1"></div>
+        <div class="u-align-center u-container-style u-expanded-width-xs u-group u-radius-20 u-shape-round u-white u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h5 class="u-custom-font u-text u-text-default u-text-font u-text-1">undangan seminar</h5>
+            <h1 class="u-text u-text-palette-2-base u-text-2">Seminar front end </h1>
+            <h5 class="u-custom-font u-text u-text-default u-text-font u-text-3">12 desember 2022</h5>
+            <h5 class="u-custom-font u-text u-text-default u-text-font u-text-4">kepada yth<br>bpk.abdu<span style="font-weight: 700;"></span>l aziz<br>di tempat
+            </h5>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="detail" class="pt-32 pb-10 bg-cyan-100">
-    <div class="conteiner">
-      <div class="w-full px-4">
-        <div class="max-w-xl mx-auto text-center mb-16">
-          <h4 class="font-semibold text-xl text-cyan-600 mb-2">
-            Susunan Acara
-          </h4>
-          <h2 class="font-bold text-slate-900 text-3xl mb-4">
-            Seminar Frontend
-          </h2>
-          <p class="font-semibold text-base text-slate-500 md:text-lg">
-            Pembukaan 08:00<br>
-            Sambutan 09:00<br>
-            Ramah Tamah 12:00<br>
-          </p>
-        </div>
+    <section class="u-align-center u-clearfix u-white u-section-2" id="carousel_a6c6">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <h2 class="u-text u-text-1">SUSUNAN ACARA<br>
+        </h2>
+        <p class="u-text u-text-2">PEMBUKAAN : 09:00</p>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="detail" class="pt-32 pb-10 bg-cyan-100">
-    <div class="conteiner">
-      <div class="w-full px-4">
-        <div class="max-w-xl mx-auto text-center mb-16">
-          <h4 class="font-semibold text-xl text-cyan-600 mb-2">
-            Detail Acara
-          </h4>
-          <h2 class="font-bold text-slate-900 text-3xl mb-4">
-            Seminar Frontend
-          </h2>
-          <p class="font-semibold text-base text-slate-500 md:text-lg">
-            Pelaksanaan pada hari sabtu, 11 November 2022, pukul 19.00 WIB
-            Tempat pelaksanaan di gedung JTI lantai 7, ruang LPR-01 Polinema
-            Materi membahas tentang dasar - dasar HTML dan CSS.
-          </p>
-        </div>
+    <section class="u-align-center u-clearfix u-palette-1-base u-section-3" id="carousel_698c">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <h2 class="u-text u-text-1">DETAIL ACARA<br>
+        </h2>
+        <div class="u-opacity u-opacity-45 u-palette-1-light-1 u-shape u-shape-circle u-shape-1"></div>
+        <p class="u-text u-text-2">Lorem Ipsum&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="lokasi" class="pt-32 pb-10">
-    <div class="conteiner">
-      <div class="w-full px-4">
-        <div class="lg:max-w-4xl max-w-2xl mx-auto text-center mb-16">
-          <h4 class="font-semibold text-xl text-cyan-600 mb-2">
-            Lokasi
-          </h4>
-          <h2 class="font-bold text-slate-900 text-3xl mb-8">
-            Tempat Pelaksanaan
-          </h2>
-          <div class="">
-              <iframe class="rounded-lg shadow-lg gmap_iframe min-w-full h-60 md:h-80" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?hl=en&amp;q=politeknik negeri malang&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
-              </iframe>
+    <section class="u-clearfix u-grey-5 u-section-4" id="carousel_0242">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
+          <div class="u-layout">
+            <div class="u-layout-row">
+              <div class="u-align-left u-container-style u-layout-cell u-left-cell u-size-30 u-layout-cell-1">
+                <div class="u-container-layout u-valign-top-sm u-valign-top-xs u-container-layout-1">
+                  <h2 class="u-text u-text-1">Detail Lokasi&nbsp;</h2>
+                  <p class="u-text u-text-2">Gedung AG lantai 1 ruang RPL 1</p>
+                </div>
+              </div>
+              <div class="u-container-style u-layout-cell u-right-cell u-size-30 u-layout-cell-2">
+                <div class="u-container-layout u-container-layout-2">
+                  <div class="u-expanded u-grey-10 u-map">
+                    <div class="embed-responsive">
+                      <iframe class="embed-responsive-item" src="//maps.google.com/maps?output=embed&amp;q=Manhattan&amp;t=m" data-map="JTdCJTIyYWRkcmVzcyUyMiUzQSUyMk1hbmhhdHRhbiUyMiUyQyUyMnpvb20lMjIlM0FudWxsJTJDJTIydHlwZUlkJTIyJTNBJTIycm9hZCUyMiUyQyUyMmxhbmclMjIlM0FudWxsJTJDJTIyYXBpS2V5JTIyJTNBbnVsbCUyQyUyMm1hcmtlcnMlMjIlM0ElNUIlNUQlN0Q="></iframe>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-    <footer class="text-center bg-cyan-700 text-white py-8">
-      <h1>Copyright&copy𝑼𝒊𝒏𝒗𝒊𝒕𝒆 2022</h1>
+    <section class="u-align-center u-clearfix u-palette-1-base u-section-5" id="carousel_ba17">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
+          <div class="u-layout">
+            <div class="u-layout-row">
+              <div class="u-align-center-sm u-align-center-xs u-container-style u-image u-layout-cell u-size-24-xl u-size-25-lg u-size-25-md u-size-25-sm u-size-25-xs u-image-1" data-image-width="1600" data-image-height="1600">
+                <div class="u-container-layout u-container-layout-1"></div>
+              </div>
+              <div class="u-align-center-sm u-align-center-xs u-align-left-lg u-align-left-md u-align-left-xl u-container-style u-layout-cell u-size-35-lg u-size-35-md u-size-35-sm u-size-35-xs u-size-36-xl u-layout-cell-2">
+                <div class="u-container-layout u-container-layout-2">
+                  <h2 class="u-custom-font u-text u-text-default u-text-1">QR CODE&nbsp;</h2>
+                  <p class="u-text u-text-default u-text-2">Gunakan qrcode diamping untuk melakukan absensi ketika sudah tiba di lokasi acara</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-bcc2">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <p>Copyright&copy𝑼𝒊𝒏𝒗𝒊𝒕𝒆 2022</p>
+      </div>
     </footer>
-
-    <script src="{{ url ('js/script.js') }}"></script>
-</body>
-
+  </body>
 </html>
+
 <?php
   }
 ?>
